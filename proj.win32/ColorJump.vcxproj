@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -23,6 +23,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -30,6 +31,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -156,6 +158,43 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\Resources\fonts\customfout.otf" />
+    <Font Include="..\Resources\fonts\Marker Felt.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\hero\dragon_hero.plist" />
+    <None Include="..\Resources\hero\pink_heor.plist" />
+    <None Include="..\Resources\hero\snail_heor.plist" />
+    <None Include="..\Resources\material\blueSky_material.plist" />
+    <None Include="..\Resources\material\summer_material.plist" />
+    <None Include="..\Resources\material\sweet_material.plist" />
+    <None Include="..\Resources\menu\gameFinish_Layer.plist" />
+    <None Include="..\Resources\menu\game_menuItem.plist" />
+    <None Include="..\Resources\menu\homeMenu.plist" />
+    <None Include="..\Resources\music\background.caf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\music\background.mp3" />
+    <Media Include="..\Resources\music\background.wav" />
+    <Media Include="..\Resources\music\gem.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\CloseNormal.png" />
+    <Image Include="..\Resources\CloseSelected.png" />
+    <Image Include="..\Resources\HelloWorld.png" />
+    <Image Include="..\Resources\hero\dragon_hero.png" />
+    <Image Include="..\Resources\hero\pink_heor.png" />
+    <Image Include="..\Resources\hero\snail_heor.png" />
+    <Image Include="..\Resources\material\blueSky_material.png" />
+    <Image Include="..\Resources\material\summer_material.png" />
+    <Image Include="..\Resources\material\sweet_material.png" />
+    <Image Include="..\Resources\menu\gameFinish_Layer.png" />
+    <Image Include="..\Resources\menu\game_menuItem.png" />
+    <Image Include="..\Resources\menu\homeMenu.png" />
+    <Image Include="..\Resources\point.png" />
+    <Image Include="..\Resources\star.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Set_set</key>
+	<string>SETTING</string>
+	<key>Set_sound</key>
+	<string>sound</string>
+	<key>Set_music</key>
+	<string>music</string>
+	<key>Set_about</key>
+	<string>About</string>
+	<key>Set_appreciate</key>
+	<string>appreciate</string>
+	<key>Market_role</key>
+	<string>ROLE</string>
+	<key>Market_gold</key>
+	<string>GOLE</string>
+	<key>Market_role_name_1</key>
+	<string>role_1</string>
+	<key>Market_role_name_2</key>
+	<string>role_2</string>
+	<key>Market_role_name_3</key>
+	<string>role_3</string>
+	<key>Market_role_chr_1</key>
+	<string>Gold +10%</string>
+	<key>Market_role_chr_2</key>
+	<string>Gold +10%</string>
+	<key>Market_role_chr_3</key>
+	<string>Gold +10%</string>
+	<key>Ranking_Rank</key>
+	<string>Current :</string>
+	<key>Ranking_curRank</key>
+	<string>No logging</string>
+	<key>Ranking_loading</key>
+	<string>Data Loading..</string>
+	<key>Ranking_unable</key>
+	<string>The Ranking is not available</string>
+	<key>Ranking_error_1</key>
+	<string>Data loading error</string>
+	<key>Ranking_error_2</key>
+	<string>Please check network</string>
+	<key>Lock_true</key>
+	<string>This topic is not unlocked</string>
+	<key>Unlock_success</key>
+	<string>Unlock success</string>
+	<key>Gameover_score_heigh</key>
+	<string>MAX</string>
+	<key>Gameover_score_cur</key>
+	<string>Achievement</string>
+	<key>Gameover_score_base</key>
+	<string>Foundation</string>
+	<key>Gameover_score_role</key>
+	<string>People</string>
+	<key>Gameover_score_sum</key>
+	<string>total</string>
+	<key>Message_market_success</key>
+	<string>Buy Success</string>
+	<key>Message_market_fail_1</key>
+	<string>Purchase fails, lack</string>
+	<key>Message_market_fail_2</key>
+	<string>of gold coins</string>
+	<key>Buy</key>
+	<string>BUY</string>
+	<key>BuyGold</key>
+	<string>Buy gold</string>
+	<key>Back</key>
+	<string>Back</string>
+	<key>Message_itunes_fail_1</key>
+	<string>Purchase fails</string>
+	<key>Message_itunes_fail_2</key>
+	<string>please try again</string>
+	<key>USD</key>
+	<string>$</string>
+	<key>Gold_price_1</key>
+	<string>0.99</string>
+	<key>Gold_price_2</key>
+	<string>1.99</string>
+	<key>Gold_price_3</key>
+	<string>2.99</string>
+	<key>Gold_price_4</key>
+	<string>3.99</string>
+	<key>Pic_hot_sale</key>
+	<string>hot_sale_en.png</string>
+	<key>Pic_pause_backgame</key>
+	<string>backGame_GameMenuItem_en.png</string>
+	<key>Pic_pause_resume</key>
+	<string>restartGame_GameMenuItem_en.png</string>
+	<key>Pic_pause_backhome</key>
+	<string>backHome_GameMenuItem_en.png</string>
+	<key>Pic_market_use</key>
+	<string>usercheck_en.png</string>
+	<key>Pic_market_buy</key>
+	<string>button_buy_en.png</string>
+	<key>Pic_ranking</key>
+	<string>ranking_en.png</string>
+</dict>
+</plist>

@@ -10,6 +10,21 @@
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource\hero">
+      <UniqueIdentifier>{1a355921-6981-4f9d-86ad-c0d56f04794a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\material">
+      <UniqueIdentifier>{28aa73fa-e6b0-472c-8b4d-e2de8e60a062}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\menu">
+      <UniqueIdentifier>{85095412-8127-4bbd-95d2-9c77f95c8f90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\music">
+      <UniqueIdentifier>{335e034b-73f7-4cac-a6a7-6022120fa142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\fonts">
+      <UniqueIdentifier>{cfac8ff9-27a6-4a97-a72d-605d6f2e0420}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -37,5 +52,100 @@
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\Resources\fonts\customfout.otf">
+      <Filter>resource\fonts</Filter>
+    </Font>
+    <Font Include="..\Resources\fonts\Marker Felt.ttf">
+      <Filter>resource\fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\music\background.caf">
+      <Filter>resource\music</Filter>
+    </None>
+    <None Include="..\Resources\menu\game_menuItem.plist">
+      <Filter>resource\menu</Filter>
+    </None>
+    <None Include="..\Resources\menu\gameFinish_Layer.plist">
+      <Filter>resource\menu</Filter>
+    </None>
+    <None Include="..\Resources\menu\homeMenu.plist">
+      <Filter>resource\menu</Filter>
+    </None>
+    <None Include="..\Resources\material\blueSky_material.plist">
+      <Filter>resource\material</Filter>
+    </None>
+    <None Include="..\Resources\material\summer_material.plist">
+      <Filter>resource\material</Filter>
+    </None>
+    <None Include="..\Resources\material\sweet_material.plist">
+      <Filter>resource\material</Filter>
+    </None>
+    <None Include="..\Resources\hero\dragon_hero.plist">
+      <Filter>resource\hero</Filter>
+    </None>
+    <None Include="..\Resources\hero\pink_heor.plist">
+      <Filter>resource\hero</Filter>
+    </None>
+    <None Include="..\Resources\hero\snail_heor.plist">
+      <Filter>resource\hero</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\music\background.mp3">
+      <Filter>resource\music</Filter>
+    </Media>
+    <Media Include="..\Resources\music\background.wav">
+      <Filter>resource\music</Filter>
+    </Media>
+    <Media Include="..\Resources\music\gem.wav">
+      <Filter>resource\music</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\menu\game_menuItem.png">
+      <Filter>resource\menu</Filter>
+    </Image>
+    <Image Include="..\Resources\menu\gameFinish_Layer.png">
+      <Filter>resource\menu</Filter>
+    </Image>
+    <Image Include="..\Resources\menu\homeMenu.png">
+      <Filter>resource\menu</Filter>
+    </Image>
+    <Image Include="..\Resources\material\blueSky_material.png">
+      <Filter>resource\material</Filter>
+    </Image>
+    <Image Include="..\Resources\material\summer_material.png">
+      <Filter>resource\material</Filter>
+    </Image>
+    <Image Include="..\Resources\material\sweet_material.png">
+      <Filter>resource\material</Filter>
+    </Image>
+    <Image Include="..\Resources\hero\dragon_hero.png">
+      <Filter>resource\hero</Filter>
+    </Image>
+    <Image Include="..\Resources\hero\pink_heor.png">
+      <Filter>resource\hero</Filter>
+    </Image>
+    <Image Include="..\Resources\hero\snail_heor.png">
+      <Filter>resource\hero</Filter>
+    </Image>
+    <Image Include="..\Resources\CloseNormal.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\CloseSelected.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\HelloWorld.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\point.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\star.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
 </Project>

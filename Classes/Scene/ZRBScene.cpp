@@ -7,6 +7,11 @@ cocos2d::Scene * ZRBScene::sceneCreate( )
 
 	auto scene = Scene::create( );
 
+	// TODO: ¼ÓÔØÒôÀÖ
+	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadBackgroundMusic( "background.wav" );
+	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadEffect( "gem.wav" );
+	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadEffect( "background.caf" );
+
 	//auto keyboard = EventListenerKeyboard::create( );
 	//keyboard->onKeyReleased = [ ] ( EventKeyboard::KeyCode key , Event * )
 	//{

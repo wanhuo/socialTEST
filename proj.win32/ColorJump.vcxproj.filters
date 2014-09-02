@@ -49,6 +49,12 @@
     <Filter Include="Classes\Layer\ZRBViewLayer">
       <UniqueIdentifier>{f67e8822-778a-4496-a5c5-6b866e037717}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Layer\ZRBMenu">
+      <UniqueIdentifier>{d6f62867-b8c2-4f11-ba6f-76fc35388c05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBAuxiliary">
+      <UniqueIdentifier>{2f193b9b-6078-4aee-b766-731ec4d781d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -74,6 +80,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.cpp">
       <Filter>Classes\Layer\ZRBViewLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuBase.cpp">
+      <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBAuxiliary\ZRBMessageLayer.cpp">
+      <Filter>Classes\Layer\ZRBAuxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.cpp">
+      <Filter>Classes\Layer\ZRBAuxiliary</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +118,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.h">
       <Filter>Classes\Layer\ZRBViewLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuBase.h">
+      <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBAuxiliary\ZRBMessageLayer.h">
+      <Filter>Classes\Layer\ZRBAuxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.h">
+      <Filter>Classes\Layer\ZRBAuxiliary</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

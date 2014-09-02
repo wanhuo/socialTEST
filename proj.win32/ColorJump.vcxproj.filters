@@ -25,6 +25,9 @@
     <Filter Include="resource\fonts">
       <UniqueIdentifier>{cfac8ff9-27a6-4a97-a72d-605d6f2e0420}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Utilities">
+      <UniqueIdentifier>{42e91fc6-d665-4079-83f3-a1e8e3bd9db9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -46,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utilities\ZRBConfig.h">
+      <Filter>Classes\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

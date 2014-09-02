@@ -16,10 +16,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLView::create("My Game");
+        glview = GLView::create("ColorJump");
         director->setOpenGLView(glview);
     }
 
+	glview->setDesignResolutionSize( 640 , 1136 , ResolutionPolicy::FIXED_WIDTH );
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
+
+	glview->setFrameSize( 640 , 1136 );
+	glview->setFrameZoomFactor( 0.5 );
+
+#endif
     // turn on display FPS
     director->setDisplayStats(true);
 

@@ -28,6 +28,9 @@
     <Filter Include="Classes\Utilities">
       <UniqueIdentifier>{42e91fc6-d665-4079-83f3-a1e8e3bd9db9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Utilities\ZRBTheme">
+      <UniqueIdentifier>{bfd873d9-ba58-4db3-a2ed-1d63749c5632}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utilities\ZRBTheme\ZRBTheme.cpp">
+      <Filter>Classes\Utilities\ZRBTheme</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utilities\ZRBConfig.h">
       <Filter>Classes\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utilities\ZRBTheme\ZRBTheme.h">
+      <Filter>Classes\Utilities\ZRBTheme</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -31,6 +31,24 @@
     <Filter Include="Classes\Utilities\ZRBTheme">
       <UniqueIdentifier>{bfd873d9-ba58-4db3-a2ed-1d63749c5632}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Utilities\ZRBUserDate">
+      <UniqueIdentifier>{88bff162-20b5-47e8-a9c4-9ee882fede30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Utilities\ZRBLanguage">
+      <UniqueIdentifier>{dde1a16d-3eca-4289-8029-e88e1107eb18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\Language">
+      <UniqueIdentifier>{a632b93b-9c74-44f9-bc05-13988585b31f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer">
+      <UniqueIdentifier>{cd35a604-4761-4589-aac7-6514b42bddf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Scene">
+      <UniqueIdentifier>{3a36cd25-df60-45ef-a4dd-3c283b2a827d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBViewLayer">
+      <UniqueIdentifier>{f67e8822-778a-4496-a5c5-6b866e037717}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,11 +57,23 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Utilities\ZRBTheme\ZRBTheme.cpp">
       <Filter>Classes\Utilities\ZRBTheme</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utilities\ZRBUserDate\ZRBUserDate.cpp">
+      <Filter>Classes\Utilities\ZRBUserDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utilities\ZRBLanguage\ZRBLanguage.cpp">
+      <Filter>Classes\Utilities\ZRBLanguage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\ZRBScene.cpp">
+      <Filter>Classes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBViewLayer\ZRB_PageView.cpp">
+      <Filter>Classes\Layer\ZRBViewLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.cpp">
+      <Filter>Classes\Layer\ZRBViewLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,14 +83,26 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Utilities\ZRBConfig.h">
       <Filter>Classes\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Utilities\ZRBTheme\ZRBTheme.h">
       <Filter>Classes\Utilities\ZRBTheme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utilities\ZRBUserDate\ZRBUserDate.h">
+      <Filter>Classes\Utilities\ZRBUserDate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utilities\ZRBLanguage\ZRBLanguage.h">
+      <Filter>Classes\Utilities\ZRBLanguage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\ZRBScene.h">
+      <Filter>Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBViewLayer\ZRB_PageView.h">
+      <Filter>Classes\Layer\ZRBViewLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.h">
+      <Filter>Classes\Layer\ZRBViewLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +148,12 @@
     </None>
     <None Include="..\Resources\hero\snail_heor.plist">
       <Filter>resource\hero</Filter>
+    </None>
+    <None Include="..\Resources\Languane\en.plist">
+      <Filter>resource\Language</Filter>
+    </None>
+    <None Include="..\Resources\Languane\zh.plist">
+      <Filter>resource\Language</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

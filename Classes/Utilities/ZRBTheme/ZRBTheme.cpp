@@ -1,6 +1,5 @@
 
-#include "ZRBConfig.h"
-
+#include "ZRBTheme.h"
 
 static sHero *gCurrentHero;
 static sMaterial *gCurrrentMaterial;

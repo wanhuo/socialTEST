@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "Scene/ZRBScene.h"
 
 USING_NS_CC;
 
@@ -34,8 +34,25 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+	// 资源路径
+	std::vector<std::string> path;
+	path.push_back( "menu" );
+	path.push_back( "material" );
+	path.push_back( "Language" );
+	path.push_back( "hero" );
+	path.push_back( "fonts" );
+	path.push_back( "music" );
+	// 设置包含资源查找路径
+	FileUtils::getInstance( )->setSearchResolutionsOrder( path );
+
+
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    auto scene = ZRBScene::sceneCreate();
+
+	
+
+
+
 
     // run
     director->runWithScene(scene);

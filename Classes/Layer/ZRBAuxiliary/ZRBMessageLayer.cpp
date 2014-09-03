@@ -13,13 +13,11 @@ bool ZRBMessageLayer::init( )
 	auto layer = LayerColor::create( Color4B( 255 , 255 , 255 , 120 ) );
 
 	width = ZRB_VISIBLE_SIZE.width * 2 / 3;
-	auto parent = ZRBMenuBase::create( );
-	parent->createAtionIn( );
-	parent->createAtionOut( );
-	this->setActionIn( parent->getActionOut( ) );
-	this->setActionOut( parent->getActionIn( ) );
+	this->createAtionIn( );
+	this->createAtionOut( );
 
-	_backGround = parent->getBackGround( );
+	this->createBackGroud( );
+	_backGround = this->getBackGround( );
 	_backGround->setContentSize( Size( width , width * 0.618 ) );
 	_backGround->setPosition( ZRB_VISIBLE_SIZE.width / 2 , ZRB_VISIBLE_SIZE.height * 3 / 2 );
 
@@ -38,7 +36,7 @@ bool ZRBMessageLayer::init( )
 	this->addChild( layer );
 	this->addChild( _backGround );
 
-	_backGround->runAction( this->getActionIn( ) );
+	_backGround->runAction( this->getActionOut( ) );
 	return true;
 }
 
@@ -88,12 +86,13 @@ void ZRBMessageLayer::setMessageLabel( std::string mes , std::string item , cons
 
 void ZRBMessageLayer::callback( )
 {
-	_backGround->runAction( Sequence::create( dynamic_cast<FiniteTimeAction *>( this->getActionOut( ) ) ,
+	auto in = this->getActionIn( );
+	_backGround->runAction( Sequence::create( dynamic_cast<FiniteTimeAction *>( in), //?this->getActionIn( ) ) ,
 		CallFunc::create( [ &] ( )
-	{
-		_eventDispatcher->removeEventListenersForTarget( this );
-		this->removeFromParentAndCleanup( true );
-	} ) ,
-		NULL ) );
+								{
+									_eventDispatcher->removeEventListenersForTarget( this );
+									this->removeFromParentAndCleanup( true );
+								} ) ,
+									NULL ) );
 
 }

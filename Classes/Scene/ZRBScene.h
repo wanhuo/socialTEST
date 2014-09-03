@@ -2,7 +2,7 @@
 #ifndef __ZRBScene_H__
 #define __ZRBScene_H__
 
-#include "cocos2d.h"
+#include "Layer/ZRBLayer/ZRBHomeLayer.h"
 
 class ZRBScene
 {

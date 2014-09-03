@@ -12,15 +12,7 @@ cocos2d::Scene * ZRBScene::sceneCreate( )
 	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadEffect( "gem.wav" );
 	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadEffect( "background.caf" );
 
-	//auto keyboard = EventListenerKeyboard::create( );
-	//keyboard->onKeyReleased = [ ] ( EventKeyboard::KeyCode key , Event * )
-	//{
-	//	if ( EventKeyboard::KeyCode::KEY_ESCAPE == key )
-	//	{
-	//		Director::getInstance( )->end( );
-	//	}
-	//};
-	//_eventDispatcher->addEventListenerWithFixedPriority( keyboard , 1 );
-
+	scene->addChild( ZRBHomeLayer::create() );
+	
 	return scene;
 }

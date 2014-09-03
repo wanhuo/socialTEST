@@ -35,6 +35,9 @@ public:
 	// 创建进入的动作
 	void createAtionIn( );
 
+	// 创建背景
+	void createBackGroud( );
+
 	CREATE_FUNC( ZRBMenuBase );
 
 };

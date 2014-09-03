@@ -55,6 +55,9 @@
     <Filter Include="Classes\Layer\ZRBAuxiliary">
       <UniqueIdentifier>{2f193b9b-6078-4aee-b766-731ec4d781d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Layer\ZRBLayer">
+      <UniqueIdentifier>{3908faef-9122-47ca-a679-0801473d205f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -89,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.cpp">
       <Filter>Classes\Layer\ZRBAuxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBLayer\ZRBHomeLayer.cpp">
+      <Filter>Classes\Layer\ZRBLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.h">
       <Filter>Classes\Layer\ZRBAuxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBLayer\ZRBHomeLayer.h">
+      <Filter>Classes\Layer\ZRBLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

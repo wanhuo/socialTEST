@@ -2,10 +2,10 @@
 #ifndef __ZRBPageView_H__
 #define __ZRBPageView_H__
 
-
-#include "Layer/ZRBViewLayer/ZRB_PageView.h"
-#include "Layer/ZRBMenu/ZRBMenu.h"
 #include "ZRBHomeLayer.h"
+
+#include "../ZRBViewLayer/ZRB_PageView.h"
+#include "../ZRBMenu/ZRBMenu.h"
 //#include "ZRBGameLayer.h"
 
 USING_NS_CC;

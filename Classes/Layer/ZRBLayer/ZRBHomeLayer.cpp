@@ -1,6 +1,7 @@
 
 #include "ZRBHomeLayer.h"
 
+
 ZRBHomeLayer::ZRBHomeLayer( )
 {
 }
@@ -18,9 +19,10 @@ bool ZRBHomeLayer::init( )
 	}
 
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
+	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "gameFinish_Layer.plist" , "gameFinish_Layer.png" );
 
 
-	this->addChild( ZRBPageView::create( ) );
+	//this->addChild( ZRBPageView::create( ) );
 
 
 	auto keyboard = EventListenerKeyboard::create( );

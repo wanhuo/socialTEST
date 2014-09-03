@@ -3,9 +3,8 @@
 #ifndef __ZRBMenu_H__
 #define __ZRBMenu_H__
 
-#include "Layer/ZRBAuxiliary/ZRBMessageLayer.h"
-#include "Layer/ZRBLayer/ZRBPageView.h"
-#include "Utilities/ZRBTheme/ZRBTheme.h"
+#include "../ZRBLayer/ZRBPageView.h"
+
 #include "ZRBMenuModule/ZRBMenuMarket.h"
 #include "ZRBMenuModule/ZRBMenuChars.h"
 #include "ZRBMenuModule/ZRBMenuSet.h"

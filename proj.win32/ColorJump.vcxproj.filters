@@ -64,6 +64,15 @@
     <Filter Include="Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket">
       <UniqueIdentifier>{4320fcb0-daaf-4a53-aed3-c78563ced663}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Layer\ZRBGame">
+      <UniqueIdentifier>{13b1d87f-aa91-4b01-bfdd-87b0bace84bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBGame\ZRBGameMenu">
+      <UniqueIdentifier>{91a83058-40f9-4ebd-aaac-13651e613c12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBGame\ZRBGameLayer">
+      <UniqueIdentifier>{f10ae7c9-bb44-49da-8a1f-923c0c13c61c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -122,6 +131,21 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.cpp">
       <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameMenuLayer.cpp">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameFinishLayer.cpp">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBHeroSprite.cpp">
+      <Filter>Classes\Layer\ZRBGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBBaseGameLayer.cpp">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.cpp">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +208,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.h">
       <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameMenuLayer.h">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameFinishLayer.h">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBHeroSprite.h">
+      <Filter>Classes\Layer\ZRBGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBBaseGameLayer.h">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.h">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

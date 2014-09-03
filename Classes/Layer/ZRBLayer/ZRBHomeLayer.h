@@ -3,7 +3,8 @@
 #ifndef __ZRBHomeLayer_H__
 #define __ZRBHomeLayer_H__
 
-#include "Layer/ZRBAuxiliary/ZRBMessageLayer.h"
+#include "../ZRBAuxiliary/ZRBMessageLayer.h"
+
 #include "ZRBPageView.h"
 
 class ZRBHomeLayer : public Layer

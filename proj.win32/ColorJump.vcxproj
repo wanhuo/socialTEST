@@ -138,6 +138,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBAuxiliary\ZRBMessageLayer.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBBaseGameLayer.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameFinishLayer.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameMenuLayer.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBHeroSprite.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBLayer\ZRBHomeLayer.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBLayer\ZRBPageView.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenu.cpp" />
@@ -159,6 +164,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.h" />
     <ClInclude Include="..\Classes\Layer\ZRBAuxiliary\ZRBMessageLayer.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBBaseGameLayer.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameFinishLayer.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameMenuLayer.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBHeroSprite.h" />
     <ClInclude Include="..\Classes\Layer\ZRBLayer\ZRBHomeLayer.h" />
     <ClInclude Include="..\Classes\Layer\ZRBLayer\ZRBPageView.h" />
     <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenu.h" />

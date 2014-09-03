@@ -20,10 +20,7 @@ bool ZRBHomeLayer::init( )
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
 
 
-	auto mes = ZRBMessageLayer::create( );
-	mes->setMessageLabel( "ColorJump" );
-	this->addChild( mes );
-
+	this->addChild( ZRBPageView::create( ) );
 
 
 	auto keyboard = EventListenerKeyboard::create( );

@@ -96,6 +96,12 @@
     <ClCompile Include="..\Classes\Layer\ZRBLayer\ZRBHomeLayer.cpp">
       <Filter>Classes\Layer\ZRBLayer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBLayer\ZRBPageView.cpp">
+      <Filter>Classes\Layer\ZRBLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenu.cpp">
+      <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -136,6 +142,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Layer\ZRBLayer\ZRBHomeLayer.h">
       <Filter>Classes\Layer\ZRBLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBLayer\ZRBPageView.h">
+      <Filter>Classes\Layer\ZRBLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenu.h">
+      <Filter>Classes\Layer\ZRBMenu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

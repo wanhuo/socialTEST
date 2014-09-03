@@ -6,6 +6,9 @@
 #include "Layer/ZRBAuxiliary/ZRBMessageLayer.h"
 #include "Layer/ZRBLayer/ZRBPageView.h"
 #include "Utilities/ZRBTheme/ZRBTheme.h"
+#include "ZRBMenuModule/ZRBMenuMarket.h"
+#include "ZRBMenuModule/ZRBMenuChars.h"
+#include "ZRBMenuModule/ZRBMenuSet.h"
 
 
 class ZRBPageView;

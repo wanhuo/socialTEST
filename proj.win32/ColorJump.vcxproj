@@ -142,6 +142,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Layer\ZRBLayer\ZRBPageView.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenu.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuBase.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuChars.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketRole.cpp" />
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuSet.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBViewLayer\ZRB_PageView.cpp" />
     <ClCompile Include="..\Classes\Scene\ZRBScene.cpp" />
@@ -158,6 +163,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Layer\ZRBLayer\ZRBPageView.h" />
     <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenu.h" />
     <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuBase.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuChars.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketRole.h" />
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuSet.h" />
     <ClInclude Include="..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.h" />
     <ClInclude Include="..\Classes\Layer\ZRBViewLayer\ZRB_PageView.h" />
     <ClInclude Include="..\Classes\Scene\ZRBScene.h" />

@@ -1,9 +1,6 @@
 
 #include "ZRBMenu.h"
 
-
-#include "ZRBMenu.h"
-
 extern int gGold;
 
 bool ZRBMenu::init( )
@@ -264,10 +261,9 @@ void ZRBMenu::begainGame( Ref * ref )
 void ZRBMenu::addGold( )
 {
 	//    pGold->setString("00000000");
-	/*auto market = ZRBMenuMarket::create( );
+	auto market = ZRBMenuMarket::create( );
 	this->addChild( market , 101 );
 	market->call_buy( );
-*/
 
 }
 
@@ -322,7 +318,7 @@ void ZRBMenu::modelTime( )
 */
 void ZRBMenu::setting( )
 {
-	//this->addChild( ZRBMenuSet::create( ) , 101 );
+	this->addChild( ZRBMenuSet::create( ) , 101 );
 }
 
 
@@ -331,13 +327,15 @@ void ZRBMenu::setting( )
 */
 void ZRBMenu::Ktplay( )
 {
-	/*if ( KTPlayC::isEnabled( ) )
+	/* Undone : ktplay 社区
+	if ( KTPlayC::isEnabled( ) )
 	{
 		KTPlayC::show( );
 	}
 	else*/
 	{
 		auto mes = ZRBMessageLayer::create( );
+		// UnresolvedMergeConflict 中文显示
 		mes->setMessageLabel( "社区不可用" );
 		mes->setGlobalZOrder( 200 );
 		this->addChild( mes );
@@ -349,7 +347,7 @@ void ZRBMenu::Ktplay( )
 */
 void ZRBMenu::market( )
 {
-	//this->addChild( ZRBMenuMarket::create( ) , 101 );
+	this->addChild( ZRBMenuMarket::create( ) , 101 );
 }
 
 /**
@@ -357,7 +355,7 @@ void ZRBMenu::market( )
 */
 void ZRBMenu::charts( )
 {
-	//this->addChild( ZRBMenuChars::create( ) , 101 );
+	this->addChild( ZRBMenuChars::create( ) , 101 );
 }
 
 /**

@@ -58,6 +58,12 @@
     <Filter Include="Classes\Layer\ZRBLayer">
       <UniqueIdentifier>{3908faef-9122-47ca-a679-0801473d205f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Layer\ZRBMenu\ZRBMenuModule">
+      <UniqueIdentifier>{05ce3ae1-232f-4469-9ee3-a9efe6cff3a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket">
+      <UniqueIdentifier>{4320fcb0-daaf-4a53-aed3-c78563ced663}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -101,6 +107,21 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenu.cpp">
       <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuSet.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuChars.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketRole.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +169,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenu.h">
       <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuSet.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuChars.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketRole.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

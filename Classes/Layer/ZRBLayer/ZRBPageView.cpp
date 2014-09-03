@@ -43,7 +43,7 @@ bool ZRBPageView::init( )
 	pMenu = ZRBMenu::create( );
 	pMenu->setButtonColor0( );
 	this->addChild( pMenu , 10 );
-	// 添加游戏层
+	// TODO: 添加游戏层
 	//gameLayer = ZRBGameLayer::create( );
 	//this->addChild( gameLayer , 3 );
 	// 添加透明遮挡层
@@ -159,155 +159,155 @@ void ZRBPageView::schedulecallback( float dt )
 	*   the point could change the sign
 	*/
 
-	//if ( ssize == 0 )
-	//{
-	//	/**
-	//	*    First view
-	//	*/
+	if ( ssize == 0 )
+	{
+		/**
+		*    First view
+		*/
 
-	//	//  Passing first view index to the menu
-	//	pMenu->setSsize( ssize );
+		//  Passing first view index to the menu
+		pMenu->setSsize( ssize );
 
-	//	/**
-	//	*  If view position less than half the scene width of
-	//	*  present menu move down
-	//	*  If view position more than half the scene width of
-	//	*  next menu move up
-	//	*/
-	//	if ( point > -ZRB_VISIBLE_SIZE.width / 2 )
-	//	{
-	//		pMenu->setButtonColor0( );
-	//		pMenu->SetButtenPointDown( point );
-	//		setOpacityLayer( point );
-	//	}
-	//	else if ( point < -ZRB_VISIBLE_SIZE.width / 2 )
-	//	{
-	//		pMenu->setButtonColor1( );
-	//		pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width + point );
-	//		setOpacityLayer( ZRB_VISIBLE_SIZE.width + point );
-	//		ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-	//		gameLayer->changePic( 0 );
-	//	}
-	//	else
-	//	{
-	//		ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
-	//		gameLayer->changePic( 0 );
-	//	}
-	//}
-	//else if ( ssize == 1 )
-	//{
-	//	/**
-	//	*  Second
-	//	*/
+		/**
+		*  If view position less than half the scene width of
+		*  present menu move down
+		*  If view position more than half the scene width of
+		*  next menu move up
+		*/
+		if ( point > -ZRB_VISIBLE_SIZE.width / 2 )
+		{
+			pMenu->setButtonColor0( );
+			pMenu->SetButtenPointDown( point );
+			setOpacityLayer( point );
+		}
+		else if ( point < -ZRB_VISIBLE_SIZE.width / 2 )
+		{
+			pMenu->setButtonColor1( );
+			pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width + point );
+			setOpacityLayer( ZRB_VISIBLE_SIZE.width + point );
+			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+			//gameLayer->changePic( 0 );
+		}
+		else
+		{
+			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
+			//gameLayer->changePic( 0 );
+		}
+	}
+	else if ( ssize == 1 )
+	{
+		/**
+		*  Second
+		*/
 
-	//	//  Passing first view index to the menu
-	//	pMenu->setSsize( ssize );
+		//  Passing first view index to the menu
+		pMenu->setSsize( ssize );
 
-	//	//  When point change sign, Init menu point
-	//	if ( point == 0 )
-	//	{
-	//		pMenu->setButtonColor1( );
-	//		pMenu->SetButtenPointDown( 0 );
-	//		ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-	//		gameLayer->changePic( 1 );
-	//	}
-	//	else if ( point > 0 )
-	//	{
-	//		/**
-	//		*   Move to left
-	//		*/
+		//  When point change sign, Init menu point
+		if ( point == 0 )
+		{
+			pMenu->setButtonColor1( );
+			pMenu->SetButtenPointDown( 0 );
+			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+			//gameLayer->changePic( 1 );
+		}
+		else if ( point > 0 )
+		{
+			/**
+			*   Move to left
+			*/
 
-	//		/**
-	//		*  If view position more than half the scene width of
-	//		*  last menu move up
-	//		*  If view position less than half the scene width of
-	//		*  present menu move down
-	//		*/
-	//		if ( point > ZRB_VISIBLE_SIZE.width / 2 )
-	//		{
-	//			pMenu->setButtonColor0( );
-	//			pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width - point );
-	//			setOpacityLayer( ZRB_VISIBLE_SIZE.width - point );
-	//			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
-	//			gameLayer->changePic( 0 );
-	//		}
-	//		else
-	//		{
-	//			pMenu->setButtonColor1( );
-	//			pMenu->SetButtenPointUp( point );
-	//			setOpacityLayer( point );
-	//			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-	//			gameLayer->changePic( 1 );
-	//		}
-	//	}
-	//	else
-	//	{
-	//		/**
-	//		*   Move to right
-	//		*/
+			/**
+			*  If view position more than half the scene width of
+			*  last menu move up
+			*  If view position less than half the scene width of
+			*  present menu move down
+			*/
+			if ( point > ZRB_VISIBLE_SIZE.width / 2 )
+			{
+				pMenu->setButtonColor0( );
+				pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width - point );
+				setOpacityLayer( ZRB_VISIBLE_SIZE.width - point );
+				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
+				//gameLayer->changePic( 0 );
+			}
+			else
+			{
+				pMenu->setButtonColor1( );
+				pMenu->SetButtenPointUp( point );
+				setOpacityLayer( point );
+				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+				//gameLayer->changePic( 1 );
+			}
+		}
+		else
+		{
+			/**
+			*   Move to right
+			*/
 
-	//		/**
-	//		*  If view position less than half the scene width of
-	//		*  present menu move down
-	//		*  If view position more than half the scene width of
-	//		*  next menu move up
-	//		*/
-	//		if ( -point < ZRB_VISIBLE_SIZE.width / 2 )
-	//		{
-	//			pMenu->setButtonColor1( );
-	//			pMenu->SetButtenPointDown( point );
-	//			setOpacityLayer( point );
-	//			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-	//			gameLayer->changePic( 1 );
-	//		}
-	//		else
-	//		{
-	//			pMenu->setButtonColor2( );
-	//			pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width + point );
-	//			setOpacityLayer( ZRB_VISIBLE_SIZE.width + point );
-	//			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
-	//			gameLayer->changePic( 2 );
-	//		}
-	//	}
-	//}
-	//else if ( ssize == 2 )
-	//{
-	//	/**
-	//	*  Third (the last)
-	//	*/
+			/**
+			*  If view position less than half the scene width of
+			*  present menu move down
+			*  If view position more than half the scene width of
+			*  next menu move up
+			*/
+			if ( -point < ZRB_VISIBLE_SIZE.width / 2 )
+			{
+				pMenu->setButtonColor1( );
+				pMenu->SetButtenPointDown( point );
+				setOpacityLayer( point );
+				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+				//gameLayer->changePic( 1 );
+			}
+			else
+			{
+				pMenu->setButtonColor2( );
+				pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width + point );
+				setOpacityLayer( ZRB_VISIBLE_SIZE.width + point );
+				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
+				//gameLayer->changePic( 2 );
+			}
+		}
+	}
+	else if ( ssize == 2 )
+	{
+		/**
+		*  Third (the last)
+		*/
 
-	//	//  Passing first view index to the menu
-	//	pMenu->setSsize( ssize );
+		//  Passing first view index to the menu
+		pMenu->setSsize( ssize );
 
-	//	//  When point change sign, Init menu point
-	//	if ( point == 0 )
-	//	{
-	//		pMenu->setButtonColor2( );
-	//		pMenu->SetButtenPointDown( 0 );
-	//		ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
-	//		gameLayer->changePic( 2 );
-	//	}
-	//	else if ( point < ZRB_VISIBLE_SIZE.width / 2 )
-	//	{
-	//		// Leave last view
-	//		// Present menu move douw
-	//		pMenu->setButtonColor2( );
-	//		pMenu->SetButtenPointDown( -point );
-	//		setOpacityLayer( -point );
-	//		ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
-	//		gameLayer->changePic( 2 );
-	//	}
-	//	else if ( point > ZRB_VISIBLE_SIZE.width / 2 )
-	//	{
-	//		// Pass into last view
-	//		// last menu move up
-	//		pMenu->setButtonColor1( );
-	//		pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width - point );
-	//		setOpacityLayer( ZRB_VISIBLE_SIZE.width - point );
-	//		ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-	//		gameLayer->changePic( 1 );
-	//	}
-	//}
+		//  When point change sign, Init menu point
+		if ( point == 0 )
+		{
+			pMenu->setButtonColor2( );
+			pMenu->SetButtenPointDown( 0 );
+			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
+			//gameLayer->changePic( 2 );
+		}
+		else if ( point < ZRB_VISIBLE_SIZE.width / 2 )
+		{
+			// Leave last view
+			// Present menu move douw
+			pMenu->setButtonColor2( );
+			pMenu->SetButtenPointDown( -point );
+			setOpacityLayer( -point );
+			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
+			//gameLayer->changePic( 2 );
+		}
+		else if ( point > ZRB_VISIBLE_SIZE.width / 2 )
+		{
+			// Pass into last view
+			// last menu move up
+			pMenu->setButtonColor1( );
+			pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width - point );
+			setOpacityLayer( ZRB_VISIBLE_SIZE.width - point );
+			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+			//gameLayer->changePic( 1 );
+		}
+	}
 }
 
 
@@ -316,118 +316,118 @@ void ZRBPageView::pageEventListener( Ref* ref , ui::PageView::EventType type )
 	auto idx = pageView->getCurPageIndex( );
 	ZRBUserDate::getInstance( )->saveData( KEY_CHECK_MATERIAL , &idx );
 
-	//switch ( type )
-	//{
-	//	case ui::PageView::EventType::TURNING:
+	switch ( type )
+	{
+		case ui::PageView::EventType::TURNING:
 
-	//		switch ( idx )
-	//		{
-	//			case 0:
-	//			{
-	//				// 设置主题
-	//				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
+			switch ( idx )
+			{
+				case 0:
+				{
+					// 设置主题
+					ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
 
-	//				pMenu->pMenuDown->setEnabled( true );
-	//				pMenu->pMenuUp->setEnabled( true );
-	//				pMenu->pMenuDown->setOpacity( 255 );
-	//				pMenu->pMenuUp->setOpacity( 255 );
+					pMenu->pMenuDown->setEnabled( true );
+					pMenu->pMenuUp->setEnabled( true );
+					pMenu->pMenuDown->setOpacity( 255 );
+					pMenu->pMenuUp->setOpacity( 255 );
 
-	//				break;
-	//			}
-	//			case 1:
-	//			{
-	//				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+					break;
+				}
+				case 1:
+				{
+					ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
 
-	//				// 是否解锁
-	//				if ( page1 )
-	//				{
-	//					pMenu->pMenuDown->setEnabled( true );
-	//					pMenu->pMenuUp->setEnabled( true );
-	//					pMenu->pMenuDown->setOpacity( 255 );
-	//					pMenu->pMenuUp->setOpacity( 255 );
-	//				}
-	//				else
-	//				{
-	//					pMenu->pMenuDown->setEnabled( false );
-	//					pMenu->pMenuUp->setEnabled( false );
-	//					pMenu->pMenuDown->setOpacity( 100 );
-	//					pMenu->pMenuUp->setOpacity( 100 );
-	//				}
+					// 是否解锁
+					if ( page1 )
+					{
+						pMenu->pMenuDown->setEnabled( true );
+						pMenu->pMenuUp->setEnabled( true );
+						pMenu->pMenuDown->setOpacity( 255 );
+						pMenu->pMenuUp->setOpacity( 255 );
+					}
+					else
+					{
+						pMenu->pMenuDown->setEnabled( false );
+						pMenu->pMenuUp->setEnabled( false );
+						pMenu->pMenuDown->setOpacity( 100 );
+						pMenu->pMenuUp->setOpacity( 100 );
+					}
 
-	//				break;
-	//			}
-	//			case 2:
-	//			{
-	//				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
+					break;
+				}
+				case 2:
+				{
+					ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
 
-	//				if ( page2 )
-	//				{
-	//					pMenu->pMenuDown->setEnabled( true );
-	//					pMenu->pMenuUp->setEnabled( true );
-	//					pMenu->pMenuDown->setOpacity( 255 );
-	//					pMenu->pMenuUp->setOpacity( 255 );
-	//				}
-	//				else
-	//				{
-	//					pMenu->pMenuDown->setEnabled( false );
-	//					pMenu->pMenuUp->setEnabled( false );
-	//					pMenu->pMenuDown->setOpacity( 100 );
-	//					pMenu->pMenuUp->setOpacity( 100 );
-	//				}
+					if ( page2 )
+					{
+						pMenu->pMenuDown->setEnabled( true );
+						pMenu->pMenuUp->setEnabled( true );
+						pMenu->pMenuDown->setOpacity( 255 );
+						pMenu->pMenuUp->setOpacity( 255 );
+					}
+					else
+					{
+						pMenu->pMenuDown->setEnabled( false );
+						pMenu->pMenuUp->setEnabled( false );
+						pMenu->pMenuDown->setOpacity( 100 );
+						pMenu->pMenuUp->setOpacity( 100 );
+					}
 
-	//				break;
-	//			}
-	//			case 3:
-	//			{
-	//				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
+					break;
+				}
+				case 3:
+				{
+					ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
 
-	//				if ( page3 )
-	//				{
-	//					pMenu->pMenuDown->setEnabled( true );
-	//					pMenu->pMenuUp->setEnabled( true );
-	//					pMenu->pMenuDown->setOpacity( 255 );
-	//					pMenu->pMenuUp->setOpacity( 255 );
-	//				}
-	//				else
-	//				{
-	//					pMenu->pMenuDown->setEnabled( false );
-	//					pMenu->pMenuUp->setEnabled( false );
-	//					pMenu->pMenuDown->setOpacity( 100 );
-	//					pMenu->pMenuUp->setOpacity( 100 );
-	//				}
+					if ( page3 )
+					{
+						pMenu->pMenuDown->setEnabled( true );
+						pMenu->pMenuUp->setEnabled( true );
+						pMenu->pMenuDown->setOpacity( 255 );
+						pMenu->pMenuUp->setOpacity( 255 );
+					}
+					else
+					{
+						pMenu->pMenuDown->setEnabled( false );
+						pMenu->pMenuUp->setEnabled( false );
+						pMenu->pMenuDown->setOpacity( 100 );
+						pMenu->pMenuUp->setOpacity( 100 );
+					}
 
-	//				break;
-	//			}
-	//			case 4:
-	//			{
-	//				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+					break;
+				}
+				case 4:
+				{
+					ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
 
-	//				if ( page4 )
-	//				{
-	//					pMenu->pMenuDown->setEnabled( true );
-	//					pMenu->pMenuUp->setEnabled( true );
-	//					pMenu->pMenuDown->setOpacity( 255 );
-	//					pMenu->pMenuUp->setOpacity( 255 );
-	//				}
-	//				else
-	//				{
-	//					pMenu->pMenuDown->setEnabled( false );
-	//					pMenu->pMenuUp->setEnabled( false );
-	//					pMenu->pMenuDown->setOpacity( 100 );
-	//					pMenu->pMenuUp->setOpacity( 100 );
-	//				}
+					if ( page4 )
+					{
+						pMenu->pMenuDown->setEnabled( true );
+						pMenu->pMenuUp->setEnabled( true );
+						pMenu->pMenuDown->setOpacity( 255 );
+						pMenu->pMenuUp->setOpacity( 255 );
+					}
+					else
+					{
+						pMenu->pMenuDown->setEnabled( false );
+						pMenu->pMenuUp->setEnabled( false );
+						pMenu->pMenuDown->setOpacity( 100 );
+						pMenu->pMenuUp->setOpacity( 100 );
+					}
 
-	//				break;
-	//			}
+					break;
+				}
 
-	//			default:
-	//				break;
-	//		}
-	//		break;
+				default:
+					break;
+			}
+			break;
 
-	//	default:
-	//		break;
-	//}
+		default:
+			break;
+	}
 }
 
 /**
@@ -505,9 +505,9 @@ void ZRBPageView::callBuy( LayerColor * layer , int idx )
 		mes->setMessageLabel( ZRBLanguage::getString( "Message_market_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_market_fail_2" ) ,
 							  ZRBLanguage::getValue( "BuyGold" ) , [ &] ( )
 		{
-			/*auto market = ZRBMenuMarket::create( );
+			auto market = ZRBMenuMarket::create( );
 			this->addChild( market , 10 );
-			market->call_buy( );*/
+			market->call_buy( );
 		} );
 		mes->setGlobalZOrder( 200 );
 		pageView->addChild( mes );
@@ -565,9 +565,9 @@ void ZRBPageView::callBuy( LayerColor * layer , int idx )
 // 添加金币
 void ZRBPageView::callBuyGold( )
 {
-	//auto market = ZRBMenuMarket::create( );
-	//this->addChild( market , 10 );
-	//market->call_buy( );
+	auto market = ZRBMenuMarket::create( );
+	this->addChild( market , 10 );
+	market->call_buy( );
 }
 
 void ZRBPageView::onEnter( )

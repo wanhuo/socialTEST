@@ -4,19 +4,12 @@
 
 #include "Layer/ZRBLayer/ZRBHomeLayer.h"
 
+
 class ZRBScene
 {
 public:
 
 	static cocos2d::Scene * sceneCreate( );
-
-	ZRBScene( )
-	{
-	}
-
-	~ZRBScene( )
-	{
-	}
 
 };
 

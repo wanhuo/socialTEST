@@ -1,7 +1,6 @@
 
 #include "ZRBMenu.h"
 
-extern int gGold;
 
 bool ZRBMenu::init( )
 {

@@ -12,7 +12,6 @@
 #include "Utilities/ZRBLanguage/ZRBLanguage.h"
 #include "Utilities/ZRBUserDate/ZRBUserDate.h"
 
-
 class ZRBGameMenuLayer :public Layer
 {
 public:

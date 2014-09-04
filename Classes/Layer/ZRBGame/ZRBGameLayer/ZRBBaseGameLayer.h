@@ -18,15 +18,31 @@
 #define GOLD_ICON_TAG 1006
 #define BG2_TAG 10001
 
-enum layerBatchNodeBaseGame { batchNode1 , batchNode2 , batchNode3 , menuItem };
-enum layerBaseGame { bg1BaseGame , bg2BaseGame , TimboBaseGame , itemBaseGame , labelBaseGame };
+enum layerBatchNodeBaseGame 
+{
+	batchNode1 ,
+	batchNode2 , 
+	batchNode3 , 
+	menuItem 
+};
+
+enum layerBaseGame 
+{ 
+	bg1BaseGame ,
+	bg2BaseGame ,
+	TimboBaseGame ,
+	itemBaseGame ,
+	labelBaseGame 
+};
+
 
 class ZRBBaseGameLayer : public Layer
 {
 protected:
-
+	// 随机数生成器
 	default_random_engine engine;
 
+	// 均匀离散随机数 0 1
 	uniform_int_distribution<unsigned> dis_0_1;
 	uniform_int_distribution<unsigned> dis_gold;
 
@@ -146,7 +162,7 @@ protected:
 	CC_SYNTHESIZE( int , pUpSpeed , UpSpeed );
 	/// 屏幕高度的三倍
 	CC_SYNTHESIZE( int , pDisplayItemHeight , DisplayItemHeight );
-	///  金币出现概率 2 / X
+	
 };
 
 

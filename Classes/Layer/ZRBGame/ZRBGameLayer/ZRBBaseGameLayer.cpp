@@ -22,11 +22,6 @@ bool ZRBBaseGameLayer::init( )
 		return false;
 	}
 
-	for ( int i = 0; i < 10; i++ )
-	{
-		CCLog( "%u" , dis_gold( engine ) );
-	}
-
 	this->scheduleUpdate( );
 	initObject( );
 	return true;

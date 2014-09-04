@@ -219,33 +219,30 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 	Sprite *preSp = pTimbos.back( );
 	///  藤条顶部
 	float posY = preSp->getPositionY( ) + preSp->getContentSize( ).height - pBegainHeight;
-	//    CCLOG("pos:       %f", posY);
-	//    pUpdateHeight/pDisplayItemHeight>=pColorNum;
+
 	if ( posY <= pDisplayItemHeight * pColorNum - ZRB_VISIBLE_SIZE.height - 200 && posY + 1000 >= pDisplayItemHeight *pColorNum - ZRB_VISIBLE_SIZE.height - 200 )
 	{
 		// 如果再有藤条的长度超过一定长度时取相反长度
 		int l = pDisplayItemHeight * pColorNum - ZRB_VISIBLE_SIZE.height - 200 - posY;
 		sp = createTimbo( l + pUpSpeed * 2 , Point::ZERO );
-		//        CCLOG("+++++-+++++%d", l + pUpSpeed * 2);
 	}
 	else
 	{
 		sp = createTimbo( spLength , Point::ZERO );
-		//        CCLOG("random     %f", spLength);
 	}
 
-	/// 添加位置
+	// 添加位置
 	int x , y;
 	//x轴3个位置随机
-	/// 单向随机偏移量
+	// 单向随机偏移量
 	uniform_int_distribution<unsigned> width(0 , ZRB_VISIBLE_SIZE.width * 0.1);
 	int ran1 = width( engine );
-	/// 双向随机偏移量
+	// 双向随机偏移量
 	int ranOffsetX = -ran1 + ZRB_VISIBLE_SIZE.width * 0.05;
 	// 跟据最后藤条位置设置不同位置
 	if ( preSp->getPositionX( ) <= ZRB_VISIBLE_SIZE.width * 0.25 )
 	{
-		ran = dis_0_1( engine );
+		ran = dis_0_1( engine ) + 1;
 	}
 	else if ( preSp->getPositionX( ) <= ZRB_VISIBLE_SIZE.width * 0.55 )
 	{
@@ -275,15 +272,17 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 			break;
 	}
 	// 判断藤条长度是否大于最后的藤条
-	if ( sp->getContentSize( ).height>preSp->getContentSize( ).height )
+	if ( sp->getContentSize( ).height > preSp->getContentSize( ).height )
 	{
 		// 是, 添加到最后藤条 height * 0.7 - height
-		y = preSp->getContentSize( ).height*0.7 + 0 /* arc4random( )*/ % ( ( int ) ( preSp->getContentSize( ).height*0.3 ) ) + preSp->getPositionY( );
+		uniform_int_distribution<unsigned> heigh( 0 , preSp->getContentSize( ).height * 0.3 );
+		y = preSp->getContentSize( ).height*0.7 + heigh( engine ) + preSp->getPositionY( );
 	}
 	else
 	{
 		// 否, 添加到最后藤条的上面自身长度的 0.3 之内
-		y = preSp->getContentSize( ).height - 0/* arc4random( )*/ % ( ( int ) ( sp->getContentSize( ).height*0.3 ) ) + preSp->getPositionY( );
+		uniform_int_distribution<unsigned> heigh( 0 , preSp->getContentSize( ).height * 0.3 );
+		y = preSp->getContentSize( ).height - heigh( engine ) + preSp->getPositionY( );
 	}
 	sp->setPosition( Point( x , y ) );
 
@@ -342,7 +341,6 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 		}
 	}
 
-	//    createTimboRandomPosHaveGoldOtherFunc(preSp,sp);
 	return sp;
 }
 

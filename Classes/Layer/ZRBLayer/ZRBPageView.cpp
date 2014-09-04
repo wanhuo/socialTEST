@@ -43,7 +43,7 @@ bool ZRBPageView::init( )
 	pMenu = ZRBMenu::create( );
 	pMenu->setButtonColor0( );
 	this->addChild( pMenu , 10 );
-	// TODO: 添加游戏层
+	// 添加游戏层
 	gameLayer = ZRBGameLayer::create( );
 	this->addChild( gameLayer , 3 );
 	// 添加透明遮挡层

@@ -67,7 +67,7 @@ void ZRBGameLayer::onEnter( )
 void ZRBGameLayer::update( float delta )
 {
 	// 实时高度
-	auto upHeight = delta*pUpSpeed;
+	auto upHeight = delta * pUpSpeed;
 	curHeight += upHeight;
 	// 更新精灵 , 按钮位置
 	pHero->setHeroPositionY( pHero->getHeroPositionY( ) + upHeight );
@@ -75,7 +75,7 @@ void ZRBGameLayer::update( float delta )
 	// 背景后退
 	this->setPositionY( this->getPositionY( ) - upHeight );
 	// 成绩更新 位置更新
-	pScoreLabel->setString( String::createWithFormat( "%d米" , ( int ) ( pCurrentHeight / standard ) )->getCString( ) );
+	pScoreLabel->setString( String::createWithFormat( "%dm" , ( int ) ( pCurrentHeight / standard ) )->getCString( ) );
 	pScoreLabel->setPositionY( pScoreLabel->getPositionY( ) + upHeight );
 	// 金币位置更新
 	pGoldNumLabel->setPositionY( pGoldNumLabel->getPositionY( ) + upHeight );
@@ -196,17 +196,21 @@ Sprite * ZRBGameLayer::createTimbo( float length , Point pos )
 Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 {
 	// 获取 0~3 之间随机数
-	int ran = 0;// Todo : arc4random( ) % 4;
+	uniform_int_distribution<unsigned> dis_4( 0 , 3 );
+	
+	int ran = dis_4(engine);
 	/// 藤条长度
 	float spLength;
 	// 长度在200~300, 300~1000间的概率比为3 : 1
 	if ( ran == 0 )
 	{
-		spLength = 0;// Todo :arc4random( ) % 100 + 200;
+		uniform_int_distribution<unsigned> tem1( 1 , 100 );
+		spLength = tem1( engine ) + 200;
 	}
 	else
 	{
-		spLength = 0;// Todo :arc4random( ) % 700 + 300;
+		uniform_int_distribution<unsigned> tem7( 1 , 700 );
+		spLength = tem7( engine ) + 300;
 	}
 
 
@@ -234,17 +238,18 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 	int x , y;
 	//x轴3个位置随机
 	/// 单向随机偏移量
-	int ran1 = 0;// Todo :arc4random( ) % ( ( int ) ( ZRB_VISIBLE_SIZE.width * 0.1 ) );
+	uniform_int_distribution<unsigned> width(0 , ZRB_VISIBLE_SIZE.width * 0.1);
+	int ran1 = width( engine );
 	/// 双向随机偏移量
 	int ranOffsetX = -ran1 + ZRB_VISIBLE_SIZE.width * 0.05;
 	// 跟据最后藤条位置设置不同位置
 	if ( preSp->getPositionX( ) <= ZRB_VISIBLE_SIZE.width * 0.25 )
 	{
-		ran = 0;// Todo :arc4random( ) % 2 + 1;
+		ran = dis_0_1( engine );
 	}
 	else if ( preSp->getPositionX( ) <= ZRB_VISIBLE_SIZE.width * 0.55 )
 	{
-		ran = 0;// Todo :arc4random( ) % 2;
+		ran = dis_0_1( engine );
 		if ( ran == 1 )
 		{
 			ran = 2;
@@ -252,7 +257,7 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 	}
 	else
 	{
-		ran = 0;// Todo :arc4random( ) % 2;
+		ran = dis_0_1( engine );
 	}
 	// 设置 X 轴位置
 	switch ( ran )
@@ -284,7 +289,7 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 
 	// 纵向单列
 	//gold  概率
-	ran = 0;// Todo :arc4random( ) % _goldChance;
+	ran = dis_gold( engine );
 	if ( ran == 0 )
 	{
 
@@ -315,7 +320,7 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 	if ( preSp != pCurrentTimbo )
 	{
 		// 概率
-		ran = 0;// Todo :arc4random( ) % _goldChance;
+		ran = dis_gold( engine );
 		if ( ran == 2 )
 		{
 			for ( int i = 0; i<2; i++ )

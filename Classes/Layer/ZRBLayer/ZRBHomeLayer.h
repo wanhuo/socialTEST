@@ -7,15 +7,17 @@
 
 #include "ZRBPageView.h"
 
+
 class ZRBHomeLayer : public Layer
 {
 public:
-	ZRBHomeLayer( );
+	ZRBHomeLayer( ) ;
 	~ZRBHomeLayer( );
 
 public:
 	
 	bool init( );
+
 
 	CREATE_FUNC( ZRBHomeLayer );
 };

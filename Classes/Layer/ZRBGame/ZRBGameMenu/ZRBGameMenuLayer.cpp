@@ -136,16 +136,13 @@ void ZRBGameMenuLayer::backHomeItemClick( Ref *ref )
 	// 返回
 	Director::getInstance( )->resume( );
 	// Todo: 跳转到首页
+	//Director::getInstance( )->pushScene( ZRBScene::sceneCreate() );
 	//ZRBManager::go( ZRBSceneManager::homeScene );
 }
 
 // 重新开始游戏
 void ZRBGameMenuLayer::restartGameItemClick( Ref *ref )
 {
-	//返回
-	//    Director::getInstance()->resume();
-	// 重新开始
-	//    ZRBManager::go(pSceneManager);
 	NotificationCenter::getInstance( )->postNotification( "NOTIFICATION_Resume" , __Bool::create( true ) );
 }
 

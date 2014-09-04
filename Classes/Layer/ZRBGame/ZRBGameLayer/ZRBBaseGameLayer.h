@@ -2,6 +2,8 @@
 #ifndef __ZRBBaseGameLayer_H__
 #define __ZRBBaseGameLayer_H__
 
+#include <random>
+
 #include "../ZRBHeroSprite.h"
 #include "../ZRBGameMenu/ZRBGameFinishLayer.h"
 #include "../ZRBGameMenu/ZRBGameMenuLayer.h"
@@ -21,6 +23,13 @@ enum layerBaseGame { bg1BaseGame , bg2BaseGame , TimboBaseGame , itemBaseGame , 
 
 class ZRBBaseGameLayer : public Layer
 {
+protected:
+
+	default_random_engine engine;
+
+	uniform_int_distribution<unsigned> dis_0_1;
+	uniform_int_distribution<unsigned> dis_gold;
+
 public:
 	//    enum menu
 	//    {
@@ -138,7 +147,6 @@ protected:
 	/// 屏幕高度的三倍
 	CC_SYNTHESIZE( int , pDisplayItemHeight , DisplayItemHeight );
 	///  金币出现概率 2 / X
-	CC_SYNTHESIZE( int , _goldChance , GoldChance );
 };
 
 

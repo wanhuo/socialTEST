@@ -4,9 +4,9 @@
 
 #include "ZRBHomeLayer.h"
 
+#include "../ZRBGame/ZRBGameLayer/ZRBGameLayer.h"
 #include "../ZRBViewLayer/ZRB_PageView.h"
 #include "../ZRBMenu/ZRBMenu.h"
-//#include "ZRBGameLayer.h"
 
 USING_NS_CC;
 
@@ -37,7 +37,7 @@ private:
 	// ±³°å
 	Scale9Sprite * backGrond;
 	// ÓÎÏ·²ã
-	//ZRBGameLayer * gameLayer;
+	ZRBGameLayer * gameLayer;
 	// Í¸Ã÷ÕÚµ²²ã
 	LayerColor * opacityLayer;
 

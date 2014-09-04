@@ -1,6 +1,7 @@
 
 #include "ZRBHomeLayer.h"
 
+#include "../ZRBGame/ZRBGameLayer/ZRBGameLayer.h"
 
 ZRBHomeLayer::ZRBHomeLayer( )
 {
@@ -21,8 +22,26 @@ bool ZRBHomeLayer::init( )
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "gameFinish_Layer.plist" , "gameFinish_Layer.png" );
 
+	// 取出保存的数据
+	switch ( ZRBUserDate::getInstance( )->getDateInt( KEY_CHECK_ROLE ) )
+	{
+		case 0:
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroDragon( ) );
+			break;
 
-	//this->addChild( ZRBPageView::create( ) );
+		case 1:
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroSnail( ) );
+			break;
+
+		case 2:
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroPink( ) );
+			break;
+
+		default:
+			break;
+	}
+
+	this->addChild( ZRBPageView::create( ) );
 
 
 	auto keyboard = EventListenerKeyboard::create( );

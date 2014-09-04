@@ -4,6 +4,7 @@
 #define __ZRBGameFinishLayer_H__
 
 #include "../../ZRBMenu/ZRBMenuModule/ZRBMenuChars.h"
+//#include "Scene/ZRBScene.h"
 
 class ZRBGameFinishLayer : public Layer
 {

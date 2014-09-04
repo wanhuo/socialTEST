@@ -23,7 +23,7 @@ public:
 
 	virtual void onEnter( );
 	virtual void update( float delta );
-	//
+	
 	void initTimbos( );
 
 	void replenishtimbosAndAddItem( );
@@ -58,7 +58,7 @@ private:
 
 	// 实时高度 进入游戏
 	float curHeight;
-	/// 开始游戏时的高度 
+	// 开始游戏时的高度 
 	float pBegainHeight;
 };
 

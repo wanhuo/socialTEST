@@ -201,5 +201,6 @@ void ZRBGameFinishLayer::homeClick( Ref *ref )
 {
 	this->getScene( )->cleanup( );
 	// Todo: back home
+	//Director::getInstance( )->replaceScene( ZRBScene::sceneCreate() );
 	//ZRBManager::go( ZRBSceneManager::homeScene );
 }

@@ -3,7 +3,7 @@
 #ifndef __ZRBGameMenuLayer_H__
 #define __ZRBGameMenuLayer_H__
 
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
 
 
 #include "../../ZRBAuxiliary/ZRBLoadingLayer.h"

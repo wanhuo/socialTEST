@@ -2,21 +2,21 @@
 #ifndef __ZRBTableViewCell_H__
 #define __ZRBTableViewCell_H__
 
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
 
 USING_NS_CC_EXT;
 
 /**
-*  ┤┤╜и  TableViewCell  ░№║м╦─╕Ў▓┐╖╓ ┼┼├√, ═╖╧ё, ├√╫╓, │╔╝и
-*  ┼┼├√, ├√╫╓, │╔╝и╡─╫╓╠х┐╔╔ш╓├╫╓╠х┤є╨б, ╤╒╔л,╫╓╠х
-*  ╕ў▓┐╖╓╒╝╙╨ TableViewCell ╡─╢р╔┘╥╘ TableViewCell ╡─╕▀╢╚│╦╥╘╕ў╫╘╢╘╙ж╡─╥Є╫╙
-*  ╫в: ╕ў▓┐╖╓╡─╦│╨Є▓╗─▄╕─▒ф
+*  я┐╜я┐╜я┐╜я┐╜  TableViewCell  я┐╜я┐╜я┐╜я┐╜я┐╜─╕я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜, ═╖я┐╜я┐╜, я┐╜я┐╜я┐╜я┐╜, я┐╜╔╝я┐╜
+*  я┐╜я┐╜я┐╜я┐╜, я┐╜я┐╜я┐╜я┐╜, я┐╜╔╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╨б, я┐╜я┐╜╔л,я┐╜я┐╜я┐╜я┐╜
+*  я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╒╝я┐╜я┐╜ TableViewCell я┐╜─╢я┐╜я┐╜я┐╜я┐╜я┐╜ TableViewCell я┐╜─╕▀╢╚│я┐╜я┐╜╘╕я┐╜я┐╜╘╢я┐╜╙жя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜
+*  ╫в: я┐╜я┐╜я┐╜я┐╜я┐╜╓╡я┐╜╦│я┐╜я┐╜я┐╜▄╕─▒я┐╜
 */
 class ZRBTableViewCell : public TableViewCell
 {
 public:
 
-	// TableViewCell ╓╨╕ў╫╙╜┌╡у╡─ Tag
+	// TableViewCell я┐╜╨╕я┐╜я┐╜╙╜┌╡я┐╜я┐╜ Tag
 	enum Flag
 	{
 		frist = 0 ,
@@ -27,7 +27,7 @@ public:
 
 private:
 
-	// ┼┼╨╨░ё╬─╫╓╡─╫╓╠х, ┤є╨б, ╤╒╔л╨┼╧в
+	// я┐╜я┐╜я┐╜╨░я┐╜я┐╜я┐╜я┐╜╓╡я┐╜я┐╜я┐╜я┐╜я┐╜, я┐╜я┐╜╨б, я┐╜я┐╜╔ля┐╜я┐╜╧в
 	struct foutInfo
 	{
 		int foutSize;
@@ -37,21 +37,21 @@ private:
 		cocos2d::Color3B foutColor;
 	};
 
-	// ╠э╝╙╖╓╕ю╧▀
+	// я┐╜я┐╜╙╖╓╕я┐╜я┐╜я┐╜
 	cocos2d::Sprite * line;
-	// ╠э╝╙ ZRBTableViewCell ▒│╛░
+	// я┐╜я┐╜я┐╜ ZRBTableViewCell я┐╜я┐╜я┐╜я┐╜
 	cocos2d::LayerColor * bg_layer;
 
 	/**
-	*   ╢и╥х┼┼├√, ═ц╝╥├√╫╓, │╔╝и╡─╫╓╠х╨┼╧в
+	*   я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜, я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜, я┐╜╔╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╧в
 	*/
 	CC_SYNTHESIZE( foutInfo , _foutRanking , FoutRanking );
 	CC_SYNTHESIZE( foutInfo , _foutName , FoutName );
 	CC_SYNTHESIZE( foutInfo , _foutScorer , FoutScorer );
 
 	/**
-	*  ╢и╥хTableViewCell ╓╨░№║м╡─╨┼╧в
-	*  ▓в╢и╥х─м╚╧╡─ get ╖╜╖и
+	*  я┐╜я┐╜я┐╜я┐╜TableViewCell я┐╜╨░я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╧в
+	*  я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜─мя┐╜╧╡я┐╜ get я┐╜я┐╜я┐╜я┐╜
 	*/
 	CC_SYNTHESIZE_READONLY( cocos2d::Label * , _ranking , Ranking );
 	CC_SYNTHESIZE_READONLY( cocos2d::Sprite * , _pic , Pic );
@@ -60,9 +60,9 @@ private:
 
 
 	/**
-	*  TableViewCell ┤╙╫є╡╜╙╥╖╓╟°╖┼╓├┼┼├√, ═╖╧ё, ├√╫╓, │╔╝и
-	*  ┤╣╓▒╬╗╓├╛╙╓╨, ╦о╞╜╬╗╓├╙├ TableViewCell ╡─┐э╢╚│╦╥╘╖╓╟°╡─┤є╨б╥Є╫╙
-	*  ╧┬├ц╢и╥х╕ў╖╓╟°╡─┤є╨б╥Є╫╙▓в╢и╥х─м╚╧set, get╖╜╖и
+	*  TableViewCell я┐╜я┐╜я┐╜я┐╜я┐╜╥╖я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜, ═╖я┐╜я┐╜, я┐╜я┐╜я┐╜я┐╜, я┐╜╔╝я┐╜
+	*  я┐╜я┐╜╓▒╬╗я┐╜├╛я┐╜я┐╜я┐╜, ╦о╞╜╬╗я┐╜я┐╜я┐╜я┐╜ TableViewCell я┐╜─┐я┐╜╚│я┐╜я┐╜╘╖я┐╜я┐╜я┐╜я┐╜─┤я┐╜╨бя┐╜я┐╜я┐╜я┐╜
+	*  я┐╜я┐╜я┐╜ц╢ия┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜─┤я┐╜╨бя┐╜я┐╜я┐╜╙▓я┐╜я┐╜я┐╜я┐╜я┐╜─мя┐╜я┐╜set, getя┐╜я┐╜я┐╜я┐╜
 	*/
 	CC_SYNTHESIZE( float , _partFirst , partFirst );
 	CC_SYNTHESIZE( float , _partSecond , partSecond );
@@ -71,51 +71,51 @@ private:
 
 
 	/**
-	*  ╢и╥х┤╙ TableView ╓╨╜╙╩╒╡─ size ╨┼╧в
-	*  ▓в╢и╥х─м╚╧╡─set . get ╖╜╖и
+	*  я┐╜я┐╜я┐╜я┐╜я┐╜ TableView я┐╜╨╜я┐╜я┐╜╒╡я┐╜ size я┐╜я┐╜╧в
+	*  я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜─мя┐╜╧╡я┐╜set . get я┐╜я┐╜я┐╜я┐╜
 	*/
 	CC_SYNTHESIZE( cocos2d::Size , _size , Size );
 
 public:
 
-	// │╔╘▒▒ф┴┐╕││ї╩╝╓╡
+	// я┐╜я┐╜╘▒я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╩╝╓╡
 	ZRBTableViewCell( );
 	~ZRBTableViewCell( );
 
-	// │ї╩╝╗п│╔╘▒
+	// я┐╜я┐╜╩╝я┐╜я┐╜я┐╜я┐╜╘▒
 	virtual bool init( );
-	// ╝╙╘╪╩▒╔ш╓├│╔╘▒╩Ї╨╘
+	// я┐╜я┐╜я┐╜я┐╜╩▒я┐╜я┐╜я┐╜├│я┐╜╘▒я┐╜я┐╜я┐╜я┐╜
 	virtual void onEnter( );
 	virtual void onEixt( );
 
-	// ┤╙ foutInfo ╗ё╚б╫╓╠х
+	// я┐╜я┐╜ foutInfo я┐╜я┐╜╚бя┐╜я┐╜я┐╜я┐╜
 	std::string getFout( foutInfo info ) { return info.fout; }
-	// ┤╙ foutInfo ╗ё╚б╫╓╠х┤є╨б
+	// я┐╜я┐╜ foutInfo я┐╜я┐╜╚бя┐╜я┐╜я┐╜я┐╜я┐╜╨б
 	int getFoutSize( foutInfo info ) { return info.foutSize; }
-	// ┤╙ foutInfo ╗ё╚б╫╓╠х╤╒╔л
+	// я┐╜я┐╜ foutInfo я┐╜я┐╜╚бя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╔л
 	cocos2d::Color3B getFoutColor( foutInfo info ) { return info.foutColor; }
 
-	// ╔ш╓├┼┼├√╫╓╠х╡─ foutInfo
+	// я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ foutInfo
 	void setFoutRanking( int x = 30 , std::string fout = "Marker Felt.ttf" , cocos2d::Color3B color = cocos2d::Color3B( 0 , 0 , 0 ) );
-	// ╔ш╓├═ц╝╥├√╫╓╫╓╠х╡─ foutInfo
+	// я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ foutInfo
 	void setFoutName( int x = 30 , std::string fout = "Marker Felt.ttf" , cocos2d::Color3B color = cocos2d::Color3B( 0 , 0 , 0 ) );
-	// ╔ш╓├│╔╝и╫╓╠х╡─ foutInfo
+	// я┐╜я┐╜я┐╜├│╔╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ foutInfo
 	void setFoutScorer( int x = 30 , std::string fout = "Marker Felt.ttf" , cocos2d::Color3B color = cocos2d::Color3B( 0 , 0 , 0 ) );
 
-	// ╔ш╓├▒│╛░╤╒╔л
+	// я┐╜я┐╜я┐╜├▒я┐╜я┐╜я┐╜я┐╜я┐╜╔л
 	void setBackgroundColor( cocos2d::Color3B color );
 
 	CREATE_FUNC( ZRBTableViewCell );
 
 private:
 
-	// ╔ш╓├┼┼├√ label
+	// я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ label
 	void setRanking( );
-	// ╔ш╓├═╖╧ё sprite
+	// я┐╜я┐╜я┐╜я┐╜═╖я┐╜я┐╜ sprite
 	void setPic( );
-	// ╔ш╓├├√╫╓ label
+	// я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ label
 	void setName( );
-	// ╔ш╓├│╔╝и label
+	// я┐╜я┐╜я┐╜├│╔╝я┐╜ label
 	void setScorer( );
 
 };

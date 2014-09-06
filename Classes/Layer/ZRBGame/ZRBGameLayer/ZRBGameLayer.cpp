@@ -1,4 +1,4 @@
-﻿
+
 #include "ZRBGameLayer.h"
 
 // Todo : ktplay
@@ -118,10 +118,10 @@ void ZRBGameLayer::update( float delta )
 	}
 	// 当前高度更新
 	pCurrentHeight = pCurrentHeight + upHeight;
-	if ( pCurrentHeight / standard > 400 && pUpSpeed <= 400 )
+	if ( pCurrentHeight / standard > 450 && pUpSpeed <= 400 )
 	{
 		pUpSpeed += 100;
-		if ( pCurrentHeight / standard > 500 && pUpSpeed <= 500 )
+		if ( pCurrentHeight / standard > 520 && pUpSpeed <= 500 )
 		{
 			pUpSpeed += 100;
 			if ( pCurrentHeight / standard > 600 && pUpSpeed <= 600 )

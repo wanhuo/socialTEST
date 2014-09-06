@@ -1,4 +1,4 @@
-
+ï»¿
 // Undone: buy
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 //#include "IOSiAP_Bridge.h"
@@ -36,7 +36,7 @@ bool ZRBMarketGold::init( )
 	productId.push_back( "com.zero.test" );
 	productId.push_back( "" );
 
-	// ÉèÖÃ´óĞ¡
+	// è®¾ç½®å¤§å°
 	if ( ZRB_VISIBLE_SIZE.height > 1100 )
 	{
 		size = Size( 410 , 535 );
@@ -49,23 +49,23 @@ bool ZRBMarketGold::init( )
 	{
 		size = Size( 410 , 400 );
 	}
-	// ´´½¨ pageView
+	// åˆ›å»º pageView
 	pageView = ui::PageView::create( );
 	pageView->setSize( size );
 	pageView->setPosition( Vec2( 0 , 15 ) );
 	pageView->setTouchEnabled( true );
 
-	// ´´½¨·ÖÒ³1
+	// åˆ›å»ºåˆ†é¡µ1
 	auto layout0 = ui::Layout::create( );
 	layout0->addChild( goldLayer0( ) );
-	//    // ´´½¨·ÖÒ³ 2
+	//    // åˆ›å»ºåˆ†é¡µ 2
 	//    auto layout1 = ui::Layout::create();
 	//    layout1->addChild(LayerColor::create(Color4B(214, 234, 255, 250), 410, 550));
-	//Ìí¼Ó·ÖÒ³
+	//æ·»åŠ åˆ†é¡µ
 	pageView->addPage( layout0 );
 	//    pageView->addPage(layout1);
 
-	// Ìí¼Ó pageview
+	// æ·»åŠ  pageview
 	this->addChild( pageView );
 
 	return true;
@@ -73,70 +73,70 @@ bool ZRBMarketGold::init( )
 }
 
 /**
-*  ´´½¨·ÖÒ³, Ìí¼ÓÄÚÈİ
+*  åˆ›å»ºåˆ†é¡µ, æ·»åŠ å†…å®¹
 *
-*  @return ·µ»Ø·ÖÒ³
+*  @return è¿”å›åˆ†é¡µ
 */
 Layer * ZRBMarketGold::goldLayer0( )
 {
-	// ´´½¨»ù´¡²ã
+	// åˆ›å»ºåŸºç¡€å±‚
 	auto layer = Layer::create( );
-	// Ìí¼Ó·ÅÖÃÍ¼Æ¬²ã
+	// æ·»åŠ æ”¾ç½®å›¾ç‰‡å±‚
 	auto lay = Layer::create( );
-	// ÉèÖÃÍ¼Æ¬²ãÎ»ÖÃ
+	// è®¾ç½®å›¾ç‰‡å±‚ä½ç½®
 	lay->setPosition( 0 , 70 );
-	// ÉèÖÃ»ùµã
+	// è®¾ç½®åŸºç‚¹
 	auto pos = Vec2( size.width / 2 , size.height / 2 );
 
-	//Ñ­»·Ìí¼ÓËÄ¸ö½ğ±ÒÍ¼Æ¬, ÊıÖµ
+	//å¾ªç¯æ·»åŠ å››ä¸ªé‡‘å¸å›¾ç‰‡, æ•°å€¼
 	for ( int i = 0; i < 4; i++ )
 	{
-		// ´´½¨½ğ±Ò¾«Áé
+		// åˆ›å»ºé‡‘å¸ç²¾çµ
 		auto sprite = Sprite::createWithSpriteFrameName( "gold_number.png" );
-		// ÉèÖÃÃªµã(0, 0)
+		// è®¾ç½®é”šç‚¹(0, 0)
 		sprite->setAnchorPoint( Vec2( 0 , 0 ) );
-		// Ëõ·ÅÊÊÅä
+		// ç¼©æ”¾é€‚é…
 		sprite->setScale( size.height / 535 );
-		// ÉèÖÃÎ»ÖÃ ¸ú¾İ i ÖµºÍ»ùµã, ÉèÖÃ²»Í¬Î»ÖÃ
+		// è®¾ç½®ä½ç½® è·Ÿæ® i å€¼å’ŒåŸºç‚¹, è®¾ç½®ä¸åŒä½ç½®
 		sprite->setPosition( i % 2 * pos.x + ( pos.x - sprite->getContentSize( ).width ) / 2 , int( i >= 2 ) * pos.y + 10 );
 
-		// ´´½¨½ğ±ÒÊıÖµ label ÊıÖµ´Ó vircash ÖĞÈ¡µÃ
+		// åˆ›å»ºé‡‘å¸æ•°å€¼ label æ•°å€¼ä» vircash ä¸­å–å¾—
 		auto goldNum = Label::createWithTTF( String::createWithFormat( "%d" , vircash [ i ] )->getCString( ) , "customfout.otf" , 30 );
-		// ÉèÖÃÎ»ÖÃ, ÑÕÉ«
+		// è®¾ç½®ä½ç½®, é¢œè‰²
 		goldNum->setPosition( sprite->getContentSize( ).width / 2 , sprite->getContentSize( ).height * 0.16 );
 		goldNum->setColor( Color3B( 0 , 0 , 0 ) );
 
-		// ÊıÖµ label Ìí¼Óµ½ sprite
+		// æ•°å€¼ label æ·»åŠ åˆ° sprite
 		sprite->addChild( goldNum );
 
-		// Ìí¼Óµ½Í¼Æ¬²ã
+		// æ·»åŠ åˆ°å›¾ç‰‡å±‚
 		lay->addChild( sprite );
 	}
 
-	// ´´½¨ menuitem * ÈİÆ÷
+	// åˆ›å»º menuitem * å®¹å™¨
 	Vector<MenuItem *>item;
 
-	//Ñ­»·Ìí¼ÓËÄ¸ö°´Å¥
+	//å¾ªç¯æ·»åŠ å››ä¸ªæŒ‰é’®
 	for ( int i = 0; i < 4; i++ )
 	{
-		// ´´½¨°´Å¥, ÉèÖÃÍ¼Æ¬, Ãªµã
+		// åˆ›å»ºæŒ‰é’®, è®¾ç½®å›¾ç‰‡, é”šç‚¹
 		auto menuItem = MenuItemImage::create( );
 		menuItem->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "currency.png" ) );
 		menuItem->setAnchorPoint( Vec2( 0 , 0 ) );
-		// Ëõ·ÅÊÊÅä
+		// ç¼©æ”¾é€‚é…
 		menuItem->setScale( size.height / 535 );
-		// ÉèÖÃÎ»ÖÃ ¸ú¾İ i ÖµºÍ»ùµã, ÉèÖÃ²»Í¬Î»ÖÃ
+		// è®¾ç½®ä½ç½® è·Ÿæ® i å€¼å’ŒåŸºç‚¹, è®¾ç½®ä¸åŒä½ç½®
 		menuItem->setPosition( i % 2 * pos.x + ( pos.x - menuItem->getContentSize( ).width ) / 2 , int( i >= 2 ) * pos.y + 10 );
-		// ÉèÖÃ»Øµ÷º¯Êı
+		// è®¾ç½®å›è°ƒå‡½æ•°
 		menuItem->setCallback( CC_CALLBACK_0( ZRBMarketGold::callBack , this , i ) );
 
-		// Ìí¼ÓÏÖÊµ»õ±Ò label ÊıÖµ´Ó cash ÖĞÈ¡µÃ
+		// æ·»åŠ ç°å®è´§å¸ label æ•°å€¼ä» cash ä¸­å–å¾—
 		auto money = Label::createWithTTF( String::createWithFormat( "%.2f%s" , cash [ i ] , ZRBLanguage::getValue( "USD" ) )->getCString( ) , "customfout.otf" , 30 );
-		//ÉèÖÃÎ»ÖÃ ÑÕÉ«
+		//è®¾ç½®ä½ç½® é¢œè‰²
 		money->setPosition( menuItem->getContentSize( ).width / 2 , menuItem->getContentSize( ).height / 2 );
 		money->setColor( Color3B( 0 , 0 , 0 ) );
 
-		// ÏÖÊµ»õ±Òlabel Ìí¼Ó°´Å¥ menuItem ÉÏ
+		// ç°å®è´§å¸label æ·»åŠ æŒ‰é’® menuItem ä¸Š
 		menuItem->addChild( money );
 
 		if ( i == 2 )
@@ -146,16 +146,16 @@ Layer * ZRBMarketGold::goldLayer0( )
 			menuItem->addChild( hot );
 		}
 
-		//  °´Å¥Ìí¼Óµ½ÈİÆ÷ÖĞ
+		//  æŒ‰é’®æ·»åŠ åˆ°å®¹å™¨ä¸­
 		item.pushBack( menuItem );
 
 	}
 
-	// ´´½¨²Ëµ¥ ÉèÖÃÎ»ÖÃ
+	// åˆ›å»ºèœå• è®¾ç½®ä½ç½®
 	auto menu = Menu::createWithArray( item );
 	menu->setPosition( 0 , 0 );
 
-	// Ìí¼ÓÍ¼Æ¬²ã, ²Ëµ¥
+	// æ·»åŠ å›¾ç‰‡å±‚, èœå•
 	layer->addChild( lay );
 	layer->addChild( menu );
 
@@ -165,12 +165,16 @@ Layer * ZRBMarketGold::goldLayer0( )
 
 
 /**
-*  ¹ºÂò»Øµ÷
+*  è´­ä¹°å›è°ƒ
 *
-*  @param x »ñµÃ¹ºÂòÄ¿±ê, ÊÕ·Ñ, Ë¢ĞÂ½ğ±Ò
+*  @param x è·å¾—è´­ä¹°ç›®æ ‡, æ”¶è´¹, åˆ·æ–°é‡‘å¸
 */
 void ZRBMarketGold::callBack( int x )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	firstMes = false;
 	auto buy = new IOSiAP_Bridge( );
@@ -207,14 +211,14 @@ void ZRBMarketGold::buyFinish( )
 	mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
 	mes->setGlobalZOrder( 200 );
 	this->addChild( mes );
-	// »ñÈ¡Ô­ÓĞ½ğ±Ò
+	// è·å–åŸæœ‰é‡‘å¸
 	auto gold = ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM );
-	// Ôö¼Ó½ğ±Ò
+	// å¢åŠ é‡‘å¸
 	gold += vircash [ goldId ];
-	// ±£´æ
+	// ä¿å­˜
 	ZRBUserDate::getInstance( )->saveData( KEY_DATA_GOLDNUM , &gold );
 	auto * nGole = Integer::create( gold );
-	// ·¢ËÍÏûÏ¢
+	// å‘é€æ¶ˆæ¯
 	NotificationCenter::getInstance( )->postNotification( "NOTIFICATION_Gold" , nGole );
 }
 

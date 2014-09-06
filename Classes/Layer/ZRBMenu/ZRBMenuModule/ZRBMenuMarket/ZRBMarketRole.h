@@ -1,4 +1,4 @@
-
+ï»¿
 
 #ifndef __ZRBMarketRole_H__
 #define __ZRBMarketRole_H__
@@ -21,19 +21,19 @@ public:
 
 private:
 
-	// ½ÇÉ«ÊÇ·ñ¹ºÂò
+	// è§’è‰²æ˜¯å¦è´­ä¹°
 	std::vector<bool>pBuy;
-	// ½ÇÉ«¼Û¸ñ
+	// è§’è‰²ä»·æ ¼
 	std::vector<int>pPrice;
-	// ½ÇÉ«½éÉÜ
+	// è§’è‰²ä»‹ç»
 	std::vector<std::string>strName;
 	std::vector<std::string>strChar;
 	//    std::vector<std::string>strIntr;
-	// ½ÇÉ«×ÊÁÏ
+	// è§’è‰²èµ„æ–™
 	std::vector<sHero *> hero;
-	// ¹ºÂò°´Å¥
+	// è´­ä¹°æŒ‰é’®
 	vector<MenuItemImage *>use_buy;
-	// Ñ¡ÔñÍ¼±ê
+	// é€‰æ‹©å›¾æ ‡
 	vector<Sprite *>_check;
 
 	vector<Color3B>_color;
@@ -50,24 +50,24 @@ private:
 	// pageView
 	ui::PageView * pageView;
 
-	// ±êÊ¶µ±Ç°Ò³
+	// æ ‡è¯†å½“å‰é¡µ
 	Vector<LayerColor *>curPage;
 
-	// pageView ´óĞ¡
+	// pageView å¤§å°
 	Size size;
 
 public:
 
 	virtual bool init( );
 
-	// µÀ¾ßÒ³Ãæ1
+	// é“å…·é¡µé¢1
 	void roleLayer( );
-	// ÉèÖÃ°´Å¥ÎªÊ¹ÓÃ
+	// è®¾ç½®æŒ‰é’®ä¸ºä½¿ç”¨
 	void setButtenUse( int idx );
-	// Ê¹ÓÃ»Øµ÷
+	// ä½¿ç”¨å›è°ƒ
 	void callUse( );
 
-	// ·ÖÒ³¼àÌı»Øµ÷
+	// åˆ†é¡µç›‘å¬å›è°ƒ
 	void pageSwith( Ref* ref , ui::PageView::EventType type );
 
 	CREATE_FUNC( ZRBMarketRole );

@@ -1,4 +1,4 @@
-
+ï»¿
 #include "ZRBGameMenuLayer.h"
 #include "Scene/ZRBScene.h"
 
@@ -15,11 +15,11 @@ bool ZRBGameMenuLayer::init( )
 
 void ZRBGameMenuLayer::initObject( )
 {
-	// ¼ÓÔØÍ¼Æ¬
+	// åŠ è½½å›¾ç‰‡
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "game_menuItem.plist" );
 	pMenu = Menu::create( );
 
-	//bg ×èÖ¹ÏÂ²ã´¥ÃþÏìÓ¦
+	//bg é˜»æ­¢ä¸‹å±‚è§¦æ‘¸å“åº”
 	LayerColor *bg1Layer = LayerColor::create( Color4B( 155 , 177 , 188 , 178 ) , ZRB_SCREEN_SIZE.width , ZRB_SCREEN_SIZE.height );
 	LayerColor *bg2Layer = LayerColor::create( Color4B( 155 , 177 , 188 , 178 ) , ZRB_SCREEN_SIZE.width , ZRB_SCREEN_SIZE.height );
 	MenuItemSprite *bgItem = MenuItemSprite::create( bg1Layer , bg2Layer );
@@ -32,7 +32,7 @@ void ZRBGameMenuLayer::initObject( )
 	MenuItemSprite *logoItem = MenuItemSprite::create( logo1Sp , logo2Sp );
 	logoItem->setPosition( Point( ZRB_SCREEN_SIZE.width*0.42 , ZRB_SCREEN_SIZE.height*0.7 ) );
 
-	//·µ»ØÓÎÏ·
+	//è¿”å›žæ¸¸æˆ
 	Sprite *backGame1Sp = Sprite::createWithSpriteFrameName( ZRBLanguage::getValue( "Pic_pause_backgame" ) );
 	Sprite *backGame2Sp = Sprite::createWithSpriteFrameName( ZRBLanguage::getValue( "Pic_pause_backgame" ) );
 	backGame2Sp->setOpacity( 150 );
@@ -40,7 +40,7 @@ void ZRBGameMenuLayer::initObject( )
 	backGameItem->setAnchorPoint( Point( 0.5 , 1 ) );
 	backGameItem->setPosition( Point( ZRB_SCREEN_SIZE.width*0.5 , logoItem->getBoundingBox( ).getMinY( ) - 20 ) );
 
-	//ÖØÐÂÓÎÏ·
+	//é‡æ–°æ¸¸æˆ
 	Sprite *restartGame1Sp = Sprite::createWithSpriteFrameName( ZRBLanguage::getValue( "Pic_pause_resume" ) );
 	Sprite *restartGame2Sp = Sprite::createWithSpriteFrameName( ZRBLanguage::getValue( "Pic_pause_resume" ) );
 	restartGame2Sp->setOpacity( 150 );
@@ -48,7 +48,7 @@ void ZRBGameMenuLayer::initObject( )
 	restartGameItem->setAnchorPoint( Point( 0.5 , 1 ) );
 	restartGameItem->setPosition( Point( ZRB_SCREEN_SIZE.width*0.5 , backGameItem->getBoundingBox( ).getMinY( ) - 20 ) );
 
-	//·µ»ØÖ÷½çÃæ
+	//è¿”å›žä¸»ç•Œé¢
 	Sprite *backHome1Sp = Sprite::createWithSpriteFrameName( ZRBLanguage::getValue( "Pic_pause_backhome" ) );
 	Sprite *backHome2Sp = Sprite::createWithSpriteFrameName( ZRBLanguage::getValue( "Pic_pause_backhome" ) );
 	backHome2Sp->setOpacity( 150 );
@@ -56,7 +56,7 @@ void ZRBGameMenuLayer::initObject( )
 	backHomeItem->setAnchorPoint( Point( 0.5 , 1 ) );
 	backHomeItem->setPosition( Point( ZRB_SCREEN_SIZE.width*0.5 , restartGameItem->getBoundingBox( ).getMinY( ) - 20 ) );
 
-	//±³¾°ÒôÀÖ
+	//èƒŒæ™¯éŸ³ä¹
 	Sprite *musicOpen1Sp = Sprite::createWithSpriteFrameName( "music_GameMenuItem.png" );
 	Sprite *musicOpen2Sp = Sprite::createWithSpriteFrameName( "music_GameMenuItem.png" );
 	musicOpen2Sp->setOpacity( 150 );
@@ -69,13 +69,13 @@ void ZRBGameMenuLayer::initObject( )
 	musicItem->setAnchorPoint( Point( 0 , 1 ) );
 	musicItem->setPosition( Point( backHomeItem->getBoundingBox( ).getMinX( ) , backHomeItem->getBoundingBox( ).getMinY( ) - 20 ) );
 
-	// Todo :ÉèÖÃÏÔÊ¾Í¼Æ¬
-	//if ( !ZRBManager::getBgMusicState( ) )
-	//{
-	//	musicItem->setSelectedIndex( 1 );
-	//}
+	// Todo :è®¾ç½®æ˜¾ç¤ºå›¾ç‰‡
+	if ( !ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_MUSIC ) )
+	{
+		musicItem->setSelectedIndex( 1 );
+	}
 
-	//ÒôÐ§
+	//éŸ³æ•ˆ
 	Sprite *soundEffectOpen1Sp = Sprite::createWithSpriteFrameName( "soundEffect_GameMenuItem.png" );
 	Sprite *soundEffectOpen2Sp = Sprite::createWithSpriteFrameName( "soundEffect_GameMenuItem.png" );
 	soundEffectOpen2Sp->setOpacity( 150 );
@@ -87,13 +87,13 @@ void ZRBGameMenuLayer::initObject( )
 	MenuItemToggle *soundEffectItem = MenuItemToggle::createWithCallback( CC_CALLBACK_1( ZRBGameMenuLayer::soundEffectItemClick , this ) , soundEffectOpenItem , soundEffectCloseItem , NULL );
 	soundEffectItem->setAnchorPoint( Point( 1 , 1 ) );
 	soundEffectItem->setPosition( Point( backHomeItem->getBoundingBox( ).getMaxX( ) , backHomeItem->getBoundingBox( ).getMinY( ) - 20 ) );
-	/* Todo : music pic
-	if ( !ZRBManager::getEffectMusicState( ) )
+	
+	if ( !ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
 	{
 		soundEffectItem->setSelectedIndex( 1 );
-	}*/
+	}
 
-	// Ìí¼Ó²Ëµ¥
+	// æ·»åŠ èœå•
 	pMenu->addChild( bgItem );
 	pMenu->addChild( logoItem );
 	pMenu->addChild( backGameItem );
@@ -107,9 +107,13 @@ void ZRBGameMenuLayer::initObject( )
 }
 
 
-// ¼ÌÐøÓÎÏ·
+// ç»§ç»­æ¸¸æˆ
 void ZRBGameMenuLayer::backGameItemClick( Ref *ref )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	Director::getInstance( )->resume( );
 	this->getParent( )->pause( );
 	countdown = Label::createWithTTF( "3" , "customfout.otf" , 60 );
@@ -123,66 +127,67 @@ void ZRBGameMenuLayer::backGameItemClick( Ref *ref )
 	this->addChild( loading );
 
 	schedule( schedule_selector( ZRBGameMenuLayer::scheduleCall ) , 1 , 2 , 0 );
-	// ÒÆ³ý
+	// ç§»é™¤
 	//    this->removeFromParentAndCleanup(true);
 }
 
-// ·µ»ØÊ×Ò³
+// è¿”å›žé¦–é¡µ
 void ZRBGameMenuLayer::backHomeItemClick( Ref *ref )
 {
-	// ·µ»Ø
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
+	// è¿”å›ž
 	Director::getInstance( )->resume( );
-	// Ìø×ªµ½Ê×Ò³
+	// è·³è½¬åˆ°é¦–é¡µ
 	Director::getInstance( )->replaceScene( ZRBScene::sceneCreate() );
 	
 }
 
-// ÖØÐÂ¿ªÊ¼ÓÎÏ·
+// é‡æ–°å¼€å§‹æ¸¸æˆ
 void ZRBGameMenuLayer::restartGameItemClick( Ref *ref )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	NotificationCenter::getInstance( )->postNotification( "NOTIFICATION_Resume" , __Bool::create( true ) );
 }
 
-//ÇÐ»»ÒôÀÖ×´Ì¬
+//åˆ‡æ¢éŸ³ä¹çŠ¶æ€
 void ZRBGameMenuLayer::musicItemClick( Ref *ref )
 {
-	//if ( music == Audio::open )
-	//{
-	//	CocosDenshion::SimpleAudioEngine::getInstance( )->pauseBackgroundMusic( );
-	//}
-	//else
-	//{
-	//	CocosDenshion::SimpleAudioEngine::getInstance( )->resumeBackgroundMusic( );
-	//}
-	// Todo: »ñÈ¡µ±Ç°µÄÒôÐ§×´Ì¬ ¸ü¸Ä
-	/*if ( ZRBManager::getBgMusicState( ) )
+	bool _music = ZRBUserDate::getInstance()->getDateBool( KEY_CHECK_MUSIC );
+	
+	if ( _music )
 	{
-		ZRBManager::stopBgMusic( );
+		_music = false;
+		CocosDenshion::SimpleAudioEngine::getInstance( )->pauseBackgroundMusic( );
 	}
 	else
 	{
-		ZRBManager::openBgMusic( );
+		_music = true;
+		CocosDenshion::SimpleAudioEngine::getInstance( )->resumeBackgroundMusic( );
 	}
 
-	bool _music = ZRBManager::getBgMusicState( );
-	ZRBUserDate::getInstance( )->saveData( KEY_CHECK_MUSIC , &_music );*/
+	ZRBUserDate::getInstance( )->saveData( KEY_CHECK_MUSIC , &_music );
 }
 
-// ÇÐ»»ÒôÐ§×´Ì¬
+// åˆ‡æ¢éŸ³æ•ˆçŠ¶æ€
 void ZRBGameMenuLayer::soundEffectItemClick( Ref *ref )
 {
-	// Todo : »ñÈ¡µ±Ç°µÄÒôÐ§×´Ì¬ ¸ü¸Ä
-	/*if ( ZRBManager::getEffectMusicState( ) )
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
 	{
-		ZRBManager::stopEffectMusic( );
+		auto sound = false;
+		ZRBUserDate::getInstance( )->saveData( KEY_CHECK_SOUND , &sound );
 	}
 	else
 	{
-		ZRBManager::openEffectMusic( );
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+		auto sound = true;
+		ZRBUserDate::getInstance( )->saveData( KEY_CHECK_SOUND , &sound );
 	}
-
-	bool _sound = ZRBManager::getEffectMusicState( );
-	ZRBUserDate::getInstance( )->saveData( KEY_CHECK_SOUND , &_sound );*/
 }
 
 

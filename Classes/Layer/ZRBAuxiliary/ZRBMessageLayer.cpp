@@ -1,4 +1,4 @@
-
+﻿
 
 #include "ZRBMessageLayer.h"
 
@@ -86,13 +86,17 @@ void ZRBMessageLayer::setMessageLabel( std::string mes , std::string item , cons
 
 void ZRBMessageLayer::callback( )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	auto in = this->getActionIn( );
-	_backGround->runAction( Sequence::create( dynamic_cast<FiniteTimeAction *>( in), //?this->getActionIn( ) ) ,
+	_backGround->runAction( Sequence::create( dynamic_cast< FiniteTimeAction * >( in ) , //?this->getActionIn( ) ) ,
 		CallFunc::create( [ &] ( )
-								{
-									_eventDispatcher->removeEventListenersForTarget( this );
-									this->removeFromParentAndCleanup( true );
-								} ) ,
-									NULL ) );
+	{
+		_eventDispatcher->removeEventListenersForTarget( this );
+		this->removeFromParentAndCleanup( true );
+	} ) ,
+		NULL ) );
 
 }

@@ -1,4 +1,4 @@
-
+ï»¿
 
 #ifndef __ZRBHeroSprite_H__
 #define __ZRBHeroSprite_H__
@@ -13,11 +13,11 @@ class ZRBHeroSprite : public SpriteBatchNode
 public:
 
 	static ZRBHeroSprite* create( sHero* hero );
-	// ÌøÔ¾
+	// è·³è·ƒ
 	void jumpTo( Point p , float time , float timboWidth );
-	// ÅÀĞĞ
+	// çˆ¬è¡Œ
 	void climb( );
-	// ´´½¨¾«Áé ¶¯×÷
+	// åˆ›å»ºç²¾çµ åŠ¨ä½œ
 	void initThis( sHero* hero );
 
 	//hero
@@ -31,12 +31,12 @@ public:
 	void setHeroPosition( Point pos );
 	Rect getHeroBoundingBox( );
 private:
-	// ÉèÖÃ·½Ïò
+	// è®¾ç½®æ–¹å‘
 	void heroFaceRight( );
 	void heroFaceLeft( );
 	sHero* pHeroMaterial;
 	Sprite *pHero;
-	// ¶¯×÷
+	// åŠ¨ä½œ
 	Action *pClimbAction;
 	Action *pJumpAction;
 };

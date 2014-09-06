@@ -1,4 +1,4 @@
-
+ï»¿
 #include "ZRBGameLayer.h"
 
 // Todo : ktplay
@@ -34,7 +34,6 @@ bool ZRBGameLayer::init( )
 		return false;
 	}
 
-
 	ZRBBaseGameLayer::initObject( );
 
 	pGoldNumLabel->setVisible( false );
@@ -66,25 +65,25 @@ void ZRBGameLayer::onEnter( )
 
 void ZRBGameLayer::update( float delta )
 {
-	// ÊµÊ±¸ß¶È
+	// å®æ—¶é«˜åº¦
 	auto upHeight = delta * pUpSpeed;
 	curHeight += upHeight;
-	// ¸üĞÂ¾«Áé , °´Å¥Î»ÖÃ
+	// æ›´æ–°ç²¾çµ , æŒ‰é’®ä½ç½®
 	pHero->setHeroPositionY( pHero->getHeroPositionY( ) + upHeight );
 	pMenu->setPositionY( pMenu->getPositionY( ) + upHeight );
-	// ±³¾°ºóÍË
+	// èƒŒæ™¯åé€€
 	this->setPositionY( this->getPositionY( ) - upHeight );
-	// ³É¼¨¸üĞÂ Î»ÖÃ¸üĞÂ
+	// æˆç»©æ›´æ–° ä½ç½®æ›´æ–°
 	pScoreLabel->setString( String::createWithFormat( "%dm" , ( int ) ( pCurrentHeight / standard ) )->getCString( ) );
 	pScoreLabel->setPositionY( pScoreLabel->getPositionY( ) + upHeight );
-	// ½ğ±ÒÎ»ÖÃ¸üĞÂ
+	// é‡‘å¸ä½ç½®æ›´æ–°
 	pGoldNumLabel->setPositionY( pGoldNumLabel->getPositionY( ) + upHeight );
 
 	//    CCLOG("%f,  %f,  %f,  ", curHeight, pCurrentHeight, pBegainHeight);
-	//²»ÒÆ¶¯bg
+	//ä¸ç§»åŠ¨bg
 	pBg1->setPositionY( pBg1->getPositionY( ) + upHeight );
 
-	//É¾³ı¾«Áé ¸üĞÂ¾«ÁéµÄÎ»ÖÃ
+	//åˆ é™¤ç²¾çµ æ›´æ–°ç²¾çµçš„ä½ç½®
 	Vector<Node *> nodes = pBatchNode->getChildren( );
 	for ( auto node : nodes )
 	{
@@ -117,7 +116,7 @@ void ZRBGameLayer::update( float delta )
 	{
 		return;
 	}
-	// µ±Ç°¸ß¶È¸üĞÂ
+	// å½“å‰é«˜åº¦æ›´æ–°
 	pCurrentHeight = pCurrentHeight + upHeight;
 	if ( pCurrentHeight / standard > 400 && pUpSpeed <= 400 )
 	{
@@ -143,36 +142,38 @@ void ZRBGameLayer::update( float delta )
 			}
 		}
 	}
-	// Ìí¼Ó°´Å¥
+	// æ·»åŠ æŒ‰é’®
 	replenishtimbosAndAddItem( );
-	//ÒÆ¶¯µ½ÌÙÌõ¶¥²¿£¬Ê§°ÜÓÎÏ·
+	//ç§»åŠ¨åˆ°è—¤æ¡é¡¶éƒ¨ï¼Œå¤±è´¥æ¸¸æˆ
 	if ( !pIsLost && pCanJump && pCurrentTimbo->getChildByTag( top ) )
 	{
 		if ( pHero->getHeroPositionY( ) >= pCurrentTimbo->getPositionY( ) + pCurrentTimbo->getContentSize( ).height )
 		{
-			// Ê§°Ü
+			// å¤±è´¥
 			pIsLost = true;
-			// µôÂä
+			// æ‰è½
 			pHero->jumpTo( Point( pHero->getHeroPositionX( ) , pHero->getHeroPositionY( ) - ZRB_VISIBLE_SIZE.height - pHero->getHeroContentSize( ).height ) , 1 , 0 );
 			this->runAction( Sequence::create( DelayTime::create( 1 ) , CallFunc::create( CC_CALLBACK_0( ZRBGameLayer::showGameFinish , this ) ) , NULL ) );
 		}
 	}
 
-	//³Ô½ğ±Ò
+	//åƒé‡‘å¸
 	for ( int i = pGolds.size( ) - 1; i >= 0; i-- )
 	{
-		//½ğ±ÒºÍ¾«ÁéÅö×²
+		//é‡‘å¸å’Œç²¾çµç¢°æ’
 		if ( pGolds.at( i )->getBoundingBox( ).intersectsRect( pHero->getHeroBoundingBox( ) ) && !pIsLost )
 		{
-			// Todo : effect music
-			//ZRBManager::playEffectMusic( "gem.wav" );
-			// ½ğ±ÒÏûÊ§
+			if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+			{
+				CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Gold" ) );
+			}
+			// é‡‘å¸æ¶ˆå¤±
 			FadeOut *fade = FadeOut::create( 0.5 );
 			ScaleTo *scale = ScaleTo::create( 1 , 3 );
 			pGolds.at( i )->runAction( Spawn::create( fade , scale , NULL ) );
-			// É¾³ı½ğ±Ò
+			// åˆ é™¤é‡‘å¸
 			pGolds.erase( i );
-			// ½ğ±Ò¸üĞÂ
+			// é‡‘å¸æ›´æ–°
 			pGoldNum = pGoldNum + 1;
 			pGoldNumLabel->setString( String::createWithFormat( "%d" , pGoldNum )->getCString( ) );
 		}
@@ -183,7 +184,7 @@ void ZRBGameLayer::update( float delta )
 Sprite * ZRBGameLayer::createTimbo( float length , Point pos )
 {
 	auto sp = ZRBBaseGameLayer::createTimbo( length , pos );
-	// Ìí¼ÓÌÙµÄ¶¥²¿
+	// æ·»åŠ è—¤çš„é¡¶éƒ¨
 	auto sp1 = Sprite::createWithSpriteFrameName( "timbo_start" + pNameAfterStr + ".png" );
 	sp1->setColor( sp->getColor( ) );
 	sp1->setPosition( Point( sp->getContentSize( ).width / 2 , length - sp1->getContentSize( ).height / 2 ) );
@@ -195,13 +196,13 @@ Sprite * ZRBGameLayer::createTimbo( float length , Point pos )
 
 Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 {
-	// »ñÈ¡ 0~3 Ö®¼äËæ»úÊı
+	// è·å– 0~3 ä¹‹é—´éšæœºæ•°
 	uniform_int_distribution<unsigned> dis_4( 0 , 3 );
 	
 	int ran = dis_4(engine);
-	/// ÌÙÌõ³¤¶È
+	/// è—¤æ¡é•¿åº¦
 	float spLength;
-	// ³¤¶ÈÔÚ200~300, 300~1000¼äµÄ¸ÅÂÊ±ÈÎª3 : 1
+	// é•¿åº¦åœ¨200~300, 300~1000é—´çš„æ¦‚ç‡æ¯”ä¸º3 : 1
 	if ( ran == 0 )
 	{
 		uniform_int_distribution<unsigned> tem1( 1 , 100 );
@@ -215,14 +216,14 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 
 
 	Sprite *sp;
-	/// È¡³öÈİÆ÷ÖĞ×îºóÒ»ÌõÌÙ
+	/// å–å‡ºå®¹å™¨ä¸­æœ€åä¸€æ¡è—¤
 	Sprite *preSp = pTimbos.back( );
-	///  ÌÙÌõ¶¥²¿
+	///  è—¤æ¡é¡¶éƒ¨
 	float posY = preSp->getPositionY( ) + preSp->getContentSize( ).height - pBegainHeight;
 
 	if ( posY <= pDisplayItemHeight * pColorNum - ZRB_VISIBLE_SIZE.height - 200 && posY + 1000 >= pDisplayItemHeight *pColorNum - ZRB_VISIBLE_SIZE.height - 200 )
 	{
-		// Èç¹ûÔÙÓĞÌÙÌõµÄ³¤¶È³¬¹ıÒ»¶¨³¤¶ÈÊ±È¡Ïà·´³¤¶È
+		// å¦‚æœå†æœ‰è—¤æ¡çš„é•¿åº¦è¶…è¿‡ä¸€å®šé•¿åº¦æ—¶å–ç›¸åé•¿åº¦
 		int l = pDisplayItemHeight * pColorNum - ZRB_VISIBLE_SIZE.height - 200 - posY;
 		sp = createTimbo( l + pUpSpeed * 2 , Point::ZERO );
 	}
@@ -231,15 +232,15 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 		sp = createTimbo( spLength , Point::ZERO );
 	}
 
-	// Ìí¼ÓÎ»ÖÃ
+	// æ·»åŠ ä½ç½®
 	int x , y;
-	//xÖá3¸öÎ»ÖÃËæ»ú
-	// µ¥ÏòËæ»úÆ«ÒÆÁ¿
+	//xè½´3ä¸ªä½ç½®éšæœº
+	// å•å‘éšæœºåç§»é‡
 	uniform_int_distribution<unsigned> width(0 , ZRB_VISIBLE_SIZE.width * 0.1);
 	int ran1 = width( engine );
-	// Ë«ÏòËæ»úÆ«ÒÆÁ¿
+	// åŒå‘éšæœºåç§»é‡
 	int ranOffsetX = -ran1 + ZRB_VISIBLE_SIZE.width * 0.05;
-	// ¸ú¾İ×îºóÌÙÌõÎ»ÖÃÉèÖÃ²»Í¬Î»ÖÃ
+	// è·Ÿæ®æœ€åè—¤æ¡ä½ç½®è®¾ç½®ä¸åŒä½ç½®
 	if ( preSp->getPositionX( ) <= ZRB_VISIBLE_SIZE.width * 0.25 )
 	{
 		ran = dis_0_1( engine ) + 1;
@@ -256,7 +257,7 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 	{
 		ran = dis_0_1( engine );
 	}
-	// ÉèÖÃ X ÖáÎ»ÖÃ
+	// è®¾ç½® X è½´ä½ç½®
 	switch ( ran )
 	{
 		case 0:
@@ -271,54 +272,54 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 		default:
 			break;
 	}
-	// ÅĞ¶ÏÌÙÌõ³¤¶ÈÊÇ·ñ´óÓÚ×îºóµÄÌÙÌõ
+	// åˆ¤æ–­è—¤æ¡é•¿åº¦æ˜¯å¦å¤§äºæœ€åçš„è—¤æ¡
 	if ( sp->getContentSize( ).height > preSp->getContentSize( ).height )
 	{
-		// ÊÇ, Ìí¼Óµ½×îºóÌÙÌõ height * 0.7 - height
+		// æ˜¯, æ·»åŠ åˆ°æœ€åè—¤æ¡ height * 0.7 - height
 		uniform_int_distribution<unsigned> heigh( 0 , preSp->getContentSize( ).height * 0.3 );
 		y = preSp->getContentSize( ).height*0.7 + heigh( engine ) + preSp->getPositionY( );
 	}
 	else
 	{
-		// ·ñ, Ìí¼Óµ½×îºóÌÙÌõµÄÉÏÃæ×ÔÉí³¤¶ÈµÄ 0.3 Ö®ÄÚ
+		// å¦, æ·»åŠ åˆ°æœ€åè—¤æ¡çš„ä¸Šé¢è‡ªèº«é•¿åº¦çš„ 0.3 ä¹‹å†…
 		uniform_int_distribution<unsigned> heigh( 0 , preSp->getContentSize( ).height * 0.3 );
 		y = preSp->getContentSize( ).height - heigh( engine ) + preSp->getPositionY( );
 	}
 	sp->setPosition( Point( x , y ) );
 
-	// ×İÏòµ¥ÁĞ
-	//gold  ¸ÅÂÊ
+	// çºµå‘å•åˆ—
+	//gold  æ¦‚ç‡
 	ran = dis_gold( engine );
 	if ( ran == 0 )
 	{
 
 		for ( int i = 0; i<sp->getContentSize( ).height / 45 / 3; i++ )
 		{
-			// Ìí¼Ó½ğ±Ò
+			// æ·»åŠ é‡‘å¸
 			Sprite *gold = Sprite::createWithSpriteFrameName( "gold" + pNameAfterStr + ".png" );
-			// Ğı×ªÈ¡Ïû
+			// æ—‹è½¬å–æ¶ˆ
 			//            RotateBy *rotate=RotateBy::create(2, 360);
 			//            gold->runAction(RepeatForever::create(rotate));
-			// ÅĞ¶ÏÌí¼ÓµÄÌÙÌõÔÚ×îºóÌÙÌõµÄÄÇ±ß
+			// åˆ¤æ–­æ·»åŠ çš„è—¤æ¡åœ¨æœ€åè—¤æ¡çš„é‚£è¾¹
 			if ( sp->getPositionX( ) - preSp->getPositionX( )>0 )
 			{
-				// ÔÚÓÒ±ß Ìí¼Ó½ğ±ÒÔÚÌÙÌõ×ó±ß
+				// åœ¨å³è¾¹ æ·»åŠ é‡‘å¸åœ¨è—¤æ¡å·¦è¾¹
 				gold->setPosition( Point( sp->getPositionX( ) - sp->getContentSize( ).width / 2 - gold->getContentSize( ).width / 2 , sp->getPositionY( ) + 45 * i + sp->getContentSize( ).height*0.3 ) );
 			}
 			else
 			{
-				// ÔÚ×ó±ß Ìí¼Ó½ğ±ÒÔÚÌÙÌõÓÒ±ß
+				// åœ¨å·¦è¾¹ æ·»åŠ é‡‘å¸åœ¨è—¤æ¡å³è¾¹
 				gold->setPosition( Point( sp->getPositionX( ) + sp->getContentSize( ).width / 2 + gold->getContentSize( ).width / 2 , sp->getPositionY( ) + 45 * i + sp->getContentSize( ).height*0.3 ) );
 			}
-			// ±£´æ½ğ±Ò
+			// ä¿å­˜é‡‘å¸
 			pBatchNode->addChild( gold , 5000 );
 			pGolds.pushBack( gold );
 		}
 	}
-	// ËÄ¸ö·½Õó
+	// å››ä¸ªæ–¹é˜µ
 	if ( preSp != pCurrentTimbo )
 	{
-		// ¸ÅÂÊ
+		// æ¦‚ç‡
 		ran = dis_gold( engine );
 		if ( ran == 2 )
 		{
@@ -329,11 +330,11 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 					Sprite *gold = Sprite::createWithSpriteFrameName( "gold" + pNameAfterStr + ".png" );
 					//                    RotateBy *rotate=RotateBy::create(2, 360);
 					//                    gold->runAction(RepeatForever::create(rotate));
-					// Ìí¼ÓÌÙÌõºÍ×îºóÌÙÌõµÄÖĞ¼äÎ»ÖÃ
+					// æ·»åŠ è—¤æ¡å’Œæœ€åè—¤æ¡çš„ä¸­é—´ä½ç½®
 					Point centerPos = Point( ( sp->getPositionX( ) + preSp->getPositionX( ) ) / 2 - gold->getContentSize( ).width / 2 , ( preSp->getBoundingBox( ).getMaxY( ) + sp->getBoundingBox( ).getMinY( ) ) / 2 - gold->getContentSize( ).height / 2 );
-					// ÉèÖÃ½ğ±ÒÎ»ÖÃ
+					// è®¾ç½®é‡‘å¸ä½ç½®
 					gold->setPosition( Point( centerPos.x + ( i*gold->getContentSize( ).width + 5 ) , centerPos.y + ( j*gold->getContentSize( ).height + 5 ) ) );
-					// ±£´æ½ğ±Ò
+					// ä¿å­˜é‡‘å¸
 					pBatchNode->addChild( gold , 5000 );
 					pGolds.pushBack( gold );
 				}
@@ -344,11 +345,11 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 	return sp;
 }
 
-// ¶¨Ê±Ìí¼ÓÌÙÌõ
+// å®šæ—¶æ·»åŠ è—¤æ¡
 void ZRBGameLayer::addTimboCall( float dt )
 {
 	ZRBBaseGameLayer::createTimbo( 250 , Vec2( ZRB_VISIBLE_SIZE.width / 2 , curHeight + ZRB_VISIBLE_SIZE.height * 3 / 2 ) );
-	// »ñÈ¡µ±Ç°ËùÔÚÌÙÌõ
+	// è·å–å½“å‰æ‰€åœ¨è—¤æ¡
 	for ( auto timbo : pTimbos )
 	{
 		if ( fabs( timbo->getPositionY( ) - pHero->getPositionY( ) ) < 250 )
@@ -369,7 +370,7 @@ void ZRBGameLayer::initTimbos( )
 			ZRBBaseGameLayer::createTimbo( ZRB_VISIBLE_SIZE.height * 1.7 , Vec2( ZRB_VISIBLE_SIZE.width / 2 , 60 + curHeight ) );
 		}
 		pCurrentTimbo = pTimbos.back( );
-		// Ìí¼ÓÌÙµÄ¶¥²¿
+		// æ·»åŠ è—¤çš„é¡¶éƒ¨
 		auto sp1 = Sprite::createWithSpriteFrameName( "timbo_start" + pNameAfterStr + ".png" );
 		sp1->setColor( pCurrentTimbo->getColor( ) );
 		sp1->setPosition( Point( pCurrentTimbo->getContentSize( ).width / 2 , pCurrentTimbo->getContentSize( ).height - sp1->getContentSize( ).height / 2 ) );
@@ -387,15 +388,15 @@ void ZRBGameLayer::replenishtimbosAndAddItem( )
 {
 	if ( pCurrentHeight + ZRB_VISIBLE_SIZE.height >= pUpdateHeight )
 	{
-		// ¿ÉÉı¼¶¸ß¶ÈÀÛ¼Ó
+		// å¯å‡çº§é«˜åº¦ç´¯åŠ 
 		pUpdateHeight = pUpdateHeight + ZRB_VISIBLE_SIZE.height;
-		//Ôö¼Ómenu
+		//å¢åŠ menu
 		if ( pUpdateHeight / pDisplayItemHeight >= pColorNum&&pColorNum<5 )
 		{
 			createMenuItem( );
 		}
 
-		// ÔÚ¿ÉÉı¼¶¸ß¶ÈÄÚÌí¼ÓÌÙÌõ
+		// åœ¨å¯å‡çº§é«˜åº¦å†…æ·»åŠ è—¤æ¡
 		while ( pTimbos.back( )->getPositionY( ) - pBegainHeight < pUpdateHeight )
 		{
 			createTimboRandomPosHaveGold( );
@@ -454,7 +455,11 @@ void ZRBGameLayer::gameBegain( cocos2d::Ref *sender )
 
 void ZRBGameLayer::showGameFinish( )
 {
-	// È¡ÏûµÄ¸üĞÂÈÕÆÚÑ¡ÔñÆ÷
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Die" ) );
+	}
+	// å–æ¶ˆçš„æ›´æ–°æ—¥æœŸé€‰æ‹©å™¨
 	pause( );
 	pIsLost = true;
 	ZRBGameFinishLayer *layer = ZRBGameFinishLayer::create( );
@@ -483,11 +488,11 @@ void ZRBGameLayer::showGameFinish( )
 
 void ZRBGameLayer::pauseItemClick( cocos2d::Ref *ref )
 {
-	// ´´½¨Ìí¼ÓÔİÍ£²ã
+	// åˆ›å»ºæ·»åŠ æš‚åœå±‚
 	ZRBGameMenuLayer *layer = ZRBGameMenuLayer::create( );
 	layer->setPosition( Point( -ZRB_VISIBLE_SIZE.width / 2 , curHeight - ZRB_VISIBLE_SIZE.height / 2 ) );
 	this->addChild( layer , layerBatchNodeBaseGame::menuItem , 1000 );
-	// ÓÎÏ·ÔİÍ£
+	// æ¸¸æˆæš‚åœ
 	Director::getInstance( )->pause( );
 }
 

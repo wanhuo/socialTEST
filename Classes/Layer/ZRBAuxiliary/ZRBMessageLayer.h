@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef __ZRBMessageLayer_H__
 #define __ZRBMessageLayer_H__
 
@@ -18,9 +18,9 @@ public:
 	void callback( );
 
 	/**
-	*  ÉèÖÃÏûÏ¢
+	*  è®¾ç½®æ¶ˆæ¯
 	*
-	*  @param mes ÏûÏ¢ÄÚÈİ, ÏûÏ¢¹ı³¤Ê±ÔÚÊÊµ±Î»ÖÃ²åÈë '\n'
+	*  @param mes æ¶ˆæ¯å†…å®¹, æ¶ˆæ¯è¿‡é•¿æ—¶åœ¨é€‚å½“ä½ç½®æ’å…¥ '\n'
 	*/
 	void setMessageLabel( std::string mes );
 

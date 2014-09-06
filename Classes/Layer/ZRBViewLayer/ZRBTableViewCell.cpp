@@ -1,7 +1,7 @@
-
+ï»¿
 #include "ZRBTableViewCell.h"
 
-// ³ÉÔ±±äÁ¿¸³³õÊ¼Öµ
+
 ZRBTableViewCell::ZRBTableViewCell( )
 {
 	_partFirst = 0;
@@ -19,15 +19,13 @@ ZRBTableViewCell::ZRBTableViewCell( )
 	_scorer = nullptr;
 }
 
-/**
-*  ÊÍ·Å×ÊÔ´
-*/
+
 ZRBTableViewCell::~ZRBTableViewCell( )
 {
 }
 
 
-// ³õÊ¼»¯³ÉÔ±
+
 bool ZRBTableViewCell::init( )
 {
 	if ( !TableViewCell::init( ) )
@@ -49,15 +47,15 @@ bool ZRBTableViewCell::init( )
 	_name->Label::create( );
 	_scorer->Label::create( );
 
-	// Ìí¼Ó×ÊÔ´Í¼Æ¬µ½ÄÚ´æ
+	// æ·»åŠ èµ„æºå›¾ç‰‡åˆ°å†…å­˜
 	cocos2d::SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
 
-	//´´½¨·Ö¸îÏß ÉèÖÃÃªµãÎªÏÂ±ßÔµÕıÖĞ
+	//åˆ›å»ºåˆ†å‰²çº¿ è®¾ç½®é”šç‚¹ä¸ºä¸‹è¾¹ç¼˜æ­£ä¸­
 	line = cocos2d::Sprite::createWithSpriteFrameName( "line.png" );
 	line->setAnchorPoint( cocos2d::Vec2( 0.5 , 0 ) );
 	this->addChild( line , 10 );
 
-	// ´´½¨±³¾°
+	// åˆ›å»ºèƒŒæ™¯
 	bg_layer = cocos2d::LayerColor::create( cocos2d::Color4B( 255 , 255 , 255 , 255 ) , 0 , 0 );
 	this->addChild( bg_layer );
 
@@ -65,7 +63,7 @@ bool ZRBTableViewCell::init( )
 }
 
 
-// ÉèÖÃÅÅÃû×ÖÌåµÄ foutInfo
+// è®¾ç½®æ’åå­—ä½“çš„ foutInfo
 void ZRBTableViewCell::setFoutRanking( int x , std::string fout , cocos2d::Color3B color )
 {
 	_foutRanking.foutSize = x;
@@ -73,7 +71,7 @@ void ZRBTableViewCell::setFoutRanking( int x , std::string fout , cocos2d::Color
 	_foutRanking.foutColor = color;
 }
 
-// ÉèÖÃÍæ¼ÒÃû×Ö×ÖÌåµÄ foutInfo
+// è®¾ç½®ç©å®¶åå­—å­—ä½“çš„ foutInfo
 void ZRBTableViewCell::setFoutName( int x , std::string fout , cocos2d::Color3B color )
 {
 	_foutName.foutSize = x;
@@ -81,7 +79,7 @@ void ZRBTableViewCell::setFoutName( int x , std::string fout , cocos2d::Color3B 
 	_foutName.foutColor = color;
 }
 
-// ÉèÖÃ³É¼¨×ÖÌåµÄ foutInfo
+// è®¾ç½®æˆç»©å­—ä½“çš„ foutInfo
 void ZRBTableViewCell::setFoutScorer( int x , std::string fout , cocos2d::Color3B color )
 {
 	_foutScorer.foutSize = x;
@@ -90,101 +88,101 @@ void ZRBTableViewCell::setFoutScorer( int x , std::string fout , cocos2d::Color3
 }
 
 
-// ÉèÖÃÅÅÃû label
+// è®¾ç½®æ’å label
 void ZRBTableViewCell::setRanking( )
 {
 
-	// »ñÈ¡Î»ÖÃ
+	// è·å–ä½ç½®
 	auto pos = cocos2d::Vec2( getSize( ).height * getpartFirst( ) / 2 , getSize( ).height / 2 );
 
 	if ( !_ranking )
 	{
-		// ´´½¨ _ranking label
+		// åˆ›å»º _ranking label
 		_ranking = cocos2d::Label::createWithTTF( "" , _foutRanking.fout , _foutRanking.foutSize );
 
-		//ÉèÖÃÃªµã  ÕıÖĞ
+		//è®¾ç½®é”šç‚¹  æ­£ä¸­
 		_ranking->setAnchorPoint( cocos2d::Vec2( 0.5 , 0.5 ) );
-		// ÉèÖÃÎ»ÖÃ
+		// è®¾ç½®ä½ç½®
 		_ranking->setPosition( pos );
-		// ÉèÖÃÑÕÉ«
+		// è®¾ç½®é¢œè‰²
 		_ranking->setColor( _foutRanking.foutColor );
-		// ÉèÖÃ Tag
+		// è®¾ç½® Tag
 		_ranking->setTag( frist );
 
 	}
 
 }
 
-// ÉèÖÃÍ·Ïñ sprite
+// è®¾ç½®å¤´åƒ sprite
 void ZRBTableViewCell::setPic( )
 {
-	// »ñÈ¡Î»ÖÃ
+	// è·å–ä½ç½®
 	auto pos = cocos2d::Vec2( getSize( ).height * ( getpartFirst( ) + getpartSecond( ) / 2 ) , getSize( ).height / 2 );
 
 	if ( !_pic )
 	{
 
-		// ´´½¨ _pic spiter
+		// åˆ›å»º _pic spiter
 		_pic = cocos2d::Sprite::create( );
 
-		// ÉèÖÃÃªµã  ÕıÖĞ
+		// è®¾ç½®é”šç‚¹  æ­£ä¸­
 		_pic->setAnchorPoint( cocos2d::Vec2( 0.5 , 0.5 ) );
-		// ÉèÖÃÎ»ÖÃ
+		// è®¾ç½®ä½ç½®
 		_pic->setPosition( pos );
-		// ÉèÖÃ Tag
+		// è®¾ç½® Tag
 		_pic->setTag( scound );
 	}
 
 
 }
 
-// ÉèÖÃÃû×Ö label
+// è®¾ç½®åå­— label
 void ZRBTableViewCell::setName( )
 {
-	// »ñÈ¡Î»ÖÃ
+	// è·å–ä½ç½®
 	auto pos = cocos2d::Vec2( getSize( ).height * ( getpartFirst( ) + getpartSecond( ) ) , getSize( ).height / 2 );
 
 	if ( !_name )
 	{
-		// ´´½¨ _name label
+		// åˆ›å»º _name label
 		_name = cocos2d::Label::createWithTTF( "" , _foutName.fout , _foutName.foutSize );
 
-		//ÉèÖÃÃªµã  ×ó¶ÔÆë Ë®Æ½¾ÓÖĞ
+		//è®¾ç½®é”šç‚¹  å·¦å¯¹é½ æ°´å¹³å±…ä¸­
 		_name->setAnchorPoint( cocos2d::Vec2( 0 , 0.5 ) );
-		// ÉèÖÃÎ»ÖÃ
+		// è®¾ç½®ä½ç½®
 		_name->setPosition( pos );
-		// ÉèÖÃÑÕÉ«
+		// è®¾ç½®é¢œè‰²
 		_name->setColor( _foutName.foutColor );
-		// ÉèÖÃ Tag
+		// è®¾ç½® Tag
 		_name->setTag( three );
 	}
 
 }
 
-// ÉèÖÃ³É¼¨ label
+// è®¾ç½®æˆç»© label
 void ZRBTableViewCell::setScorer( )
 {
 
-	// »ñÈ¡Î»ÖÃ
+	// è·å–ä½ç½®
 	auto pos = cocos2d::Vec2( getSize( ).height * ( getpartFirst( ) + getpartSecond( ) + getpartThree( ) ) , getSize( ).height / 2 );
 
 	if ( !_scorer )
 	{
-		// ´´½¨ _scorer label
+		// åˆ›å»º _scorer label
 		_scorer = cocos2d::Label::createWithTTF( "" , _foutScorer.fout , _foutScorer.foutSize );
 
-		//ÉèÖÃÃªµã  ×ó¶ÔÆë ´¹Ö±¾ÓÖĞ
+		//è®¾ç½®é”šç‚¹  å·¦å¯¹é½ å‚ç›´å±…ä¸­
 		_scorer->setAnchorPoint( cocos2d::Vec2( 0 , 0.5 ) );
-		// ÉèÖÃÎ»ÖÃ
+		// è®¾ç½®ä½ç½®
 		_scorer->setPosition( pos );
-		// ÉèÖÃÑÕÉ«
+		// è®¾ç½®é¢œè‰²
 		_scorer->setColor( _foutScorer.foutColor );
-		// ÉèÖÃ Tag
+		// è®¾ç½® Tag
 		_scorer->setTag( four );
 	}
 }
 
-// ÉèÖÃ±³¾°ÑÕÉ«
+// è®¾ç½®èƒŒæ™¯é¢œè‰²
 void ZRBTableViewCell::setBackgroundColor( cocos2d::Color3B color )
 {
 	bg_layer->setColor( color );
@@ -192,27 +190,27 @@ void ZRBTableViewCell::setBackgroundColor( cocos2d::Color3B color )
 
 
 /**
-*  ¼ÓÔØÊ±µ÷ÓÃ
-*  ÉèÖÃ ZRBTableViewCell ÖĞ¸÷×Ó½ÚµãµÄÊôĞÔ
-*  µÚÒ»´Î¼ÓÔØÊ±Ìí¼Óµ½ ZRBTableViewCell ÖĞ
+*  åŠ è½½æ—¶è°ƒç”¨
+*  è®¾ç½® ZRBTableViewCell ä¸­å„å­èŠ‚ç‚¹çš„å±æ€§
+*  ç¬¬ä¸€æ¬¡åŠ è½½æ—¶æ·»åŠ åˆ° ZRBTableViewCell ä¸­
 */
 void ZRBTableViewCell::onEnter( )
 {
 	Node::onEnter( );
 
-	// ÉèÖÃ·Ö¸îÏßÔÚ ZRBTableViewCell ÏÂ·½±ßÔµ
+	// è®¾ç½®åˆ†å‰²çº¿åœ¨ ZRBTableViewCell ä¸‹æ–¹è¾¹ç¼˜
 	line->setPosition( getSize( ).width / 2 , 0 );
 
-	//  ZRBTableViewCell ±³¾°ÉèÖÃ´óĞ¡
+	//  ZRBTableViewCell èƒŒæ™¯è®¾ç½®å¤§å°
 	bg_layer->setContentSize( getSize( ) );
 
-	//ÉèÖÃ ¸÷×Ó½ÚµãµÄÊôĞÔ
+	//è®¾ç½® å„å­èŠ‚ç‚¹çš„å±æ€§
 	setRanking( );
 	setPic( );
 	setName( );
 	setScorer( );
 
-	// ÅĞ¶Ï  ZRBTableViewCell ÖĞÊÇ·ñÒÑÌí¼Ó×Ó½Úµã,    Ã»ÓĞÔòÌí¼Ó
+	// åˆ¤æ–­  ZRBTableViewCell ä¸­æ˜¯å¦å·²æ·»åŠ å­èŠ‚ç‚¹,    æ²¡æœ‰åˆ™æ·»åŠ 
 	if ( getRanking( ) && !this->getChildByTag( frist ) )
 	{
 		this->addChild( getRanking( ) );

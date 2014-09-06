@@ -1,4 +1,4 @@
-
+ï»¿
 #include "ZRBMenuBase.h"
 
 
@@ -8,9 +8,9 @@ bool ZRBMenuBase::init( )
 	{
 		return false;
 	}
-	// Í¼Æ¬¼ÓÔØµ½ÄÚ´æ
+	// å›¾ç‰‡åŠ è½½åˆ°å†…å­˜
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
-	// Ìí¼Ó±³¾°Í¼Æ¬
+	// æ·»åŠ èƒŒæ™¯å›¾ç‰‡
 	createBackGroud( );
 
 	return true;
@@ -24,15 +24,15 @@ void ZRBMenuBase::createBackGroud( )
 
 
 /**
-*  ´´½¨½øÈëµÄ¶¯×÷
+*  åˆ›å»ºè¿›å…¥çš„åŠ¨ä½œ
 */
 void ZRBMenuBase::createAtionIn( )
 {
 
-	//  ÔÚ0.25ÃëÏòÏÂÒÆ¶¯Ò»¸öÆÁÄ»µÄ¸ß¶È
+	//  åœ¨0.25ç§’å‘ä¸‹ç§»åŠ¨ä¸€ä¸ªå±å¹•çš„é«˜åº¦
 	_actionOut = MoveBy::create( 0.15f , Vec2( 0 , -ZRB_VISIBLE_SIZE.height ) );
 
-	// ÉèÖÃ¶¯×÷
+	// è®¾ç½®åŠ¨ä½œ
 	//setActionOut( moveDown );
 
 }
@@ -40,16 +40,16 @@ void ZRBMenuBase::createAtionIn( )
 
 void ZRBMenuBase::createAtionOut( )
 {
-	// Ğı×ª15¶È Ê±¼ä0.15Ãë
+	// æ—‹è½¬15åº¦ æ—¶é—´0.15ç§’
 	auto rotate = RotateBy::create( 0.1f , 5 );
 
-	// ÔÚ0.5ÃëÄÚÏÂ½µÒ»¸öÆÁÄ»µÄ¸ß¶È
+	// åœ¨0.5ç§’å†…ä¸‹é™ä¸€ä¸ªå±å¹•çš„é«˜åº¦
 	auto moveDown = MoveBy::create( 0.2f , Vec2( 0 , -ZRB_VISIBLE_SIZE.height ) );
 
-	// Í¬Ê±ÏòÏÂÒÆ¶¯ºÍĞı×ª
+	// åŒæ—¶å‘ä¸‹ç§»åŠ¨å’Œæ—‹è½¬
 	_actionIn = Spawn::create( rotate , moveDown , NULL );
 	_actionIn->retain( );
-	// ÉèÖÃ¶¯×÷
+	// è®¾ç½®åŠ¨ä½œ
 	/*setActionIn( moveRotate );*/
 }
 

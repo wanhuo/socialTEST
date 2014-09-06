@@ -1,4 +1,4 @@
-
+ï»¿
 #include "ZRBHomeLayer.h"
 
 #include "../ZRBGame/ZRBGameLayer/ZRBGameLayer.h"
@@ -22,7 +22,7 @@ bool ZRBHomeLayer::init( )
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "gameFinish_Layer.plist" , "gameFinish_Layer.png" );
 
-	// È¡³ö±£´æµÄÊý¾Ý
+	// å–å‡ºä¿å­˜çš„æ•°æ®
 	switch ( ZRBUserDate::getInstance( )->getDateInt( KEY_CHECK_ROLE ) )
 	{
 		case 0:

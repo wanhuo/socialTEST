@@ -1,4 +1,4 @@
-
+ï»¿
 
 #ifndef __ZRBMenuSet_H__
 #define __ZRBMenuSet_H__
@@ -11,17 +11,17 @@ class ZRBMenuSet : public ZRBMenuBase
 {
 
 private:
-	// ´´½¨ _backboard ½ÓÊÕ menubaseÖĞµÄµã¾ÅÍ¼
+	// åˆ›å»º _backboard æ¥æ”¶ menubaseä¸­çš„ç‚¹ä¹å›¾
 	CC_SYNTHESIZE_RETAIN( Scale9Sprite * , _backboard , Backboard );
 
 public:
 
 	virtual bool init( );
 
-	// ÉèÖÃ¸÷¸ö°´Å¥¶ÔÓ¦µ¯´°²Ëµ¥
+	// è®¾ç½®å„ä¸ªæŒ‰é’®å¯¹åº”å¼¹çª—èœå•
 	Menu * setSetting( );
 
-	// Setting »Øµ÷º¯Êı
+	// Setting å›è°ƒå‡½æ•°
 	void call_music( );
 	void call_sound( );
 	void call_about( );

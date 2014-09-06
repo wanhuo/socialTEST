@@ -1,4 +1,4 @@
-
+ï»¿
 
 #include "ZRBMarketRole.h"
 
@@ -31,9 +31,9 @@ bool ZRBMarketRole::init( )
 	strChar.push_back( ZRBLanguage::getValue( "Market_role_chr_2" ) );
 	strChar.push_back( ZRBLanguage::getValue( "Market_role_chr_1" ) );
 
-	//    strIntr.push_back("Ð¡ÀñÒ»·Ý");
-	//    strIntr.push_back("ÎÞÒâåâåË");
-	//    strIntr.push_back("×îÇ¿ÅÄµµ");
+	//    strIntr.push_back("å°ç¤¼ä¸€ä»½");
+	//    strIntr.push_back("æ— æ„é‚‚é€…");
+	//    strIntr.push_back("æœ€å¼ºæ‹æ¡£");
 
 	_color.push_back( Color3B( 246 , 173 , 100 ) );
 	_color.push_back( Color3B( 91 , 141 , 53 ) );
@@ -44,7 +44,7 @@ bool ZRBMarketRole::init( )
 		SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( p->plist , p->png );
 	}
 
-	// ÉèÖÃ´óÐ¡
+	// è®¾ç½®å¤§å°
 	if ( ZRB_VISIBLE_SIZE.height > 1100 )
 	{
 		size = Size( 410 , 535 );
@@ -64,7 +64,7 @@ bool ZRBMarketRole::init( )
 	pBuy [ 1 ] = ZRBUserDate::getInstance( )->getDateBool( KEY_ROLE_ONE );
 	pBuy [ 2 ] = ZRBUserDate::getInstance( )->getDateBool( KEY_ROLE_TWO );
 
-	// ´´½¨ pageView
+	// åˆ›å»º pageView
 	pageView = ui::PageView::create( );
 	pageView->setSize( size );
 	pageView->setPosition( Vec2( 0 , 15 ) );
@@ -115,7 +115,7 @@ void ZRBMarketRole::roleLayer( )
 	for ( int i = 0; i < 3; i++ )
 	{
 		float scale = size.height / 535;
-		// ´´½¨½ÇÉ«Ãû×Ö label
+		// åˆ›å»ºè§’è‰²åå­— label
 		auto layer = ui::Layout::create( );
 		layer->setColor( Color3B( 210 , 234 , 254 ) );
 		auto name = Label::createWithTTF( ttfName , strName.at( i ) );
@@ -124,14 +124,14 @@ void ZRBMarketRole::roleLayer( )
 		name->setScale( scale );
 		layer->addChild( name );
 
-		// ´´½¨½ÇÉ«ÌØÐÔ label
+		// åˆ›å»ºè§’è‰²ç‰¹æ€§ label
 		auto characteristic = Label::createWithTTF( ttfChar , strChar.at( i ) );
 		characteristic->setPosition( size.width / 2 , size.height - name->getContentSize( ).height - characteristic->getContentSize( ).height / 2 );
 		characteristic->setColor( Color3B( 0 , 0 , 0 ) );
 		characteristic->setScale( scale );
 		layer->addChild( characteristic );
 
-		// ´´½¨½ÇÉ« sprite
+		// åˆ›å»ºè§’è‰² sprite
 		auto pic = Sprite::createWithSpriteFrameName( "hero" + hero.at( i )->NameAfter + ".png" );
 		pic->setPosition( size.width / 2 , size.height / 2 );
 		pic->setScale( scale );
@@ -157,13 +157,13 @@ void ZRBMarketRole::roleLayer( )
 			timbo = tim;
 		}
 
-		//        // ´´½¨½ÇÉ«ÌØÉ« label
+		//        // åˆ›å»ºè§’è‰²ç‰¹è‰² label
 		//        auto introduction = Label::createWithTTF(ttfIntr, strIntr.at(i));
 		//        introduction->setPosition(size.width / 2, (size.height - pic->getContentSize().height - introduction->getContentSize().height * 2) / 2);
 		//        introduction->setColor(Color3B(0, 0, 0));
 		//        layer->addChild(introduction);
 
-		// Ñ¡ÖÐÍ¼±ê
+		// é€‰ä¸­å›¾æ ‡
 		auto check = Sprite::createWithSpriteFrameName( "check.png" );
 		check->setPosition( timbo->getContentSize( ).width / 2 , timbo->getContentSize( ).height );
 		check->setScale( scale );
@@ -178,20 +178,20 @@ void ZRBMarketRole::roleLayer( )
 			check->setVisible( false );
 		}
 
-		// ´´½¨Ê¹ÓÃ°´Å¥
+		// åˆ›å»ºä½¿ç”¨æŒ‰é’®
 		auto useBuy = MenuItemImage::create( );
 		useBuy->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( ZRBLanguage::getValue( "Pic_market_use" ) ) );
 		useBuy->setPosition( 0 , useBuy->getContentSize( ).height * 3 / 4 + 15 );
 		useBuy->setScale( scale );
-		// Ìí¼Ó»Øµ÷
+		// æ·»åŠ å›žè°ƒ
 		useBuy->setCallback( CC_CALLBACK_0( ZRBMarketRole::callUse , this ) );
 
-		// Ìí¼Ó½ð±Òµ×ÎÆ
+		// æ·»åŠ é‡‘å¸åº•çº¹
 		auto bg_gold = Sprite::createWithSpriteFrameName( "gold_bg.png" );
 		bg_gold->setScale( 0.7 );
 		bg_gold->setPosition( useBuy->getContentSize( ).width / 2 , bg_gold->getContentSize( ).height / 2 );
 		bg_gold->setVisible( false );
-		// ÉèÖÃ½ð±Ò×ÖÑù
+		// è®¾ç½®é‡‘å¸å­—æ ·
 		auto pGoldNum = Label::createWithTTF( "0" , "customfout.otf" , 30 );
 		pGoldNum->setPosition( bg_gold->getContentSize( ).width * 0.5 , bg_gold->getContentSize( ).height * 0.5 );
 		pGoldNum->setColor( Color3B( 0 , 0 , 0 ) );
@@ -201,7 +201,7 @@ void ZRBMarketRole::roleLayer( )
 		use_buy.push_back( useBuy );
 
 
-		// ´´½¨²Ëµ¥
+		// åˆ›å»ºèœå•
 		auto menu = Menu::create( useBuy , NULL );
 		menu->setPosition( size.width / 2 , 0 );
 		layer->addChild( menu );
@@ -212,17 +212,21 @@ void ZRBMarketRole::roleLayer( )
 
 void ZRBMarketRole::callUse( )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	auto idx = pageView->getCurPageIndex( );
 	auto gold = ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM );
 	if ( pBuy [ idx ] )
 	{
-		// ÉèÖÃÑ¡ÔñÍ¼±êÏÔÊ¾
+		// è®¾ç½®é€‰æ‹©å›¾æ ‡æ˜¾ç¤º
 		for ( auto &check : _check )
 		{
 			check->setVisible( false );
 		}
 		_check.at( idx )->setVisible( true );
-		// ´æ´¢Ñ¡Ôñ
+		// å­˜å‚¨é€‰æ‹©
 		ZRBTheme::setCurrentHero( hero.at( idx ) );
 		ZRBUserDate::getInstance( )->saveData( KEY_CHECK_ROLE , &idx );
 		NotificationCenter::getInstance( )->postNotification( "NOTIFICATION_Hero" );
@@ -230,10 +234,10 @@ void ZRBMarketRole::callUse( )
 	else if ( gold >= pPrice [ idx ] )
 	{
 		bool t = true;
-		// ¼õÈ¥½ð±Ò
+		// å‡åŽ»é‡‘å¸
 		gold -= pPrice [ idx ];
 		ZRBUserDate::getInstance( )->saveData( KEY_DATA_GOLDNUM , &gold );
-		// Ñ¡Ôñ¹ºÂò
+		// é€‰æ‹©è´­ä¹°
 		switch ( idx )
 		{
 			case 1:
@@ -258,7 +262,7 @@ void ZRBMarketRole::callUse( )
 		mes->setGlobalZOrder( 200 );
 		this->addChild( mes );
 
-		// ·¢ËÍÐÅÏ¢
+		// å‘é€ä¿¡æ¯
 		NotificationCenter::getInstance( )->postNotification( "NOTIFICATION_Gold" , __Integer::create( gold ) );
 	}
 	else

@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef __ZRBMenuMarket_H__
 #define __ZRBMenuMarket_H__
 
@@ -11,32 +11,32 @@ class ZRBMenuMarket : public ZRBMenuBase
 {
 private:
 
-	//  market µ¯´°Î»ÖÃĞŞÕı ( Æ«ÓÒ 35)
+	//  market å¼¹çª—ä½ç½®ä¿®æ­£ ( åå³ 35)
 	const int revise = 35;
 
-	// ²àÃæ°´Å¥Î»ÖÃĞŞÕı²ÎÊı
+	// ä¾§é¢æŒ‰é’®ä½ç½®ä¿®æ­£å‚æ•°
 	const int buttonRevise = 1;
 
-	// Ìí¼ÓÉÌ³ÇÑ¡Ôñ°´Å¥ ( µÀ¾ß, ÈËÎï, ½ğ±Ò)
+	// æ·»åŠ å•†åŸé€‰æ‹©æŒ‰é’® ( é“å…·, äººç‰©, é‡‘å¸)
 	//    MenuItemImage * pProp;
 	MenuItemImage * pRole;
 	MenuItemImage * pGold_buy;
 
-	// ÉÌ³Ç²Ëµ¥
+	// å•†åŸèœå•
 	Menu * pMenuMarker;
 
-	// ·ÖÒ³
+	// åˆ†é¡µ
 	Layer * paging;
 
-	// Ìí¼ÓÉÌ³Ç·ÖÒ³±êÌâ
+	// æ·»åŠ å•†åŸåˆ†é¡µæ ‡é¢˜
 	Label * pTitle;
-	// Ìí¼Ó½ğ±ÒÊıÁ¿×ÖÌå
+	// æ·»åŠ é‡‘å¸æ•°é‡å­—ä½“
 	Label * pGoldNum;
 
-	//  ±£´æ market µ¯´°´óĞ¡
+	//  ä¿å­˜ market å¼¹çª—å¤§å°
 	Size size;
 
-	// ´´½¨ _backboard ½ÓÊÕ menubaseÖĞµÄµã¾ÅÍ¼
+	// åˆ›å»º _backboard æ¥æ”¶ menubaseä¸­çš„ç‚¹ä¹å›¾
 	CC_SYNTHESIZE_RETAIN( Scale9Sprite * , _backboard , Backboard );
 
 public:
@@ -45,7 +45,7 @@ public:
 
 	Menu * setMarket( );
 
-	// market »Øµ÷º¯Êı
+	// market å›è°ƒå‡½æ•°
 	//    void call_prop();
 	void call_role( );
 	void call_gold_buy( );
@@ -53,7 +53,7 @@ public:
 	void call_back( );
 	void call_clear( );
 
-	// Éè½ğ±Ò
+	// è®¾é‡‘å¸
 	void setGoldNum( Ref * sender );
 
 	CC_SYNTHESIZE( SpriteBatchNode * , pBatchNode , BatchNode );

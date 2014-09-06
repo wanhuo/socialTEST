@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef __ZRBPageView_H__
 #define __ZRBPageView_H__
 
@@ -19,26 +19,26 @@ class ZRBMenu;
 class ZRBPageView : public Layer
 {
 private:
-	// Ö÷ÌâÊÇ·ñ½âËø
+	// ä¸»é¢˜æ˜¯å¦è§£é”
 	bool page1;
 	bool page2;
 	bool page3;
 	bool page4;
-	// TODO: ±£´æÖ÷Ìâ¼Û¸ñ
+	// TODO: ä¿å­˜ä¸»é¢˜ä»·æ ¼
 	const std::vector<int>PagePrice;
 
-	// Ìí¼Ó¼àÌı
+	// æ·»åŠ ç›‘å¬
 	void pageEventListener( Ref* ref , ui::PageView::EventType type );
 	// Add menu in pageview
 	ZRBMenu * pMenu;
 
-	//µ¯´°´óĞ¡
+	//å¼¹çª—å¤§å°
 	Size size;
-	// ±³°å
+	// èƒŒæ¿
 	Scale9Sprite * backGrond;
-	// ÓÎÏ·²ã
+	// æ¸¸æˆå±‚
 	ZRBGameLayer * gameLayer;
-	// Í¸Ã÷ÕÚµ²²ã
+	// é€æ˜é®æŒ¡å±‚
 	LayerColor * opacityLayer;
 
 public:
@@ -59,19 +59,19 @@ public:
 	// Set pageview
 	void setPageView( );
 
-	// Ìí¼Óµ¯´°
+	// æ·»åŠ å¼¹çª—
 	void popup( LayerColor * layer , int idx );
 
-	// ¹ºÂò½ğ±Ò
+	// è´­ä¹°é‡‘å¸
 	void callBuyGold( );
 
-	// ¹ºÂò
+	// è´­ä¹°
 	void callBuy( LayerColor * layer , int idx );
-	// ¿ªÊ¼ÓÎÏ·
+	// å¼€å§‹æ¸¸æˆ
 	void gameBegain( Ref * sender );
-	// ¸üĞÂ½ğ±ÒÏÔÊ¾
+	// æ›´æ–°é‡‘å¸æ˜¾ç¤º
 	void updataGold( Ref * sender );
-	// ÉèÖÃÍ¸Ã÷¶È
+	// è®¾ç½®é€æ˜åº¦
 	void setOpacityLayer( float p );
 	// Set schedule callback function
 	void schedulecallback( float dt );

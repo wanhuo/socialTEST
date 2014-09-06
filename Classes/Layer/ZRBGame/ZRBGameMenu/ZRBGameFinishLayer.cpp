@@ -1,4 +1,4 @@
-
+ï»¿
 
 #include "ZRBGameFinishLayer.h"
 #include "Scene/ZRBScene.h"
@@ -124,7 +124,7 @@ void ZRBGameFinishLayer::initLayer( )
 	pSummaryGoldNumLabel->setColor( Color3B( 69 , 193 , 255 ) );
 	bg->addChild( pSummaryGoldNumLabel );
 
-	// TODO °´Å¥ÏÂÆ«ÒÆ
+	// TODO æŒ‰é’®ä¸‹åç§»
 	int posY = -70;
 
 	auto restarItem = MenuItemImage::create( );
@@ -147,10 +147,10 @@ void ZRBGameFinishLayer::initLayer( )
 	bg->addChild( menu );
 }
 
-// ¸üÐÂÏÔÊ¾ÐÅÏ¢
+// æ›´æ–°æ˜¾ç¤ºä¿¡æ¯
 void ZRBGameFinishLayer::setInfo( int _distance , int _glod )
 {
-	// »ñÈ¡±£´æµÄ×î¸ß¼ÇÂ¼
+	// èŽ·å–ä¿å­˜çš„æœ€é«˜è®°å½•
 	auto score = ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_SCORE );
 
 	if ( score <= _distance )
@@ -174,7 +174,7 @@ void ZRBGameFinishLayer::setInfo( int _distance , int _glod )
 	pRoleGoldNumLabel->setString( String::createWithFormat( "%d" , additionGold )->getCString( ) );
 
 	pSummaryGoldNumLabel->setString( String::createWithFormat( "%d" , _glod + additionGold )->getCString( ) );
-	// ±£´æ½ð±Ò
+	// ä¿å­˜é‡‘å¸
 	auto gold = ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM );
 	gold += additionGold + _glod;
 	ZRBUserDate::getInstance( )->saveData( KEY_DATA_GOLDNUM , &gold );
@@ -185,16 +185,28 @@ void ZRBGameFinishLayer::setInfo( int _distance , int _glod )
 
 void ZRBGameFinishLayer::rankingClick( Ref *ref )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	this->addChild( ZRBMenuChars::create( ) , 10 );
 }
 
 void ZRBGameFinishLayer::restartClick( Ref *ref )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	NotificationCenter::getInstance( )->postNotification( "NOTIFICATION_Resume" , __Bool::create( false ) );
 }
 
 void ZRBGameFinishLayer::homeClick( Ref *ref )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	this->getScene( )->cleanup( );
 	// back home
 	Director::getInstance( )->replaceScene( ZRBScene::sceneCreate() );

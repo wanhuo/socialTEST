@@ -1,4 +1,4 @@
-
+ï»¿
 
 #ifndef __ZRBGameFinishLayer_H__
 #define __ZRBGameFinishLayer_H__
@@ -14,8 +14,8 @@ public:
 
 	virtual bool init( );
 	CREATE_FUNC( ZRBGameFinishLayer );
-	// Todo: Ìø×ªµÄ³¡¾° void setSceneManager( ZRBSceneManager _manager );
-	// ÉèÖÃ³É¼¨ºÍ½ğ±Ò
+	// Todo: è·³è½¬çš„åœºæ™¯ void setSceneManager( ZRBSceneManager _manager );
+	// è®¾ç½®æˆç»©å’Œé‡‘å¸
 	void setInfo( int _distance , int _glod );
 private:
 
@@ -26,17 +26,17 @@ private:
 	void homeClick( Ref *ref );
 
 	std::vector<float>addition;
-	//todo : Ìø×ª³¡¾°
+	//todo : è·³è½¬åœºæ™¯
 	// ZRBSceneManager pManager;
-	/// ¾àÀë ³É¼¨
+	/// è·ç¦» æˆç»©
 	Label *pDistanceLabel;
 	Label *pHeighScore;
 
-	/// »ù´¡½ğ±Ò
+	/// åŸºç¡€é‡‘å¸
 	Label *pBaseGoldNumLabel;
-	/// ÈËÎï½±Àø
+	/// äººç‰©å¥–åŠ±
 	Label *pRoleGoldNumLabel;
-	/// È«²¿½ğ±Ò
+	/// å…¨éƒ¨é‡‘å¸
 	Label *pSummaryGoldNumLabel;
 	Label *pNoLabel;
 };

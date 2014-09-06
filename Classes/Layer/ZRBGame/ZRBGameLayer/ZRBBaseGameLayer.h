@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef __ZRBBaseGameLayer_H__
 #define __ZRBBaseGameLayer_H__
 
@@ -39,10 +39,10 @@ enum layerBaseGame
 class ZRBBaseGameLayer : public Layer
 {
 protected:
-	// Ëæ»úÊıÉú³ÉÆ÷
+	// éšæœºæ•°ç”Ÿæˆå™¨
 	default_random_engine engine;
 
-	// ¾ùÔÈÀëÉ¢Ëæ»úÊı 0 1
+	// å‡åŒ€ç¦»æ•£éšæœºæ•° 0 1
 	uniform_int_distribution<unsigned> dis_0_1;
 	uniform_int_distribution<unsigned> dis_gold;
 
@@ -62,102 +62,102 @@ protected:
 	virtual void onEnter( );
 	virtual void update( float delta ) override;
 
-	///´øÓĞËæ»ú½ğ±ÒµÄÌÙÌõ
+	///å¸¦æœ‰éšæœºé‡‘å¸çš„è—¤æ¡
 	virtual Sprite * createTimboRandomPosHaveGold( );
 
 
 	/**
-	*  ´´½¨¸ø¶¨³¤¶ÈµÄÌÙÌõ
+	*  åˆ›å»ºç»™å®šé•¿åº¦çš„è—¤æ¡
 	*
-	*  @param length ÌÙÌõµÄ³¤¶È
-	*  @param pos    ÌÙÌõµÄÎ»ÖÃ
+	*  @param length è—¤æ¡çš„é•¿åº¦
+	*  @param pos    è—¤æ¡çš„ä½ç½®
 	*
-	*  @return ·µ»ØÌÙÌõ
+	*  @return è¿”å›è—¤æ¡
 	*/
 	virtual Sprite * createTimbo( float length , Point pos );
 
-	//³õÊ¼»¯ÌÙ
+	//åˆå§‹åŒ–è—¤
 	virtual void initTimbos( );
-	/// Ôö¼ÓÌÙºÍÔö¼Ó²Ëµ¥°´Å¥
+	/// å¢åŠ è—¤å’Œå¢åŠ èœå•æŒ‰é’®
 	virtual void replenishtimbosAndAddItem( );
-	/// °´Å¥µã»÷»Øµ÷
+	/// æŒ‰é’®ç‚¹å‡»å›è°ƒ
 	void colorItemClick( Ref *ref );
-	/// ÔİÍ£ÓÎÏ·
+	/// æš‚åœæ¸¸æˆ
 	virtual void pauseItemClick( Ref *ref );
-	/// ´´½¨²»¶¯±³¾°
+	/// åˆ›å»ºä¸åŠ¨èƒŒæ™¯
 	void setBg1( std::string fileNameOrFrameFileName );
 	/**
-	*  ±³¾°Ëæ»ú³öÏÖ ÏòºóÒÆ¶¯
+	*  èƒŒæ™¯éšæœºå‡ºç° å‘åç§»åŠ¨
 	*
-	*  @param ImageNum  ±³¾°Í¼Æ¬ÊıÁ¿
-	*  @param _isRanPos Î»ÖÃÊÇ·ñËæ»ú
+	*  @param ImageNum  èƒŒæ™¯å›¾ç‰‡æ•°é‡
+	*  @param _isRanPos ä½ç½®æ˜¯å¦éšæœº
 	*/
 	void setBg2( int ImageNum , bool _isRanPos );
 
-	/// ×ÓÀàÊµÏÖ
+	/// å­ç±»å®ç°
 	virtual void createTimboRandomPosHaveGoldOtherFunc( Sprite *preSp , Sprite *sp );
 	/// return pHero;
 	ZRBHeroSprite* getHero( );
 
 protected:
 
-	/// ¼ÆÁ¿³É¼¨
+	/// è®¡é‡æˆç»©
 	const int standard = 50;
-	/// ³õÊ¼»¯ÌÙÌõ
+	/// åˆå§‹åŒ–è—¤æ¡
 	void initObject( );
 	///    pCanJump=true;
 	void setCanJump( );
-	/// ´´½¨ÑÕÉ«°´Å¥ »¬¶¯ÍË³ö
+	/// åˆ›å»ºé¢œè‰²æŒ‰é’® æ»‘åŠ¨é€€å‡º
 	void createMenuItem( );
-	/// Ìøµ½ÏÂÒ»¸öÌÙ
+	/// è·³åˆ°ä¸‹ä¸€ä¸ªè—¤
 	void heroJumpNext( );
-	///  °´Å¥»¬¶¯³öÏÖ¶¯×÷
+	///  æŒ‰é’®æ»‘åŠ¨å‡ºç°åŠ¨ä½œ
 	void resetItemPos( );
-	/// ÓÎÏ·½áÊø
+	/// æ¸¸æˆç»“æŸ
 	virtual void showGameFinish( );
 
-	///  µ±Ç°ÑÕÉ«ÊıÁ¿
+	///  å½“å‰é¢œè‰²æ•°é‡
 	int pColorNum;
-	/// µ±Ç°¸ß¶È
+	/// å½“å‰é«˜åº¦
 	float pCurrentHeight;
-	/// Éı¼¶¸ß¶È
+	/// å‡çº§é«˜åº¦
 	float pUpdateHeight;
-	/// Ê§°Ü
+	/// å¤±è´¥
 	bool pIsLost;
-	/// ÄÜ·ñÌøÔ¾
+	/// èƒ½å¦è·³è·ƒ
 	bool pCanJump;
-	// ½ğ±ÒÊıÁ¿
+	// é‡‘å¸æ•°é‡
 	int pGoldNum;
-	/// ËØ²ÄÃû
+	/// ç´ æå
 	std::string pNameAfterStr;
 
-	/// ÓÎÏ·°´Å¥
+	/// æ¸¸æˆæŒ‰é’®
 	Menu *pMenu;
-	/// µ±Ç°³É¼¨
+	/// å½“å‰æˆç»©
 	Label *pScoreLabel;
-	/// µ±Ç°½ğ±Ò
+	/// å½“å‰é‡‘å¸
 	Label *pGoldNumLabel;
-	///µ±Ç°Õ¾×ÅµÄÌÙ
+	///å½“å‰ç«™ç€çš„è—¤
 	Sprite *pCurrentTimbo;
-	/// ²»¶¯±³¾°
+	/// ä¸åŠ¨èƒŒæ™¯
 	Sprite *pBg1;
-	/// »º´æ³Ø
+	/// ç¼“å­˜æ± 
 	SpriteBatchNode *pBatchNode;
-	//¾«Áé
+	//ç²¾çµ
 	ZRBHeroSprite *pHero;
-	/// °´Å¥Ô­Ê¼´óĞ¡
+	/// æŒ‰é’®åŸå§‹å¤§å°
 	Size pItemDefaultSize;
 
-	///5ÖÖÑÕÉ«
+	///5ç§é¢œè‰²
 	Color3B pAllColors [ 5 ];
-	//ÌÙs
+	//è—¤s
 	Vector<Sprite *> pTimbos;
 	Vector<Sprite *> pGolds;
-	/// ²Ëµ¥
+	/// èœå•
 	Vector<MenuItemSprite *> pItems;
-	///¾µÍ·ÏòÉÏµÄËÙ¶È
+	///é•œå¤´å‘ä¸Šçš„é€Ÿåº¦
 	CC_SYNTHESIZE( int , pUpSpeed , UpSpeed );
-	/// ÆÁÄ»¸ß¶ÈµÄÈı±¶
+	/// å±å¹•é«˜åº¦çš„ä¸‰å€
 	CC_SYNTHESIZE( int , pDisplayItemHeight , DisplayItemHeight );
 	
 };

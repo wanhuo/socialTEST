@@ -1,4 +1,4 @@
-
+﻿
 #include "ZRBMenu.h"
 
 
@@ -14,8 +14,8 @@ bool ZRBMenu::init( )
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" );
 	setBatchNode( SpriteBatchNode::create( "homeMenu.png" ) );
 	this->addChild( getBatchNode( ) );
-	//  TODO: ģʽȡ��
-	// ��ȡ�û�ѡ��ģʽ
+	//  TODO: 模式取消
+	// 获取用户选择模式
 	//    pModel = UserDate::getInstance()->getDateBool(KEY_CHECK_MODEL);
 
 	// Create button
@@ -37,7 +37,7 @@ bool ZRBMenu::init( )
 
 	pAddGold = MenuItemImage::create( );
 	pAddGold->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "gold_add.png" ) );
-	//  TODO: ģʽȡ��    
+	//  TODO: 模式取消    
 	//    pModelEndless = MenuItemImage::create();
 	//
 	//    pModelTime = MenuItemImage::create();
@@ -67,7 +67,7 @@ bool ZRBMenu::init( )
 	pMarket->setAnchorPoint( Point( 0 , 0 ) );
 	pCharts->setAnchorPoint( Point( 0 , 0 ) );
 	// Set superincumbent menu anchorpoint (0.5, 1)
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    pModelEndless->setAnchorPoint(Point(0.5, 1));
 	//    pModelTime->setAnchorPoint(Point(0.5, 1));
 
@@ -78,7 +78,7 @@ bool ZRBMenu::init( )
 	pBegin->setPosition( pKtplay->getContentSize( ).width + pKtplay->getPositionX( ) , 0 );
 	pMarket->setPosition( pBegin->getContentSize( ).width + pBegin->getPositionX( ) , 0 );
 	pCharts->setPosition( pMarket->getContentSize( ).width + pMarket->getPositionX( ) , 0 );
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    pModelEndless->setPosition(102, ZRB_VISIBLE_SIZE.height);
 	//    pModelTime->setPosition(238.5, ZRB_VISIBLE_SIZE.height);
 	pAddGold->setPosition( ZRB_VISIBLE_SIZE.width * 0.92 , ZRB_VISIBLE_SIZE.height * 0.95 );
@@ -105,7 +105,7 @@ bool ZRBMenu::init( )
 	pBegin->setCallback( CC_CALLBACK_1( ZRBMenu::begainGame , this ) );
 	pMarket->setCallback( CC_CALLBACK_0( ZRBMenu::market , this ) );
 	pCharts->setCallback( CC_CALLBACK_0( ZRBMenu::charts , this ) );
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    pModelEndless->setCallback(CC_CALLBACK_0(ZRBMenu::modelEndless, this));
 	//    pModelTime->setCallback(CC_CALLBACK_0(ZRBMenu::modelTime, this));
 	pAddGold->setCallback( CC_CALLBACK_0( ZRBMenu::addGold , this ) );
@@ -121,7 +121,7 @@ bool ZRBMenu::init( )
 	pMenuUp->setPosition( 0 , 200 );
 	this->addChild( pMenuUp , 100 );
 
-	// ע��֪ͨ
+	// 注册通知
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBMenu::setGold ) , "NOTIFICATION_Gold" , NULL );
 
 	return true;
@@ -146,7 +146,7 @@ void ZRBMenu::setButtonColor0( )
 	pMarket->setColor( Color3B( 115 , 190 , 205 ) );
 
 	pCharts->setColor( Color3B( 170 , 220 , 190 ) );
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    pModelEndless->setColor(Color3B(219, 146, 112));
 	//    
 	//    pModelTime->setColor(Color3B(98, 141, 164));
@@ -168,7 +168,7 @@ void ZRBMenu::setButtonColor1( )
 	pCharts->setColor( Color3B( 214 , 212 , 122 ) );
 
 
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    pModelEndless->setColor(Color3B(141, 219, 254));
 	//    
 	//    pModelTime->setColor(Color3B(214, 141, 254));
@@ -190,7 +190,7 @@ void ZRBMenu::setButtonColor2( )
 	pCharts->setColor( Color3B( 132 , 175 , 155 ) );
 
 
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    pModelEndless->setColor(Color3B(254, 214, 112));
 	//    
 	//    pModelTime->setColor(Color3B(254, 141, 214));
@@ -231,6 +231,10 @@ void ZRBMenu::SetButtenPointUp( float p )
 */
 void ZRBMenu::begainGame( Ref * ref )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	auto move = MoveBy::create( 0.3f , Vec2( 0 , 200 ) );
 
 	pAddGold->runAction( move );
@@ -243,7 +247,7 @@ void ZRBMenu::begainGame( Ref * ref )
 	pMenuUp->setEnabled( false );
 
 	NotificationCenter::getInstance( )->postNotification( "Game" , __Bool::create( true ) );
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    if (pModel)
 	//    {
 	//        ZRBManager::go(ZRBSceneManager::gameScene);
@@ -259,7 +263,10 @@ void ZRBMenu::begainGame( Ref * ref )
 */
 void ZRBMenu::addGold( )
 {
-	//    pGold->setString("00000000");
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	auto market = ZRBMenuMarket::create( );
 	this->addChild( market , 101 );
 	market->call_buy( );
@@ -273,7 +280,7 @@ void ZRBMenu::addGold( )
 void ZRBMenu::modelEndless( )
 {
 	//Determine whether endless model
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    if (!pModel)
 	//    {
 	//
@@ -284,7 +291,7 @@ void ZRBMenu::modelEndless( )
 	//        
 	//        // Set model is endless
 	//        pModel = true;
-	//        // ������Ϸģʽ
+	//        // 保存游戏模式
 	//        UserDate::getInstance()->saveData(KEY_CHECK_MODEL, &pModel);
 	//    }
 }
@@ -295,7 +302,7 @@ void ZRBMenu::modelEndless( )
 void ZRBMenu::modelTime( )
 {
 
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    //Determine whether endless model
 	//    if (pModel)
 	//    {
@@ -307,7 +314,7 @@ void ZRBMenu::modelTime( )
 	//        
 	//        // Set model is time
 	//        pModel = false;
-	//        // ������Ϸģʽ
+	//        // 保存游戏模式
 	//        UserDate::getInstance()->saveData(KEY_CHECK_MODEL, &pModel);
 	//    }
 }
@@ -317,6 +324,10 @@ void ZRBMenu::modelTime( )
 */
 void ZRBMenu::setting( )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	this->addChild( ZRBMenuSet::create( ) , 101 );
 }
 
@@ -326,7 +337,11 @@ void ZRBMenu::setting( )
 */
 void ZRBMenu::Ktplay( )
 {
-	/* Undone : ktplay ����
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
+	/* Undone : ktplay 社区
 	if ( KTPlayC::isEnabled( ) )
 	{
 		KTPlayC::show( );
@@ -334,8 +349,8 @@ void ZRBMenu::Ktplay( )
 	else*/
 	{
 		auto mes = ZRBMessageLayer::create( );
-		// UnresolvedMergeConflict ������ʾ
-		mes->setMessageLabel( "����������" );
+		// UnresolvedMergeConflict 中文显示
+		mes->setMessageLabel( "社区不可用" );
 		mes->setGlobalZOrder( 200 );
 		this->addChild( mes );
 	}
@@ -346,6 +361,10 @@ void ZRBMenu::Ktplay( )
 */
 void ZRBMenu::market( )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	this->addChild( ZRBMenuMarket::create( ) , 101 );
 }
 
@@ -354,6 +373,10 @@ void ZRBMenu::market( )
 */
 void ZRBMenu::charts( )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	this->addChild( ZRBMenuChars::create( ) , 101 );
 }
 
@@ -374,7 +397,7 @@ void ZRBMenu::setSsize( int x )
 */
 void ZRBMenu::setGold( Ref * sender )
 {
-	// ��ȡ���� ��ʾ
+	// 获取数据 显示
 	auto x = dynamic_cast<__Integer *>( sender );
 	pGold->setString( String::createWithFormat( "%d" , x->getValue( ) )->getCString( ) );
 }
@@ -384,12 +407,12 @@ void ZRBMenu::setGold( Ref * sender )
 ZRBMenu::ZRBMenu( )
 {
 	pSsize = 0;
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    pModel = true;
 }
 
 ZRBMenu::~ZRBMenu( )
 {
-	// �Ƴ�֪ͨ
+	// 移除通知
 	NotificationCenter::getInstance( )->removeAllObservers( this );
 }

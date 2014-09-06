@@ -1,4 +1,4 @@
-
+ï»¿
 #include "ZRBPageView.h"
 
 ZRBPageView::ZRBPageView( ) : PagePrice({ 0 , 4000 , 4000 , 4000 , 16000 })
@@ -26,34 +26,34 @@ bool ZRBPageView::init( )
 
 	ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
 
-	// »ñÈ¡³¡¾°½âËø×´Ì¬
+	// è·å–åœºæ™¯è§£é”çŠ¶æ€
 	page1 = ZRBUserDate::getInstance( )->getDateBool( KEY_MATERIAL_SWEET );
 	page2 = ZRBUserDate::getInstance( )->getDateBool( KEY_MATERIAL_BLUESKY );
 
-	// ³õÊ¼»¯ÎªÎ´½âËø
+	// åˆå§‹åŒ–ä¸ºæœªè§£é”
 	//    page1 = false;
 	//    page2 = false;
 	//    page3 = false;
 	//    page4 = false;
 
-	// ÉèÖÃµ¯´°´óĞ¡
+	// è®¾ç½®å¼¹çª—å¤§å°
 	size = Size( 400 , 300 );
 
-	// Ìí¼Ó²Ëµ¥
+	// æ·»åŠ èœå•
 	pMenu = ZRBMenu::create( );
 	pMenu->setButtonColor0( );
 	this->addChild( pMenu , 10 );
-	// Ìí¼ÓÓÎÏ·²ã
+	// æ·»åŠ æ¸¸æˆå±‚
 	gameLayer = ZRBGameLayer::create( );
 	this->addChild( gameLayer , 3 );
-	// Ìí¼ÓÍ¸Ã÷ÕÚµ²²ã
+	// æ·»åŠ é€æ˜é®æŒ¡å±‚
 	opacityLayer = LayerColor::create( Color4B( 0 , 0 , 0 , 0 ) , ZRB_VISIBLE_SIZE.width , ZRB_VISIBLE_SIZE.height );
 	this->addChild( opacityLayer , 4 );
 	// Set pageview
 	ZRBPageView::setPageView( );
 
 	// Add pageview
-	addChild( pageView , 5 );
+	addChild( pageView , 2 );
 	// Add schedule
 	schedule( schedule_selector( ZRBPageView::schedulecallback ) );
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBPageView::gameBegain ) , "Game" , nullptr );
@@ -80,21 +80,21 @@ void ZRBPageView::setPageView( )
 	pageView->setPosition( Point::ZERO );
 	pageView->addEventListener( CC_CALLBACK_2( ZRBPageView::pageEventListener , this ) );
 
-	// ´´½¨·ÖÒ³ 1
+	// åˆ›å»ºåˆ†é¡µ 1
 	auto gBG0 = Layer::create( );
-	// »ñÈ¡±³¾°ĞÅÏ¢
+	// è·å–èƒŒæ™¯ä¿¡æ¯
 	auto pMaterial0 = ZRBTheme::getMaterialBlueSky( );
-	// Ìí¼Óµ½ÄÚ´æ³Ø
+	// æ·»åŠ åˆ°å†…å­˜æ± 
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial0->plist , pMaterial0->png );
-	// ´´½¨±³¾°
+	// åˆ›å»ºèƒŒæ™¯
 
 
-	// ´´½¨·ÖÒ³¶ş
+	// åˆ›å»ºåˆ†é¡µäºŒ
 	auto gBG1 = Layer::create( );
 	auto pMaterial1 = ZRBTheme::getMaterialSummer( );
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial1->plist , pMaterial1->png );
 
-	// ´´½¨·ÖÒ³Èı
+	// åˆ›å»ºåˆ†é¡µä¸‰
 	auto gBG2 = Layer::create( );
 	auto pMaterial2 = ZRBTheme::getMaterialSweet( );
 	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial2->plist , pMaterial2->png );
@@ -113,7 +113,7 @@ void ZRBPageView::setPageView( )
 
 	if ( !page1 )
 	{
-		// ´´½¨µ¯´°²ã
+		// åˆ›å»ºå¼¹çª—å±‚
 		auto layer = LayerColor::create( Color4B( 0 , 0 , 0 , 120 ) );
 		popup( layer , 1 );
 		layer->setTag( 11 );
@@ -122,7 +122,7 @@ void ZRBPageView::setPageView( )
 
 	if ( !page2 )
 	{
-		// ´´½¨µ¯´°²ã
+		// åˆ›å»ºå¼¹çª—å±‚
 		auto layer = LayerColor::create( Color4B( 0 , 0 , 0 , 120 ) );
 		popup( layer , 2 );
 		layer->setTag( 11 );
@@ -324,7 +324,7 @@ void ZRBPageView::pageEventListener( Ref* ref , ui::PageView::EventType type )
 			{
 				case 0:
 				{
-					// ÉèÖÃÖ÷Ìâ
+					// è®¾ç½®ä¸»é¢˜
 					ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
 
 					pMenu->pMenuDown->setEnabled( true );
@@ -338,7 +338,7 @@ void ZRBPageView::pageEventListener( Ref* ref , ui::PageView::EventType type )
 				{
 					ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
 
-					// ÊÇ·ñ½âËø
+					// æ˜¯å¦è§£é”
 					if ( page1 )
 					{
 						pMenu->pMenuDown->setEnabled( true );
@@ -431,25 +431,25 @@ void ZRBPageView::pageEventListener( Ref* ref , ui::PageView::EventType type )
 }
 
 /**
-*  Î´½âËøµ¯´°
+*  æœªè§£é”å¼¹çª—
 *
-*  @param idx µ±Ç°Ò³
+*  @param idx å½“å‰é¡µ
 */
 void ZRBPageView::popup( LayerColor * layer , int idx )
 {
 
 	layer->setOpacity( 100 );
 
-	// »ñµÃ±³¾°Í¼²ã ÉèÖÃ´óĞ¡ Î»ÖÃ
+	// è·å¾—èƒŒæ™¯å›¾å±‚ è®¾ç½®å¤§å° ä½ç½®
 	backGrond = ZRBMenuBase::create( )->getBackGround( );
 	backGrond->setPreferredSize( size );
 	backGrond->setPosition( ZRB_VISIBLE_SIZE.width / 2 , ZRB_VISIBLE_SIZE.height / 2 );
 
-	// Ìí¼Óµ¯´°ÌáÊ¾ĞÅÏ¢
+	// æ·»åŠ å¼¹çª—æç¤ºä¿¡æ¯
 	auto massage = Label::createWithTTF( String::createWithFormat( "%s\n%d" , ZRBLanguage::getValue( "Lock_true" ) , PagePrice [ idx ] )->getCString( ) , "customfout.otf" , 30 );
 	massage->setPosition( size.width / 2 , size.height / 2 );
 	massage->setColor( Color3B( 69 , 193 , 255 ) );
-	// ÎÄ±¾¶ÔÆë·½Ê½
+	// æ–‡æœ¬å¯¹é½æ–¹å¼
 	massage->setAlignment( TextHAlignment::CENTER );
 	backGrond->addChild( massage );
 
@@ -458,18 +458,18 @@ void ZRBPageView::popup( LayerColor * layer , int idx )
 	btBuy->setPosition( size.width / 2 , size.height - btBuy->getContentSize( ).height );
 	btBuy->setCallback( CC_CALLBACK_0( ZRBPageView::callBuyGold , this ) );
 	btBuy->setTag( 14 );
-	// °´Å¥Ìí¼Ó½ğ±Ò
+	// æŒ‰é’®æ·»åŠ é‡‘å¸
 	auto price = Label::createWithTTF( String::createWithFormat( "%d" , ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM ) )->getCString( ) , "customfout.otf" , 25 );
 	price->setPosition( btBuy->getContentSize( ).width / 2 , btBuy->getContentSize( ).height / 2 );
 	price->setColor( Color3B( 0 , 0 , 0 ) );
 	price->setTag( 15 );
 	btBuy->addChild( price );
-	// Ìí¼Ó½ğ±Ò±³¾°
+	// æ·»åŠ é‡‘å¸èƒŒæ™¯
 	auto addPic = Sprite::createWithSpriteFrameName( "gold_add.png" );
 	addPic->setPosition( btBuy->getContentSize( ).width - 20 , btBuy->getContentSize( ).height / 2 );
 	btBuy->addChild( addPic );
 
-	// Ìí¼Ó¹ºÂò°´Å¥
+	// æ·»åŠ è´­ä¹°æŒ‰é’®
 	auto buy = MenuItemImage::create( );
 	buy->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "flow_bg.png" ) );
 	buy->setCallback( CC_CALLBACK_0( ZRBPageView::callBuy , this , layer , idx ) );
@@ -480,24 +480,24 @@ void ZRBPageView::popup( LayerColor * layer , int idx )
 	buyLabel->setColor( Color3B( 69 , 193 , 255 ) );
 	buy->addChild( buyLabel );
 
-	// Ìí¼Ó²Ëµ¥
+	// æ·»åŠ èœå•
 	auto menu = Menu::create( buy , btBuy , NULL );
 	menu->setPosition( 0 , 0 );
 	menu->setTag( 13 );
 	backGrond->addChild( menu );
 
-	// Ìí¼Óµ¯´°µ½±³¾°²ã
+	// æ·»åŠ å¼¹çª—åˆ°èƒŒæ™¯å±‚
 	layer->addChild( backGrond , 10 , 12 );
 }
 
 /**
-*  ¹ºÂò»Øµ÷
+*  è´­ä¹°å›è°ƒ
 *
-*  @param idx ¹ºÂòÄÇ¸öÖ÷Ìâ
+*  @param idx è´­ä¹°é‚£ä¸ªä¸»é¢˜
 */
 void ZRBPageView::callBuy( LayerColor * layer , int idx )
 {
-	// ¹ºÂò Ö÷Ìâ
+	// è´­ä¹° ä¸»é¢˜
 	auto gold = ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM );
 	if ( gold < PagePrice [ idx ] )
 	{
@@ -516,16 +516,16 @@ void ZRBPageView::callBuy( LayerColor * layer , int idx )
 	}
 	gold -= PagePrice [ idx ];
 	ZRBUserDate::getInstance( )->saveData( KEY_DATA_GOLDNUM , &gold );
-	// ·¢ËÍÍ¨Öª
+	// å‘é€é€šçŸ¥
 	NotificationCenter::getInstance( )->postNotification( "NOTIFICATION_Gold" , Integer::create( gold ) );
-	// ½âËø¹ºÂòµÄÖ÷Ìâ
+	// è§£é”è´­ä¹°çš„ä¸»é¢˜
 	switch ( idx )
 	{
 		case 0:
 			break;
 
 		case 1:
-			//  ±£´æ
+			//  ä¿å­˜
 			page1 = true;
 			ZRBUserDate::getInstance( )->saveData( KEY_MATERIAL_SWEET , &page1 );
 			break;
@@ -551,18 +551,18 @@ void ZRBPageView::callBuy( LayerColor * layer , int idx )
 	mes->setGlobalZOrder( 200 );
 	pageView->addChild( mes );
 
-	// ½âËøºó¿ÉÒÔÓÎÏ·
+	// è§£é”åå¯ä»¥æ¸¸æˆ
 	pMenu->pMenuDown->setEnabled( true );
 	pMenu->pMenuUp->setEnabled( true );
 	pMenu->pMenuDown->setOpacity( 255 );
 	pMenu->pMenuUp->setOpacity( 255 );
-	// ÇåÀí
+	// æ¸…ç†
 	layer->removeAllChildren( );
 	layer->setOpacity( 0 );
 
 }
 
-// Ìí¼Ó½ğ±Ò
+// æ·»åŠ é‡‘å¸
 void ZRBPageView::callBuyGold( )
 {
 	auto market = ZRBMenuMarket::create( );

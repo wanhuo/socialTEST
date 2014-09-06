@@ -1,4 +1,4 @@
-
+ï»¿
 #include "ZRBUserDate.h"
 
 static ZRBUserDate * _userdate = nullptr;
@@ -16,18 +16,18 @@ ZRBUserDate * ZRBUserDate::getInstance( )
 
 void ZRBUserDate::saveData( ZRB_DATE_KEY key , void *value )
 {
-	// Êı¾İÀàĞÍ×ª»»¶ÔÏó
+	// æ•°æ®ç±»å‹è½¬æ¢å¯¹è±¡
 	std::stringstream stream;
 
-	// ¸ù¾İ key Ñ¡Ôñ±£´æ·½Ê½
+	// æ ¹æ® key é€‰æ‹©ä¿å­˜æ–¹å¼
 	switch ( key )
 	{
-		// Ö±½Ó±£´æ
+		// ç›´æ¥ä¿å­˜
 		case KEY_CHECK_MODEL:
 		{
-			// ×ª»¯ĞÎ²Î
+			// è½¬åŒ–å½¢å‚
 			bool * p = ( bool * ) value;
-			// ±£´æ
+			// ä¿å­˜
 			UserDefault::getInstance( )->setBoolForKey( _Model , *p );
 		}
 			break;
@@ -45,7 +45,7 @@ void ZRBUserDate::saveData( ZRB_DATE_KEY key , void *value )
 			UserDefault::getInstance( )->setBoolForKey( _Sound , *p );
 		}
 			break;
-			// ¼ÓÃÜ±£´æ
+			// åŠ å¯†ä¿å­˜
 		case KEY_ROLE_ONE:
 		{
 			bool * p = ( bool * ) value;
@@ -105,11 +105,11 @@ void ZRBUserDate::saveData( ZRB_DATE_KEY key , void *value )
 		case KEY_DATA_GOLDNUM:
 		{
 			int * p = ( int * ) value;
-			// ×ª»»Êı¾İÎª×Ö·û´®
+			// è½¬æ¢æ•°æ®ä¸ºå­—ç¬¦ä¸²
 			std::string bte;
 			stream << *p;
 			stream >> bte;
-			// ¼ÓÃÜ
+			// åŠ å¯†
 			UserDefault::getInstance( )->setStringForKey( _GoldNum , saveData( ( unsigned char* ) bte.c_str( ) , bte.length( ) ) );
 		}
 			break;
@@ -192,10 +192,10 @@ void ZRBUserDate::saveData( ZRB_DATE_KEY key , void *value )
 bool ZRBUserDate::getDateBool( ZRB_DATE_KEY key )
 {
 	bool b;
-	// Í¨¹ı key »ñÈ¡Êı¾İ
+	// é€šè¿‡ key è·å–æ•°æ®
 	switch ( key )
 	{
-		// Ö±½ÓÊ¹ÓÃ
+		// ç›´æ¥ä½¿ç”¨
 		case KEY_CHECK_MODEL:
 			b = UserDefault::getInstance( )->getBoolForKey( _Model );
 			break;
@@ -208,7 +208,7 @@ bool ZRBUserDate::getDateBool( ZRB_DATE_KEY key )
 			b = UserDefault::getInstance( )->getBoolForKey( _Sound );
 			break;
 
-			// ½âÃÜºóÊ¹ÓÃ
+			// è§£å¯†åä½¿ç”¨
 		case KEY_ROLE_ONE:
 		{
 			if ( _true == parseData( UserDefault::getInstance( )->getStringForKey( _RoleOne ) ) )
@@ -275,7 +275,7 @@ int ZRBUserDate::getDateInt( ZRB_DATE_KEY key )
 
 	int date = 0;
 	std::string str;
-	// ½âÃÜ
+	// è§£å¯†
 	switch ( key )
 	{
 		case KEY_DATA_GOLDNUM:
@@ -344,7 +344,7 @@ int ZRBUserDate::getDateInt( ZRB_DATE_KEY key )
 std::string UserDate::getDateString(ZRB_DATE_KEY key)
 {
     std::string name;
-    // È¡Êı¾İ
+    // å–æ•°æ®
     switch (key)
     {
         case KEY_CHECK_ROLE:
@@ -364,7 +364,7 @@ std::string UserDate::getDateString(ZRB_DATE_KEY key)
 */
 
 
-// ÃÜ³×
+// å¯†åŒ™
 static const std::string dataChars =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "abcdefghijklmnopqrstuvwxyz"
@@ -373,7 +373,7 @@ static const std::string dataChars =
 
 std::string ZRBUserDate::saveData( unsigned char const* bytes_to_encode , unsigned long in_len )
 {
-	// ±£´æ½á¹û
+	// ä¿å­˜ç»“æœ
 	std::string ret;
 	int i = 0;
 	int j = 0;
@@ -381,33 +381,33 @@ std::string ZRBUserDate::saveData( unsigned char const* bytes_to_encode , unsign
 	unsigned char char_array_4 [ 4 ];
 	while ( in_len-- )
 	{
-		//±£´æ´«Èë×Ö·û´®
+		//ä¿å­˜ä¼ å…¥å­—ç¬¦ä¸²
 		char_array_3 [ i++ ] = *( bytes_to_encode++ );
-		// Ã¿ÈıÎ»¼ÓÃÜÒ»´Î
+		// æ¯ä¸‰ä½åŠ å¯†ä¸€æ¬¡
 		if ( i == 3 )
 		{
-			// char_array_3[0]×îºóÁ½Î»Éè 0 ÓÒÒÆÁ½Î»
-			// char_array_4[0] = 00 + char_array_3[0] Ç°ÁùÎ»
+			// char_array_3[0]æœ€åä¸¤ä½è®¾ 0 å³ç§»ä¸¤ä½
+			// char_array_4[0] = 00 + char_array_3[0] å‰å…­ä½
 			char_array_4 [ 0 ] = ( char_array_3 [ 0 ] & 0xfc ) >> 2;
-			// char_array_3[0] Ç°ÁùÎ»Éè0 ×óÒÆËÄÎ»  char_array_3[1]ºóËÄÎ»Éè 0 ÓÒÒÆËÄÎ»
-			// char_array_4[2] = 00 + char_array_3[0] ºóÁ½Î» + char_array_3[1] Ç°ËÄÎ»
+			// char_array_3[0] å‰å…­ä½è®¾0 å·¦ç§»å››ä½  char_array_3[1]åå››ä½è®¾ 0 å³ç§»å››ä½
+			// char_array_4[2] = 00 + char_array_3[0] åä¸¤ä½ + char_array_3[1] å‰å››ä½
 			char_array_4 [ 1 ] = ( ( char_array_3 [ 0 ] & 0x03 ) << 4 ) + ( ( char_array_3 [ 1 ] & 0xf0 ) >> 4 );
-			// char_array_3[1] Ç°ËÄÎ»Éè 0 ºóÁ½Î»×óÒÆÁ½Î»  char_array_3[2]  Ç°Á½Î»ÓÒÒÆÁùÎ»
-			// char_array_4[2] = 00 + char_array_3[1] ºóËÄÎ» + char_array_3[2] Ç°Á½Î»
+			// char_array_3[1] å‰å››ä½è®¾ 0 åä¸¤ä½å·¦ç§»ä¸¤ä½  char_array_3[2]  å‰ä¸¤ä½å³ç§»å…­ä½
+			// char_array_4[2] = 00 + char_array_3[1] åå››ä½ + char_array_3[2] å‰ä¸¤ä½
 			char_array_4 [ 2 ] = ( ( char_array_3 [ 1 ] & 0x0f ) << 2 ) + ( ( char_array_3 [ 2 ] & 0xc0 ) >> 6 );
-			// char_array_3[2]  Ç°Á½Î»Éè0
-			// char_array_4[3] = 00 + char_array_3[2]  ºóÁùÎ»Î»
+			// char_array_3[2]  å‰ä¸¤ä½è®¾0
+			// char_array_4[3] = 00 + char_array_3[2]  åå…­ä½ä½
 			char_array_4 [ 3 ] = char_array_3 [ 2 ] & 0x3f;
 			for ( i = 0; ( i < 4 ); i++ )
-				// Á¬½ÓÃÜÎÄ
+				// è¿æ¥å¯†æ–‡
 				ret += dataChars [ char_array_4 [ i ] ];
 			i = 0;
 		}
 	}
-	// ×îºóÊ£Óà²»×ãÈıÎ»
+	// æœ€åå‰©ä½™ä¸è¶³ä¸‰ä½
 	if ( i )
 	{
-		// ¼Ó¿Õ¸ñ²¹×ãÈıÎ»
+		// åŠ ç©ºæ ¼è¡¥è¶³ä¸‰ä½
 		for ( j = i; j < 3; j++ )
 			char_array_3 [ j ] = '\0';
 		char_array_4 [ 0 ] = ( char_array_3 [ 0 ] & 0xfc ) >> 2;
@@ -416,7 +416,7 @@ std::string ZRBUserDate::saveData( unsigned char const* bytes_to_encode , unsign
 		char_array_4 [ 3 ] = char_array_3 [ 2 ] & 0x3f;
 		for ( j = 0; ( j < i + 1 ); j++ )
 			ret += dataChars [ char_array_4 [ j ] ];
-		// ÃÜÎÄºó¼ÓÉÏÓë²¹³ä¿Õ¸ñÊıÁ¿ÏàµÈµÄ =
+		// å¯†æ–‡ååŠ ä¸Šä¸è¡¥å……ç©ºæ ¼æ•°é‡ç›¸ç­‰çš„ =
 		while ( ( i++ < 3 ) )
 			ret += '=';
 	}
@@ -425,41 +425,41 @@ std::string ZRBUserDate::saveData( unsigned char const* bytes_to_encode , unsign
 
 std::string ZRBUserDate::parseData( std::string const& encoded_string )
 {
-	// ÃÜÎÄ³¤¶È
+	// å¯†æ–‡é•¿åº¦
 	auto in_len = encoded_string.size( );
 	int i = 0;
 	int j = 0;
 	int in_ = 0;
 	unsigned char char_array_4 [ 4 ] , char_array_3 [ 3 ];
-	// ±£´æ½âÃÜ
+	// ä¿å­˜è§£å¯†
 	std::string ret;
 	while ( in_len && ( encoded_string [ in_ ] != '=' ) && baseData( encoded_string [ in_ ] ) )
 	{
-		// ÌáÈ¡ÃÜÎÄ
+		// æå–å¯†æ–‡
 		char_array_4 [ i++ ] = encoded_string [ in_ ];
 		in_++;
-		// Ã¿ËÄ¸öÃÜÎÄ½âÃÜÒ»´Î
+		// æ¯å››ä¸ªå¯†æ–‡è§£å¯†ä¸€æ¬¡
 		if ( i == 4 )
 		{
-			// ×ª»»
+			// è½¬æ¢
 			for ( i = 0; i < 4; i++ )
 				char_array_4 [ i ] = dataChars.find( char_array_4 [ i ] );
-			// char_array_3[0] = char_array_4[0] ºóÁùÎ» + char_array_4[1] ÎåÁùÎ»
+			// char_array_3[0] = char_array_4[0] åå…­ä½ + char_array_4[1] äº”å…­ä½
 			char_array_3 [ 0 ] = ( char_array_4 [ 0 ] << 2 ) + ( ( char_array_4 [ 1 ] & 0x30 ) >> 4 );
-			// char_array_3[1] = char_array_4[1] ºóËÄÎ» + char_array_4[2] ÖĞ¼äËÄÎ»
+			// char_array_3[1] = char_array_4[1] åå››ä½ + char_array_4[2] ä¸­é—´å››ä½
 			char_array_3 [ 1 ] = ( ( char_array_4 [ 1 ] & 0xf ) << 4 ) + ( ( char_array_4 [ 2 ] & 0x3c ) >> 2 );
-			// char_array_3[2] = char_array_4[2] + char_array_4[3] ºóÁùÎ»
+			// char_array_3[2] = char_array_4[2] + char_array_4[3] åå…­ä½
 			char_array_3 [ 2 ] = ( ( char_array_4 [ 2 ] & 0x3 ) << 6 ) + char_array_4 [ 3 ];
-			// Á¬½ÓÃ÷ÎÄ
+			// è¿æ¥æ˜æ–‡
 			for ( i = 0; ( i < 3 ); i++ )
 				ret += char_array_3 [ i ];
 			i = 0;
 		}
 	}
-	// ÃÜÎÄ
+	// å¯†æ–‡
 	if ( i )
 	{
-		// ²¹ 0
+		// è¡¥ 0
 		for ( j = i; j < 4; j++ )
 			char_array_4 [ j ] = 0;
 		for ( j = 0; j < 4; j++ )

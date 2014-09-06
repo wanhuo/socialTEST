@@ -1,4 +1,4 @@
-
+ï»¿
 #include "ZRBMenuChars.h"
 
 
@@ -75,25 +75,25 @@ bool ZRBMenuChars::init( )
 void ZRBMenuChars::setCharts( )
 {
 
-	// µ±Ç°ÅÅÃû±ß¾à
+	// å½“å‰æŽ’åè¾¹è·
 	int gap = 20;
 
 
-	// Ìí¼Ó ZRBMenuBase
+	// æ·»åŠ  ZRBMenuBase
 	auto layer = ZRBMenuBase::create( );
 
-	// Ìí¼Ó ²Ëµ¥±³¾°
+	// æ·»åŠ  èœå•èƒŒæ™¯
 	_backboard = layer->getBackGround( );
-	// ÉèÖÃ±³°å´óÐ¡
+	// è®¾ç½®èƒŒæ¿å¤§å°
 	_backboard->setPreferredSize( size_charts );
-	// ÉèÖÃ±³°åÎ»ÖÃ
+	// è®¾ç½®èƒŒæ¿ä½ç½®
 	_backboard->setPosition( ZRB_VISIBLE_SIZE.width / 2 , ZRB_VISIBLE_SIZE.height * 3 / 2 );
-	// Ìí¼Ó±³°å
+	// æ·»åŠ èƒŒæ¿
 	this->addChild( _backboard , 10 );
 
-	// ´´½¨±³°å³öÏÖµÄ¶¯×÷
+	// åˆ›å»ºèƒŒæ¿å‡ºçŽ°çš„åŠ¨ä½œ
 	createAtionIn( );
-	// Ö´ÐÐ¶¯×÷
+	// æ‰§è¡ŒåŠ¨ä½œ
 	_backboard->runAction( getActionOut( ) );
 
 	auto title = Sprite::createWithSpriteFrameName( ZRBLanguage::getValue( "Pic_ranking" ) );
@@ -130,7 +130,7 @@ void ZRBMenuChars::setCharts( )
 		_leaderboard->setString( ZRBLanguage::getValue( "Ranking_unable" ) );
 	}
 
-	//    // ÉèÖÃ back °´Å¥
+	//    // è®¾ç½® back æŒ‰é’®
 	//    auto back = MenuItemImage::create();
 	//    back->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("back_button_marker.png"));
 	//    back->setCallback(CC_CALLBACK_0(ZRBMenuChars::call_back, this));
@@ -139,9 +139,6 @@ void ZRBMenuChars::setCharts( )
 	//    auto menu = Menu::create(back, NULL);
 	//    menu->setPosition(0, 0);
 	//    _backboard->addChild(menu);
-
-
-
 
 }
 
@@ -154,7 +151,7 @@ void ZRBMenuChars::setRanking( Ref * ref )
 	else
 	{
 		_leaderboard->setString( "" );
-		/*Todo : ÅÅÐÐ°ñ
+		/*Todo : æŽ’è¡Œæ¦œ
 		if ( KTAccountManagerC::isLoggedIn( ) )
 		{
 			_curRank->setString( String::createWithFormat( "NO.%d" , myranking )->getCString( ) );
@@ -189,18 +186,18 @@ TableViewCell * ZRBMenuChars::tableCellAtIndex( cocos2d::extension::TableView *t
 		auto zcell = ZRBTableViewCell::create( );
 
 		zcell->setSize( Size( size_charts.width , size_charts.width / 6 ) );
-		// ÉèÖÃµÚÒ»²¿·Ö
+		// è®¾ç½®ç¬¬ä¸€éƒ¨åˆ†
 		zcell->setpartFirst( 1.5 );
-		// ÉèÖÃÏû³ýµÚ¶þ²¿·Ö(Ô­ÅÅÃû)
+		// è®¾ç½®æ¶ˆé™¤ç¬¬äºŒéƒ¨åˆ†(åŽŸæŽ’å)
 		zcell->setpartSecond( 0 );
-		// ÉèÖÃµÚÈý²¿·ÖÎª(Ô­Ãû×Ö) Ê¹µÚËÄ²¿·ÖºÍµÚÈý²¿·ÖË®Æ½·½ÏòÉÏÔÚÒ»¸öÎ»ÖÃ
+		// è®¾ç½®ç¬¬ä¸‰éƒ¨åˆ†ä¸º(åŽŸåå­—) ä½¿ç¬¬å››éƒ¨åˆ†å’Œç¬¬ä¸‰éƒ¨åˆ†æ°´å¹³æ–¹å‘ä¸Šåœ¨ä¸€ä¸ªä½ç½®
 		zcell->setpartThree( 3 );
 		zcell->setFoutRanking( 40 , "customfout.otf" , Color3B( 69 , 193 , 255 ) );
-		// ÉèÖÃµÀ¾ßÃû×ÖÌå´óÐ¡Îª30, ×ÖÌåÎª customfout.otf
+		// è®¾ç½®é“å…·åå­—ä½“å¤§å°ä¸º30, å­—ä½“ä¸º customfout.otf
 		zcell->setFoutName( 30 , "customfout.otf" , Color3B( 69 , 193 , 255 ) );
-		// ÉèÖÃµÀ¾ß½éÉÜ×ÖÌå´óÐ¡Îª18 ×ÖÌåÎª customfout.otf
+		// è®¾ç½®é“å…·ä»‹ç»å­—ä½“å¤§å°ä¸º18 å­—ä½“ä¸º customfout.otf
 		zcell->setFoutScorer( 30 , "customfout.otf" , Color3B( 69 , 193 , 255 ) );
-		//  ÉèÖÃ Cell µÄ Tag
+		//  è®¾ç½® Cell çš„ Tag
 		zcell->setTag( idx );
 
 		cell = zcell;
@@ -252,13 +249,17 @@ ssize_t ZRBMenuChars::numberOfCellsInTableView( cocos2d::extension::TableView *t
 
 
 /**
-*  back °´Å¥»Øµ÷º¯Êý
+*  back æŒ‰é’®å›žè°ƒå‡½æ•°
 */
 void ZRBMenuChars::call_back( )
 {
-	//´´½¨²Ëµ¥ÒÆ³ýµÄ¶¯×÷
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
+	//åˆ›å»ºèœå•ç§»é™¤çš„åŠ¨ä½œ
 	createAtionOut( );
-	//Ö´ÐÐ¶¯×÷²¢µ÷ÓÃÇåÀíº¯Êý
+	//æ‰§è¡ŒåŠ¨ä½œå¹¶è°ƒç”¨æ¸…ç†å‡½æ•°
 	_backboard->runAction( Sequence::create( dynamic_cast<FiniteTimeAction *>( getActionIn( ) ) ,
 		CallFunc::create( CC_CALLBACK_0( ZRBMenuChars::call_clear , this ) ) , NULL ) );
 }

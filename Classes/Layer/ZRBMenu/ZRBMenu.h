@@ -1,4 +1,4 @@
-
+﻿
 
 #ifndef __ZRBMenu_H__
 #define __ZRBMenu_H__
@@ -30,7 +30,7 @@ private:
 	MenuItemImage * pMarket;
 	MenuItemImage * pCharts;
 	MenuItemImage * pAddGold;
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    MenuItemImage * pModelEndless;
 	//    MenuItemImage * pModelTime;
 
@@ -46,7 +46,7 @@ private:
 	//    // Save model
 	//    // True is endless
 	//    // False is time
-	//  TODO: ģʽȡ��
+	//  TODO: 模式取消
 	//    bool pModel;
 
 public:

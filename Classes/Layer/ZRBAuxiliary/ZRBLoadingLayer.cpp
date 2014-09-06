@@ -1,4 +1,4 @@
-
+ï»¿
 
 
 #include "ZRBLoadingLayer.h"
@@ -103,8 +103,8 @@ ParticleSystem * ZRBLoadingLayer::particleInit( float time )
 
 Sequence * ZRBLoadingLayer::bezierCircle( float radius , float time , DirectionOfRotation direction )
 {
-	CCASSERT( radius > 0 , "°ë¾¶Ó¦´óÓÚ 0 " );
-	CCASSERT( time > 0 , "Ê±¼äÓ¦´óÓÚ 0" );
+	CCASSERT( radius > 0 , "åŠå¾„åº”å¤§äºŽ 0 " );
+	CCASSERT( time > 0 , "æ—¶é—´åº”å¤§äºŽ 0" );
 
 	const float magicNumber = 0.551784;
 	auto t = time / 4;

@@ -1,4 +1,4 @@
-
+ï»¿
 
 #include "ZRBMenuMarket.h"
 
@@ -9,7 +9,7 @@ bool ZRBMenuMarket::init( )
 		return false;
 	}
 
-	// ´´½¨±³¾°ÆÁ±Î²ã Ìí¼Óµ½²Ëµ¥ÖĞÆÁ±ÎÏÂ²ã´¥Ãş
+	// åˆ›å»ºèƒŒæ™¯å±è”½å±‚ æ·»åŠ åˆ°èœå•ä¸­å±è”½ä¸‹å±‚è§¦æ‘¸
 	auto l = LayerColor::create( Color4B( 170 , 228 , 250 , 80 ) );
 	auto mi = MenuItemSprite::create( l , l );
 	auto m = Menu::create( mi , NULL );
@@ -23,29 +23,29 @@ bool ZRBMenuMarket::init( )
 	setBatchNode( SpriteBatchNode::create( "homeMenu.png" ) );
 	this->addChild( getBatchNode( ) );
 
-	// Ìí¼Ó ZRBMenuBase
+	// æ·»åŠ  ZRBMenuBase
 	auto layer = ZRBMenuBase::create( );
 
-	// Ìí¼Ó ²Ëµ¥±³¾°
+	// æ·»åŠ  èœå•èƒŒæ™¯
 	_backboard = layer->getBackGround( );
-	// ÉèÖÃ±³°å´óĞ¡
+	// è®¾ç½®èƒŒæ¿å¤§å°
 	_backboard->setPreferredSize( ZRB_VISIBLE_SIZE * 0.8 );
-	// ÉèÖÃ±³°åÎ»ÖÃ
+	// è®¾ç½®èƒŒæ¿ä½ç½®
 	_backboard->setPosition( ZRB_VISIBLE_SIZE.width / 2 + 40 , ZRB_VISIBLE_SIZE.height * 3 / 2 );
-	// Ìí¼Ó±³°å
+	// æ·»åŠ èƒŒæ¿
 	this->addChild( _backboard , 10 );
 
 
-	// ´´½¨±³°å³öÏÖµÄ¶¯×÷
+	// åˆ›å»ºèƒŒæ¿å‡ºç°çš„åŠ¨ä½œ
 	createAtionIn( );
-	// Ö´ĞĞ¶¯×÷
+	// æ‰§è¡ŒåŠ¨ä½œ
 	_backboard->runAction( getActionOut( ) );
 
-	// Ïò±³°åÉÏÌí¼Ó²Ëµ¥
+	// å‘èƒŒæ¿ä¸Šæ·»åŠ èœå•
 	_backboard->addChild( setMarket( ) );
 	_backboard->addChild( paging );
 
-	// Ìí¼ÓÍ¨Öª
+	// æ·»åŠ é€šçŸ¥
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBMenuMarket::setGoldNum ) , "NOTIFICATION_Gold" , nullptr );
 
 	return true;
@@ -56,52 +56,52 @@ bool ZRBMenuMarket::init( )
 Menu * ZRBMenuMarket::setMarket( )
 {
 
-	// »ñÈ¡±³°åÍ¼Æ¬´óĞ¡
+	// è·å–èƒŒæ¿å›¾ç‰‡å¤§å°
 	size = _backboard->getContentSize( );
 
-	// ÉèÖÃÉÌ³Ç·ÖÒ³±êÌâ
-	pTitle = Label::createWithTTF( "µÀ¾ß" , "customfout.otf" , 60 );
+	// è®¾ç½®å•†åŸåˆ†é¡µæ ‡é¢˜
+	pTitle = Label::createWithTTF( "é“å…·" , "customfout.otf" , 60 );
 	pTitle->setPosition( size.width / 2 , size.height * 0.94 );
 	pTitle->setColor( Color3B( 69 , 193 , 255 ) );
 	_backboard->addChild( pTitle , 10 );
 
 
-	// Ìí¼Ó½ğ±Òµ×ÎÆ
+	// æ·»åŠ é‡‘å¸åº•çº¹
 	auto bg_gold = Sprite::createWithSpriteFrameName( "gold_bg.png" );
 	bg_gold->setAnchorPoint( Vec2( 0 , 0 ) );
 	bg_gold->setPosition( -190 , 0 );
 
-	// ÉèÖÃ½ğ±Ò×ÖÑù
+	// è®¾ç½®é‡‘å¸å­—æ ·
 	pGoldNum = Label::createWithTTF( String::createWithFormat( "%d" , ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM ) )->getCString( ) , "customfout.otf" , 30 );
 	pGoldNum->setPosition( bg_gold->getContentSize( ).width * 0.5 , bg_gold->getContentSize( ).height * 0.5 );
 	pGoldNum->setColor( Color3B( 0 , 0 , 0 ) );
 	bg_gold->addChild( pGoldNum );
 
-	// Ìí¼Ó¹ºÂò½ğ±Ò°´Å¥
+	// æ·»åŠ è´­ä¹°é‡‘å¸æŒ‰é’®
 	auto btGold = MenuItemImage::create( );
 	btGold->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "gold_add.png" ) );
 	btGold->setPosition( ( size.width + bg_gold->getContentSize( ).width - btGold->getContentSize( ).width / 2 ) / 2 , size.height * 0.84 );
 	btGold->setCallback( CC_CALLBACK_0( ZRBMenuMarket::call_buy , this ) );
 	btGold->addChild( bg_gold , -1 );
 
-	// ÉèÖÃ¹ºÂòµÀ¾ß°´Å¥
+	// è®¾ç½®è´­ä¹°é“å…·æŒ‰é’®
 	//    pProp = MenuItemImage::create();
 	//    pProp->setAnchorPoint(Vec2(1, 0));
 	//    pProp->setCallback(CC_CALLBACK_0(ZRBMenuMarket::call_prop, this));
 
-	// ÉèÖÃ¹ºÂòÈËÎï°´Å¥
+	// è®¾ç½®è´­ä¹°äººç‰©æŒ‰é’®
 	pRole = MenuItemImage::create( );
 	pRole->setAnchorPoint( Vec2( 1 , 1 ) );
 	pRole->setCallback( CC_CALLBACK_0( ZRBMenuMarket::call_role , this ) );
 
-	// ÉèÖÃ¹ºÂò½ğ±Ò°´Å¥
+	// è®¾ç½®è´­ä¹°é‡‘å¸æŒ‰é’®
 	pGold_buy = MenuItemImage::create( );
 	pGold_buy->setAnchorPoint( Vec2( 1 , 1 ) );
 	pGold_buy->setCallback( CC_CALLBACK_0( ZRBMenuMarket::call_gold_buy , this ) );
 
 
 
-	// ÉèÖÃ back °´Å¥
+	// è®¾ç½® back æŒ‰é’®
 	auto backLabel = Label::createWithTTF( ZRBLanguage::getValue( "Back" ) , "customfout.otf" , 70 );
 	backLabel->setColor( Color3B( 69 , 193 , 255 ) );
 	auto back = MenuItemLabel::create( backLabel );
@@ -111,11 +111,11 @@ Menu * ZRBMenuMarket::setMarket( )
 	back->setPosition( size.width / 2 , size.height * 0.1 );
 
 
-	// Ìí¼Ó²Ëµ¥
+	// æ·»åŠ èœå•
 	pMenuMarker = Menu::create( back , btGold , pRole , pGold_buy , NULL );
 	pMenuMarker->setPosition( 0 , 0 );
 
-	//³õÊ¼»¯°´Å¥ÎÆÀíÎ»ÖÃ, µÀ¾ß·ÖÒ³ÄÚÈİ
+	//åˆå§‹åŒ–æŒ‰é’®çº¹ç†ä½ç½®, é“å…·åˆ†é¡µå†…å®¹
 	//    call_prop();
 	call_role( );
 
@@ -128,7 +128,7 @@ Menu * ZRBMenuMarket::setMarket( )
 
 //void ZRBMenuMarket::call_prop()
 //{
-//    // ¸ü¸Ä²à±ß°´Å¥´óĞ¡ ÇĞ»»µ½µÀ¾ß¹ºÂòÒ³Ãæ
+//    // æ›´æ”¹ä¾§è¾¹æŒ‰é’®å¤§å° åˆ‡æ¢åˆ°é“å…·è´­ä¹°é¡µé¢
 //    pProp->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop_chack.png"));
 //    pProp->setPosition(buttonRevise, size.height * 0.8);
 //    
@@ -138,16 +138,16 @@ Menu * ZRBMenuMarket::setMarket( )
 //    pGold_buy->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("gold_buy.png"));
 //    pGold_buy->setPosition(buttonRevise, size.height * 0.8 - pRole->getContentSize().height);
 //    
-//    // ÉèÖÃ±êÌâÎª"µÀ¾ß"
-//    pTitle->setString("µÀ¾ß");
+//    // è®¾ç½®æ ‡é¢˜ä¸º"é“å…·"
+//    pTitle->setString("é“å…·");
 //    
-//    // ÒÆ³ı·Ö²¼²ãÉÏÔ­ÓĞÄÚÈİ
+//    // ç§»é™¤åˆ†å¸ƒå±‚ä¸ŠåŸæœ‰å†…å®¹
 //    paging->removeAllChildren();
-//    // ´´½¨µÀ¾ß¹ºÂò·ÖÒ³
+//    // åˆ›å»ºé“å…·è´­ä¹°åˆ†é¡µ
 //    auto layer = ZRBMarketProp::create();
-//    // ÉèÖÃ´óĞ¡
+//    // è®¾ç½®å¤§å°
 //    layer->setPosition(size.width * 0.1, size.height * 0.18);
-//    // Ìí¼Ó·ÖÒ³
+//    // æ·»åŠ åˆ†é¡µ
 //    paging->addChild(layer);
 //    
 //
@@ -156,7 +156,11 @@ Menu * ZRBMenuMarket::setMarket( )
 
 void ZRBMenuMarket::call_role( )
 {
-	// ¸ü¸Ä²à±ß°´Å¥´óĞ¡ ÇĞ»»µ½ÈËÎï¹ºÂòÒ³Ãæ
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
+	// æ›´æ”¹ä¾§è¾¹æŒ‰é’®å¤§å° åˆ‡æ¢åˆ°äººç‰©è´­ä¹°é¡µé¢
 	//    pProp->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop.png"));
 	//    pProp->setPosition(buttonRevise, size.height * 0.8);
 
@@ -166,27 +170,31 @@ void ZRBMenuMarket::call_role( )
 	pGold_buy->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "gold_buy.png" ) );
 	pGold_buy->setPosition( buttonRevise , size.height * 0.9 - pRole->getContentSize( ).height + 2 );
 
-	// ÉèÖÃ±êÌâÎª"ÈËÎï"
+	// è®¾ç½®æ ‡é¢˜ä¸º"äººç‰©"
 	pTitle->setString( ZRBLanguage::getValue( "Market_role" ) );
 
-	// ÒÆ³ı·Ö²¼²ãÉÏÔ­ÓĞÄÚÈİ
+	// ç§»é™¤åˆ†å¸ƒå±‚ä¸ŠåŸæœ‰å†…å®¹
 	paging->removeAllChildren( );
 
-	// ´´½¨ÈËÎï¹ºÂò·ÖÒ³
+	// åˆ›å»ºäººç‰©è´­ä¹°åˆ†é¡µ
 	auto layer = ZRBMarketRole::create( );
-	// ÉèÖÃ´óĞ¡
+	// è®¾ç½®å¤§å°
 	layer->setPosition( size.width * 0.1 , size.height * 0.18 );
-	// Ìí¼Ó·ÖÒ³
+	// æ·»åŠ åˆ†é¡µ
 	paging->addChild( layer );
 
 
 }
 
 
-// ¸ü¸Ä²à±ß°´Å¥´óĞ¡ ÇĞ»»µ½½ğ±Ò¹ºÂòÒ³Ãæ
+// æ›´æ”¹ä¾§è¾¹æŒ‰é’®å¤§å° åˆ‡æ¢åˆ°é‡‘å¸è´­ä¹°é¡µé¢
 void ZRBMenuMarket::call_gold_buy( )
 {
-	// ¸ü¸Ä²à±ß°´Å¥´óĞ¡ ÇĞ»»µ½½ğ±Ò¹ºÂòÒ³Ãæ
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
+	// æ›´æ”¹ä¾§è¾¹æŒ‰é’®å¤§å° åˆ‡æ¢åˆ°é‡‘å¸è´­ä¹°é¡µé¢
 	//    pProp->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop.png"));
 	//    pProp->setPosition(buttonRevise, size.height * 0.8);
 
@@ -196,45 +204,53 @@ void ZRBMenuMarket::call_gold_buy( )
 	pGold_buy->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "gold_buy_chack.png" ) );
 	pGold_buy->setPosition( buttonRevise , size.height * 0.9 - pRole->getContentSize( ).height + 2 );
 
-	// ÉèÖÃ±êÌâÎª"½ğ±Ò"
+	// è®¾ç½®æ ‡é¢˜ä¸º"é‡‘å¸"
 	pTitle->setString( ZRBLanguage::getValue( "Market_gold" ) );
 
-	// ÒÆ³ı·Ö²¼²ãÉÏÔ­ÓĞÄÚÈİ
+	// ç§»é™¤åˆ†å¸ƒå±‚ä¸ŠåŸæœ‰å†…å®¹
 	paging->removeAllChildren( );
 
-	// ´´½¨½ğ±Ò¹ºÂò·ÖÒ³
+	// åˆ›å»ºé‡‘å¸è´­ä¹°åˆ†é¡µ
 	auto layer = ZRBMarketGold::create( );
-	// ÉèÖÃ´óĞ¡
+	// è®¾ç½®å¤§å°
 	layer->setPosition( size.width * 0.1 , size.height * 0.18 );
-	// Ìí¼Ó·ÖÒ³
+	// æ·»åŠ åˆ†é¡µ
 	paging->addChild( layer );
 
 }
 
 
-// Ìí¼Ó½ğ±Ò»Øµ÷
+// æ·»åŠ é‡‘å¸å›è°ƒ
 void ZRBMenuMarket::call_buy( )
 {
-	// µ÷ÓÃ¹ºÂò½ğ±Ò»Øµ÷
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
+	// è°ƒç”¨è´­ä¹°é‡‘å¸å›è°ƒ
 	call_gold_buy( );
 }
 
 
-// ·µ»Ø»Øµ÷
+// è¿”å›å›è°ƒ
 void ZRBMenuMarket::call_back( )
 {
-	// ´´½¨²Ëµ¥ÍË³ö¶¯×÷
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
+	// åˆ›å»ºèœå•é€€å‡ºåŠ¨ä½œ
 	createAtionOut( );
-	//Ö´ĞĞ¶¯×÷²¢µ÷ÓÃÇåÀíº¯Êı
+	//æ‰§è¡ŒåŠ¨ä½œå¹¶è°ƒç”¨æ¸…ç†å‡½æ•°
 	_backboard->runAction( Sequence::create( dynamic_cast<FiniteTimeAction *>( getActionIn( ) ) ,
 		CallFunc::create( CC_CALLBACK_0( ZRBMenuMarket::call_clear , this ) ) , NULL ) );
 }
 
 
-// ·µ»ØºóÇåÀí
+// è¿”å›åæ¸…ç†
 void ZRBMenuMarket::call_clear( )
 {
-	// ÒÆ³ı²Ëµ¥ ÇåÀí
+	// ç§»é™¤èœå• æ¸…ç†
 	this->removeAllChildrenWithCleanup( true );
 }
 
@@ -242,7 +258,7 @@ void ZRBMenuMarket::setGoldNum( cocos2d::Ref *sender )
 {
 	if ( this->getChildByTag( 11 ) != nullptr )
 	{
-		// »ñÈ¡Êı¾İ ÉèÖÃ ÏÔÊ¾
+		// è·å–æ•°æ® è®¾ç½® æ˜¾ç¤º
 		auto x = dynamic_cast<__Integer *>( sender );
 		pGoldNum->setString( String::createWithFormat( "%d" , x->getValue( ) )->getCString( ) );
 	}
@@ -250,6 +266,6 @@ void ZRBMenuMarket::setGoldNum( cocos2d::Ref *sender )
 
 ZRBMenuMarket::~ZRBMenuMarket( )
 {
-	// ÒÆ³ıÍ¨Öª
+	// ç§»é™¤é€šçŸ¥
 	NotificationCenter::getInstance( )->removeObserver( this , "NOTIFICATION_Gold" );
 }

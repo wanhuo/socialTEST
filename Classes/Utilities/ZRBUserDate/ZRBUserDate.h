@@ -1,4 +1,4 @@
-
+ï»¿
 
 #ifndef __ZRBUserDate_H__
 #define __ZRBUserDate_H__
@@ -14,24 +14,24 @@ USING_NS_CC;
 
 enum ZRB_DATE_KEY
 {
-	// ÓÃ»§Ñ¡Ôñ
+	// ç”¨æˆ·é€‰æ‹©
 	KEY_CHECK_SOUND = 0x1001 ,
 	KEY_CHECK_MUSIC ,
 	KEY_CHECK_ROLE ,
 	KEY_CHECK_MATERIAL ,
 	KEY_CHECK_MODEL ,
-	// ÓÃ»§½ğ±Ò³É¼¨
+	// ç”¨æˆ·é‡‘å¸æˆç»©
 	KEY_DATA_GOLDNUM ,
 	KEY_DATA_SCORE ,
-	// µÀ¾ßÓµÓĞ
+	// é“å…·æ‹¥æœ‰
 	KEY_PROP_DEATHFLIGHT ,
 	KEY_PROP_MAGNET ,
 	KEY_PROP_SOAR ,
 	KEY_PROP_RESURGENCE ,
-	// ½ÇÉ«ÓµÓĞ
+	// è§’è‰²æ‹¥æœ‰
 	KEY_ROLE_ONE ,
 	KEY_ROLE_TWO ,
-	// ³¡¾°½âËø
+	// åœºæ™¯è§£é”
 	KEY_MATERIAL_SWEET ,
 	KEY_MATERIAL_BLUESKY
 };
@@ -40,7 +40,7 @@ class ZRBUserDate
 {
 private:
 
-	// ÎÄ¼ş Key
+	// æ–‡ä»¶ Key
 	const char * _Music = "Music";
 	const char * _Sound = "Sound";
 	const char * _RoleOne = "RoleOne";
@@ -57,7 +57,7 @@ private:
 	const char * _MaterialSweet = "MaterialSweet";
 	const char * _MaterialBlueSky = "MaterialBlueSky";
 
-	// ³£ÓÃÖµ
+	// å¸¸ç”¨å€¼
 	const std::string _true = "true";
 	const std::string _false = "false";
 	const int _trueLen = _true.length( );
@@ -66,50 +66,50 @@ private:
 	ZRBUserDate( ) { };
 
 public:
-	//  »ñÈ¡¶ÔÏó
+	//  è·å–å¯¹è±¡
 	static ZRBUserDate * getInstance( );
 
 	/**
-	*  ±£´æ¼ÓÃÜÊı¾İ
+	*  ä¿å­˜åŠ å¯†æ•°æ®
 	*
 	*  @param key   key
-	*  @param value ±£´æÖµ ÀàĞÍ: int bool std::string Ö¸Õë
+	*  @param value ä¿å­˜å€¼ ç±»å‹: int bool std::string æŒ‡é’ˆ
 	*/
 	void saveData( ZRB_DATE_KEY key , void * value );
 	/**
-	*  ¶ÁÈ¡ÎÄ¼ş bool Êı¾İ
+	*  è¯»å–æ–‡ä»¶ bool æ•°æ®
 	*
 	*  @param key key
 	*
-	*  @return ÎÄ¼şÖĞ±£´æµÄÖµ
+	*  @return æ–‡ä»¶ä¸­ä¿å­˜çš„å€¼
 	*/
 	bool getDateBool( ZRB_DATE_KEY key );
 	/**
-	*  ¶ÁÈ¡ÎÄ¼ş int Êı¾İ
+	*  è¯»å–æ–‡ä»¶ int æ•°æ®
 	*
 	*  @param key key
 	*
-	*  @return ÎÄ¼şÖĞ±£´æµÄÖµ
+	*  @return æ–‡ä»¶ä¸­ä¿å­˜çš„å€¼
 	*/
 	int getDateInt( ZRB_DATE_KEY key );
 	//    /**
-	//     *  ¶ÁÈ¡ÎÄ¼ş std::string Êı¾İ
+	//     *  è¯»å–æ–‡ä»¶ std::string æ•°æ®
 	//     *
 	//     *  @param key key
 	//     *
-	//     *  @return ÎÄ¼şÖĞ±£´æµÄÖµ
+	//     *  @return æ–‡ä»¶ä¸­ä¿å­˜çš„å€¼
 	//     */
 	//    std::string getDateString(ZRB_DATE_KEY key);
 
 
-	// ÅĞ¶ÏÊÇ·ñÔÚ dataChars
+	// åˆ¤æ–­æ˜¯å¦åœ¨ dataChars
 	static inline bool baseData( unsigned char c )
 	{
 		return ( isalnum( c ) || ( c == '+' ) || ( c == '/' ) );
 	}
-	//  ¼ÓÃÜÊı¾İ
+	//  åŠ å¯†æ•°æ®
 	std::string saveData( unsigned char const* bytes_to_encode , unsigned long in_len );
-	// ½âÃÜÊı¾İ
+	// è§£å¯†æ•°æ®
 	std::string parseData( std::string const& encoded_string );
 
 };

@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef __ZRBMarketGold_H__
 #define __ZRBMarketGold_H__
 
@@ -34,14 +34,14 @@ public:
 
 private:
 
-	// TODO: Ìí¼ÓÁ½¸öÈİÆ÷´æ·ÅÏÖÊµ»õ±Ò¶Ò»»µÄĞéÄâ½ğ±Ò
+	// TODO: æ·»åŠ ä¸¤ä¸ªå®¹å™¨å­˜æ”¾ç°å®è´§å¸å…‘æ¢çš„è™šæ‹Ÿé‡‘å¸
 	std::vector<float>cash;
 	const std::vector<int>vircash;
 	std::vector<std::string> productId;
 	// pageView
 	ui::PageView * pageView;
 
-	// pageView ´óĞ¡
+	// pageView å¤§å°
 	Size size;
 
 	int goldId;
@@ -49,13 +49,13 @@ public:
 
 	virtual bool init( );
 
-	// ½ğ±Ò¹ºÂòÒ³Ãæ1
+	// é‡‘å¸è´­ä¹°é¡µé¢1
 	Layer * goldLayer0( );
 
 	/**
-	*  ¹ºÂò°´Å¥µÄ»Øµ÷º¯Êı
+	*  è´­ä¹°æŒ‰é’®çš„å›è°ƒå‡½æ•°
 	*
-	*  @param x »ñÈ¡¹ºÂòµÄÄ¿±ê
+	*  @param x è·å–è´­ä¹°çš„ç›®æ ‡
 	*/
 	void callBack( int x );
 

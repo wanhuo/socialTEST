@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef __ZRBMenuChars_H__
 #define __ZRBMenuChars_H__
 
@@ -15,21 +15,21 @@ private:
 	//static void leaderboardCallback( bool isSuccess , const char *leaderboardId ,
 	//								 KTLeaderboardPaginatorC *leaderboard , KTErrorC *error );
 private:
-	//±£´æ charts µ¯´°´óĞ¡
+	//ä¿å­˜ charts å¼¹çª—å¤§å°
 	Size size_charts;
-	///  ³õÊ¼¿É¼ûtableViewCell ÊıÁ¿
+	///  åˆå§‹å¯è§tableViewCell æ•°é‡
 	int pCellNum;
 
-	// Ìí¼Ó TableView
+	// æ·»åŠ  TableView
 	CC_SYNTHESIZE_RETAIN( TableView * , pTableView , tableView );
 
-	// ´´½¨ µ±Ç°ÅÅÃû label
+	// åˆ›å»º å½“å‰æ’å label
 	CC_SYNTHESIZE_RETAIN( Label * , _curRank , CurRank );
 
-	// ´´½¨ µ±Ç°³É¼¨ label
+	// åˆ›å»º å½“å‰æˆç»© label
 	CC_SYNTHESIZE_RETAIN( Label * , _curScore , CurScore );
 
-	// ´´½¨ _backboard ½ÓÊÕ menubaseÖĞµÄµã¾ÅÍ¼
+	// åˆ›å»º _backboard æ¥æ”¶ menubaseä¸­çš„ç‚¹ä¹å›¾
 	CC_SYNTHESIZE_RETAIN( Scale9Sprite * , _backboard , Backboard );
 
 public:
@@ -43,7 +43,7 @@ public:
 	virtual ssize_t numberOfCellsInTableView( TableView *table );
 
 
-	// ÉèÖÃ¸÷¸ö°´Å¥¶ÔÓ¦µ¯´°²Ëµ¥
+	// è®¾ç½®å„ä¸ªæŒ‰é’®å¯¹åº”å¼¹çª—èœå•
 	void setCharts( );
 
 	void setRanking( Ref * ref );

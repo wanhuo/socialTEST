@@ -1,4 +1,4 @@
-
+ï»¿
 
 
 #include "ZRBHeroSprite.h"
@@ -15,7 +15,7 @@ ZRBHeroSprite* ZRBHeroSprite::create( sHero* hero )
 }
 
 
-// ´´½¨ ¾«Áé ºÍ ¶¯»­
+// åˆ›å»º ç²¾çµ å’Œ åŠ¨ç”»
 void ZRBHeroSprite::initThis( sHero* hero )
 {
 	pHeroMaterial = hero;
@@ -26,18 +26,18 @@ void ZRBHeroSprite::initThis( sHero* hero )
 	//climb
 	if ( pHeroMaterial->climbAnimationImageNum >= 1 )
 	{
-		// ¶¯×÷Ö¡ĞòÁĞ
+		// åŠ¨ä½œå¸§åºåˆ—
 		Vector<SpriteFrame *> frames;
 		for ( int i = 1; i <= pHeroMaterial->climbAnimationImageNum; i++ )
 		{
 			SpriteFrame *frame = SpriteFrameCache::getInstance( )->getSpriteFrameByName( String::createWithFormat( "hero_climb_%d%s.png" , i , pHeroMaterial->NameAfter.c_str( ) )->getCString( ) );
 			frames.pushBack( frame );
 		}
-		//´´½¨¶¯×÷
+		//åˆ›å»ºåŠ¨ä½œ
 		Animation *animation = Animation::createWithSpriteFrames( frames );
 		animation->setDelayPerUnit( 0.3 );
 		Animate* climbAnimate = Animate::create( animation );
-		// ÖØ¸´²¥·Å
+		// é‡å¤æ’­æ”¾
 		pClimbAction = RepeatForever::create( climbAnimate );
 		pClimbAction->retain( );
 	}
@@ -71,25 +71,25 @@ void ZRBHeroSprite::initThis( sHero* hero )
 
 }
 
-// ÉèÖÃ X ÖáÎ»ÖÃ
+// è®¾ç½® X è½´ä½ç½®
 void ZRBHeroSprite::setHeroPositionX( float x )
 {
 	pHero->setPositionX( x );
 }
 
-// ÉèÖÃ Y ÖáÎ»ÖÃ
+// è®¾ç½® Y è½´ä½ç½®
 void ZRBHeroSprite::setHeroPositionY( float y )
 {
 	pHero->setPositionY( y );
 }
 
-// ÉèÖÃÎ»ÖÃ
+// è®¾ç½®ä½ç½®
 void ZRBHeroSprite::setHeroPosition( Point pos )
 {
 	pHero->cocos2d::Node::setPosition( pos );
 }
 
-// »ñÈ¡Î»ÖÃ
+// è·å–ä½ç½®
 float ZRBHeroSprite::getHeroPositionX( )
 {
 	return pHero->getPositionX( );
@@ -100,28 +100,28 @@ float ZRBHeroSprite::getHeroPositionY( )
 	return pHero->getPositionY( );
 }
 
-/// »ñÈ¡´óĞ¡
+/// è·å–å¤§å°
 Size ZRBHeroSprite::getHeroContentSize( )
 {
 	return pHero->getContentSize( );
 }
 
-// ÉèÖÃ ·½Ïò
+// è®¾ç½® æ–¹å‘
 void ZRBHeroSprite::setHeroScaleX( float scaleX )
 {
 	pHero->setScaleX( scaleX );
 }
 
-// ·µ»ØÔÚ¸¸½ÚµãÖĞµÄ´óĞ¡
+// è¿”å›åœ¨çˆ¶èŠ‚ç‚¹ä¸­çš„å¤§å°
 Rect ZRBHeroSprite::getHeroBoundingBox( )
 {
 	return pHero->getBoundingBox( );
 }
 
-// ÌøÔ¾¶¯×÷
+// è·³è·ƒåŠ¨ä½œ
 void ZRBHeroSprite::jumpTo( Point p , float time , float timboWidth )
 {
-	// Í£Ö¹ÅÀĞĞ
+	// åœæ­¢çˆ¬è¡Œ
 	if ( pClimbAction != NULL )
 	{
 		if ( !pClimbAction->isDone( ) )
@@ -129,18 +129,18 @@ void ZRBHeroSprite::jumpTo( Point p , float time , float timboWidth )
 			pHero->stopAction( pClimbAction );
 		}
 	}
-	// Ö´ĞĞÌøÔ¾
+	// æ‰§è¡Œè·³è·ƒ
 	if ( pJumpAction != NULL )
 	{
 		pHero->runAction( pJumpAction );
 	}
-	// ÒÆ¶¯Î»ÖÃ
+	// ç§»åŠ¨ä½ç½®
 	MoveTo *move = MoveTo::create( time , p );
 	CallFunc *func = CallFunc::create( CC_CALLBACK_0( ZRBHeroSprite::climb , this ) );
-	// Ìøµ½µÄµãÔÚµ±Ç°µã×ó²à
+	// è·³åˆ°çš„ç‚¹åœ¨å½“å‰ç‚¹å·¦ä¾§
 	if ( p.x - pHero->getPositionX( )>0 )
 	{
-		// ÊÇ·ñĞèÒª¸ü¸Ä·½Ïò
+		// æ˜¯å¦éœ€è¦æ›´æ”¹æ–¹å‘
 		if ( pHero->getScaleX( ) == 1 )
 		{
 			pHero->setScaleX( -1 );
@@ -170,12 +170,12 @@ void ZRBHeroSprite::jumpTo( Point p , float time , float timboWidth )
 	}
 }
 
-// ÅÀĞĞ
+// çˆ¬è¡Œ
 void ZRBHeroSprite::climb( )
 {
-	// Ğı×ª
+	// æ—‹è½¬
 	pHero->setRotation( 0 );
-	// Í£Ö¹ÌøÔ¾¶¯×÷
+	// åœæ­¢è·³è·ƒåŠ¨ä½œ
 	if ( pJumpAction != NULL )
 	{
 		if ( !pJumpAction->isDone( ) )
@@ -183,14 +183,14 @@ void ZRBHeroSprite::climb( )
 			pHero->stopAction( pJumpAction );
 		}
 	}
-	// Ö´ĞĞÅÀĞĞ¶¯×÷
+	// æ‰§è¡Œçˆ¬è¡ŒåŠ¨ä½œ
 	if ( pClimbAction != NULL )
 	{
 		pHero->runAction( pClimbAction );
 	}
 }
 
-// ¾«Áé³¯Ïò
+// ç²¾çµæœå‘
 void ZRBHeroSprite::heroFaceRight( )
 {
 	pHero->setScaleX( -1 );

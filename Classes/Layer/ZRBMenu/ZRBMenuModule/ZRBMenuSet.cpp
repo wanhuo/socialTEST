@@ -1,4 +1,4 @@
-
+ï»¿
 #include "ZRBMenuSet.h"
 
 
@@ -11,7 +11,7 @@ bool ZRBMenuSet::init( )
 	}
 
 
-	// ´´½¨±³¾°ÆÁ±Î²ã Ìí¼Óµ½²Ëµ¥ÖÐÆÁ±ÎÏÂ²ã´¥Ãþ
+	// åˆ›å»ºèƒŒæ™¯å±è”½å±‚ æ·»åŠ åˆ°èœå•ä¸­å±è”½ä¸‹å±‚è§¦æ‘¸
 	auto l = LayerColor::create( Color4B( 170 , 228 , 250 , 80 ) );
 	auto mi = MenuItemSprite::create( l , l );
 	auto m = Menu::create( mi , NULL );
@@ -23,24 +23,24 @@ bool ZRBMenuSet::init( )
 	setBatchNode( SpriteBatchNode::create( "homeMenu.png" ) );
 	this->addChild( getBatchNode( ) );
 
-	// Ìí¼Ó ZRBMenuBase
+	// æ·»åŠ  ZRBMenuBase
 	auto layer = ZRBMenuBase::create( );
 
-	// Ìí¼Ó ²Ëµ¥±³¾°
+	// æ·»åŠ  èœå•èƒŒæ™¯
 	_backboard = layer->getBackGround( );
-	// ÉèÖÃ±³°å´óÐ¡
+	// è®¾ç½®èƒŒæ¿å¤§å°
 	_backboard->setPreferredSize( ZRB_VISIBLE_SIZE * 0.7 );
-	// ÉèÖÃ±³°åÎ»ÖÃ
+	// è®¾ç½®èƒŒæ¿ä½ç½®
 	_backboard->setPosition( ZRB_VISIBLE_SIZE.width / 2 , ZRB_VISIBLE_SIZE.height * 3 / 2 );
-	// Ìí¼Ó±³°å
+	// æ·»åŠ èƒŒæ¿
 	this->addChild( _backboard , 10 );
 
-	// ´´½¨±³°å³öÏÖµÄ¶¯×÷
+	// åˆ›å»ºèƒŒæ¿å‡ºçŽ°çš„åŠ¨ä½œ
 	createAtionIn( );
-	// Ö´ÐÐ¶¯×÷
+	// æ‰§è¡ŒåŠ¨ä½œ
 	_backboard->runAction( getActionOut( ) );
 
-	// Ïò±³°åÉÏÌí¼Ó²Ëµ¥
+	// å‘èƒŒæ¿ä¸Šæ·»åŠ èœå•
 	_backboard->addChild( setSetting( ) );
 
 
@@ -48,17 +48,17 @@ bool ZRBMenuSet::init( )
 }
 
 /**
-*  ÉèÖÃ Setting °´Å¥µÄµ¯´°
+*  è®¾ç½® Setting æŒ‰é’®çš„å¼¹çª—
 *
-*  @return ·µ»Ø Menu
+*  @return è¿”å›ž Menu
 */
 Menu * ZRBMenuSet::setSetting( )
 {
 
-	// »ñÈ¡±³°åÍ¼Æ¬´óÐ¡
+	// èŽ·å–èƒŒæ¿å›¾ç‰‡å¤§å°
 	auto size = _backboard->getContentSize( );
 
-	//±³°åÌí¼Ó·Ö¸îÏß
+	//èƒŒæ¿æ·»åŠ åˆ†å‰²çº¿
 	for ( int i = 4; i > 1; i-- )
 	{
 		auto line = Sprite::createWithSpriteFrameName( "line.png" );
@@ -66,27 +66,27 @@ Menu * ZRBMenuSet::setSetting( )
 		_backboard->addChild( line );
 	}
 
-	// ¶¥²¿Ìí¼ÓÉèÖÃ×ÖÑù
+	// é¡¶éƒ¨æ·»åŠ è®¾ç½®å­—æ ·
 	auto fontSet = Label::createWithTTF( ZRBLanguage::getValue( "Set_set" ) , "customfout.otf" , 60 );
 	fontSet->setColor( Color3B( 69 , 193 , 255 ) );
 	fontSet->setPosition( Vec2( size.width / 2 , size.height * 0.9 ) );
 	_backboard->addChild( fontSet );
 
 
-	// ÉèÖÃ about °´Å¥
+	// è®¾ç½® about æŒ‰é’®
 	auto about = MenuItemImage::create( );
 	about->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "about.png" ) );
 	about->setPosition( size.width / 2 , size.height * 0.5 );
 	about->setAnchorPoint( Vec2( 0.5 , 0 ) );
 
-	// about °´Å¥Ìí¼Ó "¹ØÓÚÎÒÃÇ" ×ÖÑù
+	// about æŒ‰é’®æ·»åŠ  "å…³äºŽæˆ‘ä»¬" å­—æ ·
 	auto fontAbout = Label::createWithTTF( ZRBLanguage::getValue( "Set_about" ) , "customfout.otf" , 30 );
 	fontAbout->setColor( Color3B( 69 , 193 , 255 ) );
 	fontAbout->setAnchorPoint( Vec2( 0.5 , 1 ) );
 	fontAbout->setPosition( about->getContentSize( ).width / 2 , 0 );
 	about->addChild( fontAbout );
 
-	// ÉèÖÃ sound °´Å¥
+	// è®¾ç½® sound æŒ‰é’®
 	auto sound_on = MenuItemImage::create( );
 	sound_on->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "sound.png" ) );
 
@@ -96,19 +96,19 @@ Menu * ZRBMenuSet::setSetting( )
 	auto sound = MenuItemToggle::createWithCallback( CC_CALLBACK_0( ZRBMenuSet::call_sound , this ) , sound_on , sound_off , NULL );
 	sound->setPosition( size.width * 0.3 , size.height * 0.7 );
 
-	// Todo : sound check
-	if ( !ZRBUserDate::getInstance(	)->getDateBool( KEY_CHECK_SOUND ) )
+	
+	if ( !ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
 	{
 		sound->setSelectedIndex( 1 );
 	}
-	// sound °´Å¥ Ìí¼Ó "ÒôÐ§" ×ÖÑù
+	// sound æŒ‰é’® æ·»åŠ  "éŸ³æ•ˆ" å­—æ ·
 	auto fontSound = Label::createWithTTF( ZRBLanguage::getValue( "Set_sound" ) , "customfout.otf" , 25 );
 	fontSound->setColor( Color3B( 69 , 193 , 255 ) );
 	fontSound->setAnchorPoint( Vec2( 0.5 , 1 ) );
 	fontSound->setPosition( sound->getContentSize( ).width / 2 , 0 );
 	sound->addChild( fontSound );
 
-	// ÉèÖÃ music  °´Å¥
+	// è®¾ç½® music  æŒ‰é’®
 	auto music_on = MenuItemImage::create( );
 	music_on->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "music.png" ) );
 	auto music_off = MenuItemImage::create( );
@@ -117,25 +117,25 @@ Menu * ZRBMenuSet::setSetting( )
 	auto music = MenuItemToggle::createWithCallback( CC_CALLBACK_0( ZRBMenuSet::call_music , this ) , music_on , music_off , nullptr );
 	music->setPosition( size.width * 0.7 , size.height * 0.7 );
 	
-	//ÒôÀÖ×´Ì¬
+	//éŸ³ä¹çŠ¶æ€
 	if ( !ZRBUserDate::getInstance(	)->getDateBool( KEY_CHECK_MUSIC) )
 	{
 		music->setSelectedIndex( 1 );
 	}
 
-	// music °´Å¥Ìí¼Ó " ÒôÀÖ" ×ÖÑù
+	// music æŒ‰é’®æ·»åŠ  " éŸ³ä¹" å­—æ ·
 	auto fontMusic = Label::createWithTTF( ZRBLanguage::getValue( "Set_music" ) , "customfout.otf" , 25 );
 	fontMusic->setColor( Color3B( 69 , 193 , 255 ) );
 	fontMusic->setAnchorPoint( Vec2( 0.5 , 1 ) );
 	fontMusic->setPosition( music->getContentSize( ).width / 2 , 0 );
 	music->addChild( fontMusic );
 
-	// ÉèÖÃ evaluate °´Å¥µÄ label
+	// è®¾ç½® evaluate æŒ‰é’®çš„ label
 	auto evaluateLable = Label::createWithTTF( ZRBLanguage::getValue( "Set_appreciate" ) , "customfout.otf" , 30 );
 	evaluateLable->setAnchorPoint( Vec2( 0.5 , 1 ) );
 	evaluateLable->setColor( Color3B( 69 , 193 , 255 ) );
 
-	// ÉèÖÃevaluate °´Å¥
+	// è®¾ç½®evaluate æŒ‰é’®
 	auto evaluate = MenuItemImage::create( );
 	evaluate->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "star.png" ) );
 	evaluate->setPosition( size.width * 0.5 , size.height * 0.35 );
@@ -144,7 +144,7 @@ Menu * ZRBMenuSet::setSetting( )
 
 	evaluateLable->setPosition( evaluate->getContentSize( ).width / 2 , 0 );
 
-	// ÉèÖÃ back °´Å¥
+	// è®¾ç½® back æŒ‰é’®
 	auto backLabel = Label::createWithTTF( ZRBLanguage::getValue( "Back" ) , "customfout.otf" , 50 );
 	backLabel->setColor( Color3B( 69 , 193 , 255 ) );
 	auto back = MenuItemLabel::create( backLabel );
@@ -153,7 +153,7 @@ Menu * ZRBMenuSet::setSetting( )
 	back->setCallback( CC_CALLBACK_0( ZRBMenuSet::call_back , this ) );
 	back->setPosition( size.width / 2 , size.height * 0.1 );
 
-	// ·µ»ØÌí¼Ó menuLayer, back, about, sound, music, evaluate °´Å¥µÄ²Ëµ¥
+	// è¿”å›žæ·»åŠ  menuLayer, back, about, sound, music, evaluate æŒ‰é’®çš„èœå•
 	auto menu = Menu::create( back , about , music , sound , evaluate , NULL );
 	menu->setPosition( 0 , 0 );
 
@@ -165,78 +165,75 @@ Menu * ZRBMenuSet::setSetting( )
 /**
 *  Setting
 *
-*  music °´Å¥»Øµ÷º¯Êý
+*  music æŒ‰é’®å›žè°ƒå‡½æ•°
 */
 void ZRBMenuSet::call_music( )
 {
-	CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
-	//bool _music = ZRBUserDate::getInstance()->getDateBool( KEY_CHECK_MUSIC );
-	//
-	//if ( _music )
-	//{
-	//	_music = false;
-	//	CocosDenshion::SimpleAudioEngine::getInstance( )->pauseBackgroundMusic( );
-	//}
-	//else
-	//{
-	//	_music = true;
-	//	CocosDenshion::SimpleAudioEngine::getInstance( )->resumeBackgroundMusic( );
-	//}
 
-	//ZRBUserDate::getInstance( )->saveData( KEY_CHECK_MUSIC , &_music );
+	bool _music = ZRBUserDate::getInstance()->getDateBool( KEY_CHECK_MUSIC );
+	
+	if ( _music )
+	{
+		_music = false;
+		CocosDenshion::SimpleAudioEngine::getInstance( )->pauseBackgroundMusic( );
+	}
+	else
+	{
+		_music = true;
+		CocosDenshion::SimpleAudioEngine::getInstance( )->resumeBackgroundMusic( );
+	}
+
+	ZRBUserDate::getInstance( )->saveData( KEY_CHECK_MUSIC , &_music );
 }
 
 
 /**
 *  Setting
 *
-*  sound °´Å¥»Øµ÷º¯Êý
+*  sound æŒ‰é’®å›žè°ƒå‡½æ•°
 */
 void ZRBMenuSet::call_sound( )
 {
 
-	bool _sound = ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND);
-
-	if ( _sound )
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
 	{
-		_sound = false;
-		CocosDenshion::SimpleAudioEngine::getInstance( )->pauseAllEffects( );
+		auto sound = false;
+		ZRBUserDate::getInstance( )->saveData( KEY_CHECK_SOUND , &sound );
 	}
 	else
 	{
-		_sound = true;
-		CocosDenshion::SimpleAudioEngine::getInstance( )->resumeAllEffects( );
+		auto sound = true;
+		ZRBUserDate::getInstance( )->saveData( KEY_CHECK_SOUND , &sound );
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
 	}
-
-	ZRBUserDate::getInstance( )->saveData( KEY_CHECK_SOUND , &_sound );
 }
 
 
 /**
 *  Setting
 *
-*  about °´Å¥»Øµ÷º¯Êý
+*  about æŒ‰é’®å›žè°ƒå‡½æ•°
 */
 void ZRBMenuSet::call_about( )
 {
 }
 /**
-*  back °´Å¥»Øµ÷º¯Êý
+*  back æŒ‰é’®å›žè°ƒå‡½æ•°
 */
 void ZRBMenuSet::call_back( )
 {
-	//´´½¨²Ëµ¥ÒÆ³ýµÄ¶¯×÷
+	//åˆ›å»ºèœå•ç§»é™¤çš„åŠ¨ä½œ
 	createAtionOut( );
-	//Ö´ÐÐ¶¯×÷²¢µ÷ÓÃÇåÀíº¯Êý
+	//æ‰§è¡ŒåŠ¨ä½œå¹¶è°ƒç”¨æ¸…ç†å‡½æ•°
 	_backboard->runAction( Sequence::create( dynamic_cast<FiniteTimeAction *>( getActionIn( ) ) ,
 		CallFunc::create( CC_CALLBACK_0( ZRBMenuSet::call_clear , this ) ) , NULL ) );
 
 }
 
-// ·µ»ØºóÇåÀí
+// è¿”å›žåŽæ¸…ç†
 void ZRBMenuSet::call_clear( )
 {
-	// ÒÆ³ý²Ëµ¥ ÇåÀí
+	// ç§»é™¤èœå• æ¸…ç†
 	this->removeFromParentAndCleanup( true );
 
 }

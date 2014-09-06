@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef __ZRBLoadingLayer_H__
 #define __ZRBLoadingLayer_H__
 
@@ -11,7 +11,7 @@ class ZRBLoadingLayer : public Layer
 {
 public:
 	/**
-	Ğı×ª·½Ïò
+	æ—‹è½¬æ–¹å‘
 	*/
 	enum DirectionOfRotation
 	{
@@ -31,32 +31,32 @@ public:
 	CREATE_FUNC( ZRBLoadingLayer );
 
 	/**
-	*  ÉèÖÃÔØÈëÒ³Ãæ
+	*  è®¾ç½®è½½å…¥é¡µé¢
 	*
-	*  @param radius    Á£×Ó°ë¾¶
-	*  @param cycle     ÖÜÆÚ
-	*  @param livetime  Á£×ÓÉúÃüÖÜÆÚ
-	*  @param Direction Ğı×ª·½Ïò
+	*  @param radius    ç²’å­åŠå¾„
+	*  @param cycle     å‘¨æœŸ
+	*  @param livetime  ç²’å­ç”Ÿå‘½å‘¨æœŸ
+	*  @param Direction æ—‹è½¬æ–¹å‘
 	*/
 	void setLoading( float radius , float cycle = 1 , float livetime = 1 , DirectionOfRotation Direction = Clockwise );
 
 	/**
-	*  ²úÉúÁ£×Ó
+	*  äº§ç”Ÿç²’å­
 	*
-	*  @param time Á£×ÓÉú´æÊ±¼ä
+	*  @param time ç²’å­ç”Ÿå­˜æ—¶é—´
 	*
-	*  @return ²úÉúµÄÁ£×Ó
+	*  @return äº§ç”Ÿçš„ç²’å­
 	*/
 	ParticleSystem * particleInit( float time = 1 );
 
 	/**
-	*  ·µ»ØÔ²ĞÎÒÆ¶¯Â·¾¶, ÓÉÏÂ±ßÔµ¿ªÊ¼
+	*  è¿”å›åœ†å½¢ç§»åŠ¨è·¯å¾„, ç”±ä¸‹è¾¹ç¼˜å¼€å§‹
 	*
-	*  @param radius    Ô²µÄ°ë¾¶
-	*  @param time      ×ªÒ»È¦ËùĞèÒªÊ±¼ä
-	*  @param Direction Ğı×ª·½Ïò Ä¬ÈÏË³Ê±Õë
+	*  @param radius    åœ†çš„åŠå¾„
+	*  @param time      è½¬ä¸€åœˆæ‰€éœ€è¦æ—¶é—´
+	*  @param Direction æ—‹è½¬æ–¹å‘ é»˜è®¤é¡ºæ—¶é’ˆ
 	*
-	*  @return Ñ­»·Ğı×ª¶¯×÷
+	*  @return å¾ªç¯æ—‹è½¬åŠ¨ä½œ
 	*/
 	Sequence * bezierCircle( float radius , float time = 2 , DirectionOfRotation Direction = Clockwise );
 

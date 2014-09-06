@@ -1,4 +1,4 @@
-
+ï»¿
 
 #ifndef __ZRBGameLayer_H__
 #define __ZRBGameLayer_H__
@@ -30,36 +30,36 @@ public:
 	void replenishtimbosAndAddItem( );
 
 	void gameBegain( Ref * sender );
-	/// ÓÎÏ·½áÊø
+	/// æ¸¸æˆç»“æŸ
 	void showGameFinish( ) override;
-	/// ÔİÍ£ÓÎÏ·
+	/// æš‚åœæ¸¸æˆ
 	virtual void pauseItemClick( Ref *ref );
 
-	///´øÓĞËæ»ú½ğ±ÒµÄÌÙÌõ
+	///å¸¦æœ‰éšæœºé‡‘å¸çš„è—¤æ¡
 	Sprite * createTimboRandomPosHaveGold( );
-	// Ìí¼ÓÌÙµÄ¶¥²¿ (ÒÔºóÌí¼ÓĞ¡¹Ö
+	// æ·»åŠ è—¤çš„é¡¶éƒ¨ (ä»¥åæ·»åŠ å°æ€ª
 	Sprite * createTimbo( float length , Point pos );
-	// Ìí¼ÓÊ×Ò³ÏÔÊ¾µÄÌÙ
+	// æ·»åŠ é¦–é¡µæ˜¾ç¤ºçš„è—¤
 	void addTimboCall( float dt );
 
-	// ¸ü»»Ö÷Ìâ
+	// æ›´æ¢ä¸»é¢˜
 	void changePic( int idx );
-	// ¸ü»»½ÇÉ«
+	// æ›´æ¢è§’è‰²
 	void changeHero( Ref *sender );
-	// ÖØĞÂ¿ªÊ¼ÓÎÏ·
+	// é‡æ–°å¼€å§‹æ¸¸æˆ
 	void resume( Ref * ref );
 private:
-	// ÓÎÏ·¿ªÊ¼ ½áÊø
+	// æ¸¸æˆå¼€å§‹ ç»“æŸ
 	CC_SYNTHESIZE( bool , _begainGame , BegainGame );
-	// Ìí¼Ó¸öÊı
+	// æ·»åŠ ä¸ªæ•°
 	int count;
 
-	// ±£´æÒ³Ãæ idx
+	// ä¿å­˜é¡µé¢ idx
 	int _idx;
 
-	// ÊµÊ±¸ß¶È ½øÈëÓÎÏ·
+	// å®æ—¶é«˜åº¦ è¿›å…¥æ¸¸æˆ
 	float curHeight;
-	// ¿ªÊ¼ÓÎÏ·Ê±µÄ¸ß¶È 
+	// å¼€å§‹æ¸¸æˆæ—¶çš„é«˜åº¦ 
 	float pBegainHeight;
 };
 

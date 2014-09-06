@@ -11,8 +11,30 @@ LOCAL_MODULE := cocos2dcpp_shared
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
-                   ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
+ 				   ../../Classes/AppDelegate.cpp \ 
+ 				   ../../Classes/Layer/ZRBAuxiliary/ZRBLoadingLayer.cpp \ 
+ 				   ../../Classes/Layer/ZRBAuxiliary/ZRBMessageLayer.cpp \ 
+ 				   ../../Classes/Layer/ZRBGame/ZRBGameLayer/ZRBBaseGameLayer.cpp \ 
+ 				   ../../Classes/Layer/ZRBGame/ZRBGameLayer/ZRBGameLayer.cpp \ 
+ 				   ../../Classes/Layer/ZRBGame/ZRBGameMenu/ZRBGameFinishLayer.cpp \ 
+ 				   ../../Classes/Layer/ZRBGame/ZRBGameMenu/ZRBGameMenuLayer.cpp \ 
+ 				   ../../Classes/Layer/ZRBGame/ZRBHeroSprite.cpp \ 
+ 				   ../../Classes/Layer/ZRBLayer/ZRBHomeLayer.cpp \ 
+ 				   ../../Classes/Layer/ZRBLayer/ZRBPageView.cpp \ 
+ 				   ../../Classes/Layer/ZRBMenu/ZRBMenu.cpp \ 
+				   ../../Classes/Layer/ZRBMenu/ZRBMenuBase.cpp \ 
+ 				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuChars.cpp \ 
+ 				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuMarket.cpp \ 
+ 				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuMarket/ZRBMarketGold.cpp \ 
+				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuMarket/ZRBMarketRole.cpp \ 
+ 				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuSet.cpp \ 
+ 				   ../../Classes/Layer/ZRBViewLayer/ZRBTableViewCell.cpp \ 
+ 				   ../../Classes/Layer/ZRBViewLayer/ZRB_PageView.cpp \  				  
+ 				   ../../Classes/Scene/ZRBScene.cpp \ 
+ 				   ../../Classes/Utilities/ZRBLanguage/ZRBLanguage.cpp  
+ 				   ../../Classes/Utilities/ZRBTheme/ZRBTheme.cpp \  				   
+ 				   ../../Classes/Utilities/ZRBUserDate/ZRBUserDate.cpp  
+
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

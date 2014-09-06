@@ -1,4 +1,4 @@
 ColorJump
 =========
 
-one
+zero do!

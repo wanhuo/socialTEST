@@ -198,27 +198,26 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 {
 	// 获取 0~3 之间随机数
 	uniform_int_distribution<unsigned> dis_4( 0 , 3 );
-	
 	int ran = dis_4(engine);
-	/// 藤条长度
+	// 藤条长度
 	float spLength;
 	// 长度在200~300, 300~1000间的概率比为3 : 1
 	if ( ran == 0 )
 	{
-		uniform_int_distribution<unsigned> tem1( 1 , 100 );
+		uniform_int_distribution<unsigned> tem1( 0 , 99 );
 		spLength = tem1( engine ) + 200;
 	}
 	else
 	{
-		uniform_int_distribution<unsigned> tem7( 1 , 700 );
+		uniform_int_distribution<unsigned> tem7( 0 , 699 );
 		spLength = tem7( engine ) + 300;
 	}
 
 
 	Sprite *sp;
-	/// 取出容器中最后一条藤
-	Sprite *preSp = pTimbos.back( );
-	///  藤条顶部
+	// 取出容器中最后一条藤
+	Sprite * preSp = pTimbos.back( );
+	//  藤条顶部
 	float posY = preSp->getPositionY( ) + preSp->getContentSize( ).height - pBegainHeight;
 
 	if ( posY <= pDisplayItemHeight * pColorNum - ZRB_VISIBLE_SIZE.height - 200 && posY + 1000 >= pDisplayItemHeight *pColorNum - ZRB_VISIBLE_SIZE.height - 200 )
@@ -277,12 +276,12 @@ Sprite * ZRBGameLayer::createTimboRandomPosHaveGold( )
 	{
 		// 是, 添加到最后藤条 height * 0.7 - height
 		uniform_int_distribution<unsigned> heigh( 0 , preSp->getContentSize( ).height * 0.3 );
-		y = preSp->getContentSize( ).height*0.7 + heigh( engine ) + preSp->getPositionY( );
+		y = preSp->getContentSize( ).height * 0.7 + heigh( engine ) + preSp->getPositionY( );
 	}
 	else
 	{
 		// 否, 添加到最后藤条的上面自身长度的 0.3 之内
-		uniform_int_distribution<unsigned> heigh( 0 , preSp->getContentSize( ).height * 0.3 );
+		uniform_int_distribution<unsigned> heigh( 0 , sp->getContentSize( ).height * 0.3 );
 		y = preSp->getContentSize( ).height - heigh( engine ) + preSp->getPositionY( );
 	}
 	sp->setPosition( Point( x , y ) );

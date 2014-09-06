@@ -53,7 +53,8 @@ bool ZRBPageView::init( )
 	ZRBPageView::setPageView( );
 
 	// Add pageview
-	addChild( pageView , 2 );
+	// TODO: 层级 背景
+	addChild( pageView , 5 );
 	// Add schedule
 	schedule( schedule_selector( ZRBPageView::schedulecallback ) );
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBPageView::gameBegain ) , "Game" , nullptr );

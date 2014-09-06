@@ -8,9 +8,29 @@ cocos2d::Scene * ZRBScene::sceneCreate( )
 	auto scene = Scene::create( );
 
 	// TODO: ¼ÓÔØÒôÀÖ
-	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadBackgroundMusic( "background.wav" );
-	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadEffect( "gem.wav" );
-	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadEffect( "background.caf" );
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance( );
+
+	audio->preloadBackgroundMusic( ZRBLanguage::getValue( "Music_Bg" ) );
+	audio->preloadEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	audio->preloadEffect( ZRBLanguage::getValue( "Music_Gold" ) );
+	audio->preloadEffect( ZRBLanguage::getValue( "Music_Jump" ) );
+	audio->preloadEffect( ZRBLanguage::getValue( "Music_Die" ) );
+
+	audio->playBackgroundMusic( ZRBLanguage::getValue( "Music_Bg" ) , true );
+	audio->pauseBackgroundMusic( );
+	audio->pauseAllEffects( );
+	
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_MUSIC ) )
+	{
+		audio->resumeBackgroundMusic( );
+	}
+
+
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		audio->resumeAllEffects( );
+	}
+
 
 	scene->addChild( ZRBHomeLayer::create() );
 	

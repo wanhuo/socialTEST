@@ -1,6 +1,7 @@
 
 
 #include "ZRBGameFinishLayer.h"
+#include "Scene/ZRBScene.h"
 
 ZRBGameFinishLayer::ZRBGameFinishLayer( )
 {
@@ -182,11 +183,6 @@ void ZRBGameFinishLayer::setInfo( int _distance , int _glod )
 
 
 
-void ZRBGameFinishLayer::setSceneManager( ZRBSceneManager _manager )
-{
-	pManager = _manager;
-}
-
 void ZRBGameFinishLayer::rankingClick( Ref *ref )
 {
 	this->addChild( ZRBMenuChars::create( ) , 10 );
@@ -200,7 +196,7 @@ void ZRBGameFinishLayer::restartClick( Ref *ref )
 void ZRBGameFinishLayer::homeClick( Ref *ref )
 {
 	this->getScene( )->cleanup( );
-	// Todo: back home
-	//Director::getInstance( )->replaceScene( ZRBScene::sceneCreate() );
-	//ZRBManager::go( ZRBSceneManager::homeScene );
+	// back home
+	Director::getInstance( )->replaceScene( ZRBScene::sceneCreate() );
+
 }

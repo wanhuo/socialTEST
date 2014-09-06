@@ -2,6 +2,7 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
+#include "Scene/ZRBScene.h"
 
 /**
 @brief    The cocos2d Application.
@@ -13,7 +14,7 @@ class  AppDelegate : private cocos2d::Application
 public:
     AppDelegate();
     virtual ~AppDelegate();
-
+	
     /**
     @brief    Implement Director and Scene init code here.
     @return true    Initialize success, app continue.

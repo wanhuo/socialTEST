@@ -93,8 +93,7 @@ protected:
 	*  @param _isRanPos 位置是否随机
 	*/
 	void setBg2( int ImageNum , bool _isRanPos );
-	///  设置跳转场景 pSceneManage
-	void setModeScene( ZRBSceneManager _manager );
+
 	/// 子类实现
 	virtual void createTimboRandomPosHaveGoldOtherFunc( Sprite *preSp , Sprite *sp );
 	/// return pHero;
@@ -148,8 +147,6 @@ protected:
 	ZRBHeroSprite *pHero;
 	/// 按钮原始大小
 	Size pItemDefaultSize;
-	/// 跳转场景
-	ZRBSceneManager pSceneManager;
 
 	///5种颜色
 	Color3B pAllColors [ 5 ];

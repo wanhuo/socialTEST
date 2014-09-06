@@ -4,7 +4,6 @@
 #define __ZRBGameFinishLayer_H__
 
 #include "../../ZRBMenu/ZRBMenuModule/ZRBMenuChars.h"
-//#include "Scene/ZRBScene.h"
 
 class ZRBGameFinishLayer : public Layer
 {
@@ -15,8 +14,7 @@ public:
 
 	virtual bool init( );
 	CREATE_FUNC( ZRBGameFinishLayer );
-	// 跳转的场景
-	void setSceneManager( ZRBSceneManager _manager );
+	// Todo: 跳转的场景 void setSceneManager( ZRBSceneManager _manager );
 	// 设置成绩和金币
 	void setInfo( int _distance , int _glod );
 private:
@@ -28,8 +26,8 @@ private:
 	void homeClick( Ref *ref );
 
 	std::vector<float>addition;
-	// 跳转场景
-	ZRBSceneManager pManager;
+	//todo : 跳转场景
+	// ZRBSceneManager pManager;
 	/// 距离 成绩
 	Label *pDistanceLabel;
 	Label *pHeighScore;

@@ -239,9 +239,6 @@
     </Font>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Resources\music\background.caf">
-      <Filter>resource\music</Filter>
-    </None>
     <None Include="..\Resources\menu\game_menuItem.plist">
       <Filter>resource\menu</Filter>
     </None>
@@ -269,23 +266,12 @@
     <None Include="..\Resources\hero\snail_heor.plist">
       <Filter>resource\hero</Filter>
     </None>
-    <None Include="..\Resources\Languane\en.plist">
+    <None Include="..\Resources\Language\en.plist">
       <Filter>resource\Language</Filter>
     </None>
-    <None Include="..\Resources\Languane\zh.plist">
+    <None Include="..\Resources\Language\zh.plist">
       <Filter>resource\Language</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="..\Resources\music\background.mp3">
-      <Filter>resource\music</Filter>
-    </Media>
-    <Media Include="..\Resources\music\background.wav">
-      <Filter>resource\music</Filter>
-    </Media>
-    <Media Include="..\Resources\music\gem.wav">
-      <Filter>resource\music</Filter>
-    </Media>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\menu\game_menuItem.png">
@@ -330,5 +316,22 @@
     <Image Include="..\Resources\star.png">
       <Filter>resource</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\music\Bgmusic.mp3">
+      <Filter>resource\music</Filter>
+    </Media>
+    <Media Include="..\Resources\music\buttonClick.mp3">
+      <Filter>resource\music</Filter>
+    </Media>
+    <Media Include="..\Resources\music\Die.mp3">
+      <Filter>resource\music</Filter>
+    </Media>
+    <Media Include="..\Resources\music\Goldcoin.mp3">
+      <Filter>resource\music</Filter>
+    </Media>
+    <Media Include="..\Resources\music\Jump.mp3">
+      <Filter>resource\music</Filter>
+    </Media>
   </ItemGroup>
 </Project>

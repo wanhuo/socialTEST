@@ -4,7 +4,7 @@
 
 
 #include "cocos2d.h"
-#include "cocos-ext.h"
+#include "extensions/cocos-ext.h"
 
 #include "Utilities/ZRBConfig.h"
 #include "Utilities/ZRBUserDate/ZRBUserDate.h"
@@ -17,26 +17,26 @@ class ZRBMenuBase : public Layer
 {
 private:
 
-	// Ìí¼ÓÀ­ÉìµÄ±³¾°Í¼Æ¬
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Í¼Æ¬
 	CC_SYNTHESIZE_READONLY( Scale9Sprite * , _backGround , BackGround );
 
-	// Ìí¼Ó²Ëµ¥½øÈëµÄ¶¯×÷
+	// ï¿½ï¿½Ó²Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
 	CC_SYNTHESIZE_RETAIN( Action * , _actionOut , ActionOut );
 
-	// Ìí¼Ó²Ëµ¥ÍË³öµÄ¶¯×÷
+	// ï¿½ï¿½Ó²Ëµï¿½ï¿½Ë³ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
 	CC_SYNTHESIZE_RETAIN( Action * , _actionIn , ActionIn );
 
 public:
 
 	virtual bool init( );
 
-	// ´´½¨ÍË³öµÄ¶¯×÷
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
 	void createAtionOut( );
 
-	// ´´½¨½øÈëµÄ¶¯×÷
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
 	void createAtionIn( );
 
-	// ´´½¨±³¾°
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void createBackGroud( );
 
 	CREATE_FUNC( ZRBMenuBase );

@@ -2,6 +2,7 @@
 #include "ZRBMenuSet.h"
 
 
+
 bool ZRBMenuSet::init( )
 {
 	if ( !Layer::init( ) )
@@ -96,10 +97,10 @@ Menu * ZRBMenuSet::setSetting( )
 	sound->setPosition( size.width * 0.3 , size.height * 0.7 );
 
 	// Todo : sound check
-	//if ( !ZRBManager::getEffectMusicState( ) )
-	//{
-	//	sound->setSelectedIndex( 1 );
-	//}
+	if ( !ZRBUserDate::getInstance(	)->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		sound->setSelectedIndex( 1 );
+	}
 	// sound 按钮 添加 "音效" 字样
 	auto fontSound = Label::createWithTTF( ZRBLanguage::getValue( "Set_sound" ) , "customfout.otf" , 25 );
 	fontSound->setColor( Color3B( 69 , 193 , 255 ) );
@@ -116,11 +117,11 @@ Menu * ZRBMenuSet::setSetting( )
 	auto music = MenuItemToggle::createWithCallback( CC_CALLBACK_0( ZRBMenuSet::call_music , this ) , music_on , music_off , nullptr );
 	music->setPosition( size.width * 0.7 , size.height * 0.7 );
 	
-	//TODO : 音乐状态
-	//if ( !ZRBManager::getBgMusicState( ) )
-	//{
-	//	music->setSelectedIndex( 1 );
-	//}
+	//音乐状态
+	if ( !ZRBUserDate::getInstance(	)->getDateBool( KEY_CHECK_MUSIC) )
+	{
+		music->setSelectedIndex( 1 );
+	}
 
 	// music 按钮添加 " 音乐" 字样
 	auto fontMusic = Label::createWithTTF( ZRBLanguage::getValue( "Set_music" ) , "customfout.otf" , 25 );
@@ -168,29 +169,23 @@ Menu * ZRBMenuSet::setSetting( )
 */
 void ZRBMenuSet::call_music( )
 {
-	// todo music callback
-	// 获取当前的音效状态 更改
-	//if ( ZRBManager::getBgMusicState( ) )
+	CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	//bool _music = ZRBUserDate::getInstance()->getDateBool( KEY_CHECK_MUSIC );
+	//
+	//if ( _music )
 	//{
-	//	ZRBManager::stopBgMusic( );
+	//	_music = false;
+	//	CocosDenshion::SimpleAudioEngine::getInstance( )->pauseBackgroundMusic( );
 	//}
 	//else
 	//{
-	//	ZRBManager::openBgMusic( );
+	//	_music = true;
+	//	CocosDenshion::SimpleAudioEngine::getInstance( )->resumeBackgroundMusic( );
 	//}
 
-	//bool _music = ZRBManager::getBgMusicState( );
 	//ZRBUserDate::getInstance( )->saveData( KEY_CHECK_MUSIC , &_music );
 }
 
-/**
-*  Setting
-*
-*  about 按钮回调函数
-*/
-void ZRBMenuSet::call_about( )
-{
-}
 
 /**
 *  Setting
@@ -200,21 +195,31 @@ void ZRBMenuSet::call_about( )
 void ZRBMenuSet::call_sound( )
 {
 
-	// Todo:获取当前的音效状态 更改
-	//if ( ZRBManager::getEffectMusicState( ) )
-	//{
-	//	ZRBManager::stopEffectMusic( );
-	//}
-	//else
-	//{
-	//	ZRBManager::openEffectMusic( );
-	//}
+	bool _sound = ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND);
 
-	//bool _sound = ZRBManager::getEffectMusicState( );
-	//ZRBUserDate::getInstance( )->saveData( KEY_CHECK_SOUND , &_sound );
+	if ( _sound )
+	{
+		_sound = false;
+		CocosDenshion::SimpleAudioEngine::getInstance( )->pauseAllEffects( );
+	}
+	else
+	{
+		_sound = true;
+		CocosDenshion::SimpleAudioEngine::getInstance( )->resumeAllEffects( );
+	}
+
+	ZRBUserDate::getInstance( )->saveData( KEY_CHECK_SOUND , &_sound );
 }
 
 
+/**
+*  Setting
+*
+*  about 按钮回调函数
+*/
+void ZRBMenuSet::call_about( )
+{
+}
 /**
 *  back 按钮回调函数
 */

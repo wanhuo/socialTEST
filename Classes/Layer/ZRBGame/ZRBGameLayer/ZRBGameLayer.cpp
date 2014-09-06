@@ -486,7 +486,6 @@ void ZRBGameLayer::pauseItemClick( cocos2d::Ref *ref )
 	// ´´½¨Ìí¼ÓÔİÍ£²ã
 	ZRBGameMenuLayer *layer = ZRBGameMenuLayer::create( );
 	layer->setPosition( Point( -ZRB_VISIBLE_SIZE.width / 2 , curHeight - ZRB_VISIBLE_SIZE.height / 2 ) );
-	layer->setScene( pSceneManager );
 	this->addChild( layer , layerBatchNodeBaseGame::menuItem , 1000 );
 	// ÓÎÏ·ÔİÍ£
 	Director::getInstance( )->pause( );

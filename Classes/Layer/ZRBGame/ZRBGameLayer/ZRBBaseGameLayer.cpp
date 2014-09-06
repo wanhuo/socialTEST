@@ -501,16 +501,12 @@ void ZRBBaseGameLayer::pauseItemClick( Ref *ref )
 	// ´´½¨Ìí¼ÓÔÝÍ£²ã
 	ZRBGameMenuLayer *layer = ZRBGameMenuLayer::create( );
 	layer->setPosition( Point( -ZRB_VISIBLE_SIZE.width / 2 , pCurrentHeight - ZRB_VISIBLE_SIZE.height / 2 ) );
-	layer->setScene( pSceneManager );
+	//layer->setScene( pSceneManager );
 	this->addChild( layer , layerBatchNodeBaseGame::menuItem );
 	// ÓÎÏ·ÔÝÍ£
 	Director::getInstance( )->pause( );
 }
 
-void ZRBBaseGameLayer::setModeScene( ZRBSceneManager _manager )
-{
-	pSceneManager = _manager;
-}
 
 void ZRBBaseGameLayer::heroJumpNext( )
 {
@@ -786,7 +782,6 @@ void ZRBBaseGameLayer::showGameFinish( )
 	pIsLost = true;
 	ZRBGameFinishLayer *layer = ZRBGameFinishLayer::create( );
 	layer->setPosition( 0 , pCurrentHeight );
-	layer->setSceneManager( pSceneManager );
 	layer->setInfo( ( int ) ( pCurrentHeight / standard ) , pGoldNum );
 	this->addChild( layer , layerBatchNodeBaseGame::menuItem );
 }

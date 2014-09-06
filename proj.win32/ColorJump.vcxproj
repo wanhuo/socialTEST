@@ -223,20 +223,14 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <None Include="..\Resources\hero\dragon_hero.plist" />
     <None Include="..\Resources\hero\pink_heor.plist" />
     <None Include="..\Resources\hero\snail_heor.plist" />
-    <None Include="..\Resources\Languane\en.plist" />
-    <None Include="..\Resources\Languane\zh.plist" />
+    <None Include="..\Resources\Language\en.plist" />
+    <None Include="..\Resources\Language\zh.plist" />
     <None Include="..\Resources\material\blueSky_material.plist" />
     <None Include="..\Resources\material\summer_material.plist" />
     <None Include="..\Resources\material\sweet_material.plist" />
     <None Include="..\Resources\menu\gameFinish_Layer.plist" />
     <None Include="..\Resources\menu\game_menuItem.plist" />
     <None Include="..\Resources\menu\homeMenu.plist" />
-    <None Include="..\Resources\music\background.caf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="..\Resources\music\background.mp3" />
-    <Media Include="..\Resources\music\background.wav" />
-    <Media Include="..\Resources\music\gem.wav" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\CloseNormal.png" />
@@ -253,6 +247,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\menu\homeMenu.png" />
     <Image Include="..\Resources\point.png" />
     <Image Include="..\Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\music\Bgmusic.mp3" />
+    <Media Include="..\Resources\music\buttonClick.mp3" />
+    <Media Include="..\Resources\music\Die.mp3" />
+    <Media Include="..\Resources\music\Goldcoin.mp3" />
+    <Media Include="..\Resources\music\Jump.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,6 @@
 
 #include "ZRBGameMenuLayer.h"
+#include "Scene/ZRBScene.h"
 
 bool ZRBGameMenuLayer::init( )
 {
@@ -105,10 +106,6 @@ void ZRBGameMenuLayer::initObject( )
 
 }
 
-void ZRBGameMenuLayer::setScene( ZRBSceneManager _manager )
-{
-	pSceneManager = _manager;
-}
 
 // 继续游戏
 void ZRBGameMenuLayer::backGameItemClick( Ref *ref )
@@ -135,9 +132,9 @@ void ZRBGameMenuLayer::backHomeItemClick( Ref *ref )
 {
 	// 返回
 	Director::getInstance( )->resume( );
-	// Todo: 跳转到首页
-	//Director::getInstance( )->pushScene( ZRBScene::sceneCreate() );
-	//ZRBManager::go( ZRBSceneManager::homeScene );
+	// 跳转到首页
+	Director::getInstance( )->replaceScene( ZRBScene::sceneCreate() );
+	
 }
 
 // 重新开始游戏
@@ -149,6 +146,14 @@ void ZRBGameMenuLayer::restartGameItemClick( Ref *ref )
 //切换音乐状态
 void ZRBGameMenuLayer::musicItemClick( Ref *ref )
 {
+	//if ( music == Audio::open )
+	//{
+	//	CocosDenshion::SimpleAudioEngine::getInstance( )->pauseBackgroundMusic( );
+	//}
+	//else
+	//{
+	//	CocosDenshion::SimpleAudioEngine::getInstance( )->resumeBackgroundMusic( );
+	//}
 	// Todo: 获取当前的音效状态 更改
 	/*if ( ZRBManager::getBgMusicState( ) )
 	{

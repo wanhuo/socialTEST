@@ -91,7 +91,7 @@ void ZRBMessageLayer::callback( )
 		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
 	}
 	auto in = this->getActionIn( );
-	_backGround->runAction( Sequence::create( dynamic_cast< FiniteTimeAction * >( in ) , //?this->getActionIn( ) ) ,
+	_backGround->runAction( Sequence::create( dynamic_cast< FiniteTimeAction * >( in ) , 
 		CallFunc::create( [ &] ( )
 	{
 		_eventDispatcher->removeEventListenersForTarget( this );

@@ -156,10 +156,10 @@ Menu * ZRBMenuMarket::setMarket( )
 
 void ZRBMenuMarket::call_role( )
 {
-	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
-	}
+	//if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	//{
+	//	CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	//}
 	// 更改侧边按钮大小 切换到人物购买页面
 	//    pProp->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop.png"));
 	//    pProp->setPosition(buttonRevise, size.height * 0.8);
@@ -190,10 +190,6 @@ void ZRBMenuMarket::call_role( )
 // 更改侧边按钮大小 切换到金币购买页面
 void ZRBMenuMarket::call_gold_buy( )
 {
-	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
-	}
 	// 更改侧边按钮大小 切换到金币购买页面
 	//    pProp->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop.png"));
 	//    pProp->setPosition(buttonRevise, size.height * 0.8);
@@ -223,10 +219,6 @@ void ZRBMenuMarket::call_gold_buy( )
 // 添加金币回调
 void ZRBMenuMarket::call_buy( )
 {
-	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
-	}
 	// 调用购买金币回调
 	call_gold_buy( );
 }

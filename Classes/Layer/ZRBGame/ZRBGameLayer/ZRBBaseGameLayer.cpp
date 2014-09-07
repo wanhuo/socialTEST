@@ -498,6 +498,7 @@ void ZRBBaseGameLayer::colorItemClick( Ref *ref )
 
 void ZRBBaseGameLayer::pauseItemClick( Ref *ref )
 {
+	
 	// 创建添加暂停层
 	ZRBGameMenuLayer *layer = ZRBGameMenuLayer::create( );
 	layer->setPosition( Point( -ZRB_VISIBLE_SIZE.width / 2 , pCurrentHeight - ZRB_VISIBLE_SIZE.height / 2 ) );

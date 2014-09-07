@@ -263,10 +263,6 @@ void ZRBMenu::begainGame( Ref * ref )
 */
 void ZRBMenu::addGold( )
 {
-	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
-	}
 	auto market = ZRBMenuMarket::create( );
 	this->addChild( market , 101 );
 	market->call_buy( );

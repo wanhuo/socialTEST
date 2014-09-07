@@ -1,4 +1,4 @@
-
+﻿
 #include "ZRBPageView.h"
 
 ZRBPageView::ZRBPageView( ) : PagePrice({ 0 , 4000 , 4000 , 4000 , 16000 })
@@ -54,7 +54,7 @@ bool ZRBPageView::init( )
 
 	// Add pageview
 	// TODO: 层级 背景
-	addChild( pageView , 2 );
+	addChild( pageView , 5 );
 	// Add schedule
 	schedule( schedule_selector( ZRBPageView::schedulecallback ) );
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBPageView::gameBegain ) , "Game" , nullptr );
@@ -498,6 +498,10 @@ void ZRBPageView::popup( LayerColor * layer , int idx )
 */
 void ZRBPageView::callBuy( LayerColor * layer , int idx )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	// 购买 主题
 	auto gold = ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM );
 	if ( gold < PagePrice [ idx ] )

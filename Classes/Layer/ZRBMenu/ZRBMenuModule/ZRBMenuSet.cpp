@@ -222,6 +222,10 @@ void ZRBMenuSet::call_about( )
 */
 void ZRBMenuSet::call_back( )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	//创建菜单移除的动作
 	createAtionOut( );
 	//执行动作并调用清理函数

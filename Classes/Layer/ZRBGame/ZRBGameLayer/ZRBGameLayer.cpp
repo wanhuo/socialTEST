@@ -1,4 +1,4 @@
-
+﻿
 #include "ZRBGameLayer.h"
 
 // Todo : ktplay
@@ -79,7 +79,6 @@ void ZRBGameLayer::update( float delta )
 	// 金币位置更新
 	pGoldNumLabel->setPositionY( pGoldNumLabel->getPositionY( ) + upHeight );
 
-	//    CCLOG("%f,  %f,  %f,  ", curHeight, pCurrentHeight, pBegainHeight);
 	//不移动bg
 	pBg1->setPositionY( pBg1->getPositionY( ) + upHeight );
 
@@ -487,6 +486,10 @@ void ZRBGameLayer::showGameFinish( )
 
 void ZRBGameLayer::pauseItemClick( cocos2d::Ref *ref )
 {
+	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+	}
 	// 创建添加暂停层
 	ZRBGameMenuLayer *layer = ZRBGameMenuLayer::create( );
 	layer->setPosition( Point( -ZRB_VISIBLE_SIZE.width / 2 , curHeight - ZRB_VISIBLE_SIZE.height / 2 ) );

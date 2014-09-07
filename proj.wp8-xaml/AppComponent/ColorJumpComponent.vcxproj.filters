@@ -5,9 +5,6 @@
     <ClCompile Include="..\..\Classes\AppDelegate.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Classes\HelloWorldScene.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="src\Cocos2dRenderer.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -23,13 +20,76 @@
     <ClCompile Include="src\EditBoxEvent.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Classes\Utilities\ZRBUserDate\ZRBUserDate.cpp">
+      <Filter>Classes\Utilities\ZRBUserDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Utilities\ZRBTheme\ZRBTheme.cpp">
+      <Filter>Classes\Utilities\ZRBTheme</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Utilities\ZRBLanguage\ZRBLanguage.cpp">
+      <Filter>Classes\Utilities\ZRBLanguage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Scene\ZRBScene.cpp">
+      <Filter>Classes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBViewLayer\ZRB_PageView.cpp">
+      <Filter>Classes\Layer\ZRBViewLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.cpp">
+      <Filter>Classes\Layer\ZRBViewLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenu.cpp">
+      <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuBase.cpp">
+      <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuChars.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuSet.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketRole.cpp">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBLayer\ZRBHomeLayer.cpp">
+      <Filter>Classes\Layer\ZRBLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBLayer\ZRBPageView.cpp">
+      <Filter>Classes\Layer\ZRBLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBHeroSprite.cpp">
+      <Filter>Classes\Layer\ZRBGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameFinishLayer.cpp">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameMenuLayer.cpp">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBBaseGameLayer.cpp">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.cpp">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.cpp">
+      <Filter>Classes\Layer\ZRBAuxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Layer\ZRBAuxiliary\ZRBMessageLayer.cpp">
+      <Filter>Classes\Layer\ZRBAuxiliary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="..\..\Classes\AppDelegate.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Classes\HelloWorldScene.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="src\Cocos2dRenderer.h">
@@ -50,6 +110,75 @@
     <ClInclude Include="src\EditBoxEvent.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Classes\Utilities\ZRBConfig.h">
+      <Filter>Classes\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Utilities\ZRBUserDate\ZRBUserDate.h">
+      <Filter>Classes\Utilities\ZRBUserDate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Utilities\ZRBTheme\ZRBTheme.h">
+      <Filter>Classes\Utilities\ZRBTheme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Utilities\ZRBLanguage\ZRBLanguage.h">
+      <Filter>Classes\Utilities\ZRBLanguage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Scene\ZRBScene.h">
+      <Filter>Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.h">
+      <Filter>Classes\Layer\ZRBViewLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBViewLayer\ZRB_PageView.h">
+      <Filter>Classes\Layer\ZRBViewLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenu.h">
+      <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuBase.h">
+      <Filter>Classes\Layer\ZRBMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuSet.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuChars.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketRole.h">
+      <Filter>Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBLayer\ZRBHomeLayer.h">
+      <Filter>Classes\Layer\ZRBLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBLayer\ZRBPageView.h">
+      <Filter>Classes\Layer\ZRBLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBHeroSprite.h">
+      <Filter>Classes\Layer\ZRBGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameMenuLayer.h">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameFinishLayer.h">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBBaseGameLayer.h">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.h">
+      <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.h">
+      <Filter>Classes\Layer\ZRBAuxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Layer\ZRBAuxiliary\ZRBMessageLayer.h">
+      <Filter>Classes\Layer\ZRBAuxiliary</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Classes">
@@ -57,6 +186,51 @@
     </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{6fcff44b-bb9f-4ed9-8553-558855bc91e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Utilities">
+      <UniqueIdentifier>{f9f2aca8-f3a8-4993-a2f2-90b30dd054d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Utilities\ZRBUserDate">
+      <UniqueIdentifier>{a3f1e705-0048-441c-b646-c58a7f957e74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Utilities\ZRBTheme">
+      <UniqueIdentifier>{2ef62299-e488-4927-9f2a-272f6b8a1a6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Utilities\ZRBLanguage">
+      <UniqueIdentifier>{dc35b943-0feb-41f3-8002-b8276ba1b750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Scene">
+      <UniqueIdentifier>{375ef0f3-ada8-49e7-8048-9e95f7811d25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer">
+      <UniqueIdentifier>{e7de05df-cfe1-439f-ae71-f0a076928557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBViewLayer">
+      <UniqueIdentifier>{0f78fe90-7273-48a5-a9ec-fe543d0806d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBMenu">
+      <UniqueIdentifier>{cfe146f4-3d75-432b-b08f-8fd0b835b544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBMenu\ZRBMenuModule">
+      <UniqueIdentifier>{04b21cb6-5516-4d0d-a4c2-c822ca2537dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket">
+      <UniqueIdentifier>{a5565539-0620-44b4-a8ce-a228fcfa4b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBLayer">
+      <UniqueIdentifier>{a4e19f8a-7d8c-4e30-ba5c-eebb820cf3e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBGame">
+      <UniqueIdentifier>{6d65ee1d-f673-46c1-a916-7bac3b15a9e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBGame\ZRBGameMenu">
+      <UniqueIdentifier>{ef97d39c-aacd-425d-9e3d-cac01d906168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBGame\ZRBGameLayer">
+      <UniqueIdentifier>{72a781cb-054e-48db-86c0-7c1a0fb8da38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Layer\ZRBAuxiliary">
+      <UniqueIdentifier>{fc82353d-8c75-4a7e-a1be-3594cccd9305}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

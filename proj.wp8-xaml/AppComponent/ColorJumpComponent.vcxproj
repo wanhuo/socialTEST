@@ -204,7 +204,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBAuxiliary\ZRBMessageLayer.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBBaseGameLayer.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameFinishLayer.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameMenuLayer.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBGame\ZRBHeroSprite.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBLayer\ZRBHomeLayer.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBLayer\ZRBPageView.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenu.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuBase.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuChars.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketRole.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuSet.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.cpp" />
+    <ClCompile Include="..\..\Classes\Layer\ZRBViewLayer\ZRB_PageView.cpp" />
+    <ClCompile Include="..\..\Classes\Scene\ZRBScene.cpp" />
+    <ClCompile Include="..\..\Classes\Utilities\ZRBLanguage\ZRBLanguage.cpp" />
+    <ClCompile Include="..\..\Classes\Utilities\ZRBTheme\ZRBTheme.cpp" />
+    <ClCompile Include="..\..\Classes\Utilities\ZRBUserDate\ZRBUserDate.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Create</PrecompiledHeader>
@@ -219,7 +240,29 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBAuxiliary\ZRBLoadingLayer.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBAuxiliary\ZRBMessageLayer.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBBaseGameLayer.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameFinishLayer.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBGameMenu\ZRBGameMenuLayer.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBGame\ZRBHeroSprite.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBLayer\ZRBHomeLayer.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBLayer\ZRBPageView.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenu.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuBase.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuChars.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketGold.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuMarket\ZRBMarketRole.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBMenu\ZRBMenuModule\ZRBMenuSet.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.h" />
+    <ClInclude Include="..\..\Classes\Layer\ZRBViewLayer\ZRB_PageView.h" />
+    <ClInclude Include="..\..\Classes\Scene\ZRBScene.h" />
+    <ClInclude Include="..\..\Classes\Utilities\ZRBConfig.h" />
+    <ClInclude Include="..\..\Classes\Utilities\ZRBLanguage\ZRBLanguage.h" />
+    <ClInclude Include="..\..\Classes\Utilities\ZRBTheme\ZRBTheme.h" />
+    <ClInclude Include="..\..\Classes\Utilities\ZRBUserDate\ZRBUserDate.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="src\Cocos2dRenderer.h" />
     <ClInclude Include="src\Direct3DContentProvider.h" />

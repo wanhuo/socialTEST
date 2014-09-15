@@ -272,6 +272,21 @@
     <None Include="..\Resources\Language\zh.plist">
       <Filter>resource\Language</Filter>
     </None>
+    <None Include="..\Resources\hero\grotle_hero.plist">
+      <Filter>resource\hero</Filter>
+    </None>
+    <None Include="..\Resources\hero\hoot_hero.plist">
+      <Filter>resource\hero</Filter>
+    </None>
+    <None Include="..\Resources\hero\magcargo_hero.plist">
+      <Filter>resource\hero</Filter>
+    </None>
+    <None Include="..\Resources\hero\spinarak_hero.plist">
+      <Filter>resource\hero</Filter>
+    </None>
+    <None Include="..\Resources\hero\tropius_hero.plist">
+      <Filter>resource\hero</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\menu\game_menuItem.png">
@@ -315,6 +330,21 @@
     </Image>
     <Image Include="..\Resources\star.png">
       <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\hero\grotle_hero.png">
+      <Filter>resource\hero</Filter>
+    </Image>
+    <Image Include="..\Resources\hero\hoot_hero.png">
+      <Filter>resource\hero</Filter>
+    </Image>
+    <Image Include="..\Resources\hero\magcargo_hero.png">
+      <Filter>resource\hero</Filter>
+    </Image>
+    <Image Include="..\Resources\hero\spinarak_hero.png">
+      <Filter>resource\hero</Filter>
+    </Image>
+    <Image Include="..\Resources\hero\tropius_hero.png">
+      <Filter>resource\hero</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

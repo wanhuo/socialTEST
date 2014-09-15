@@ -221,8 +221,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\hero\dragon_hero.plist" />
+    <None Include="..\Resources\hero\grotle_hero.plist" />
+    <None Include="..\Resources\hero\hoot_hero.plist" />
+    <None Include="..\Resources\hero\magcargo_hero.plist" />
     <None Include="..\Resources\hero\pink_heor.plist" />
     <None Include="..\Resources\hero\snail_heor.plist" />
+    <None Include="..\Resources\hero\spinarak_hero.plist" />
+    <None Include="..\Resources\hero\tropius_hero.plist" />
     <None Include="..\Resources\Language\en.plist" />
     <None Include="..\Resources\Language\zh.plist" />
     <None Include="..\Resources\material\blueSky_material.plist" />
@@ -237,8 +242,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\CloseSelected.png" />
     <Image Include="..\Resources\HelloWorld.png" />
     <Image Include="..\Resources\hero\dragon_hero.png" />
+    <Image Include="..\Resources\hero\grotle_hero.png" />
+    <Image Include="..\Resources\hero\hoot_hero.png" />
+    <Image Include="..\Resources\hero\magcargo_hero.png" />
     <Image Include="..\Resources\hero\pink_heor.png" />
     <Image Include="..\Resources\hero\snail_heor.png" />
+    <Image Include="..\Resources\hero\spinarak_hero.png" />
+    <Image Include="..\Resources\hero\tropius_hero.png" />
     <Image Include="..\Resources\material\blueSky_material.png" />
     <Image Include="..\Resources\material\summer_material.png" />
     <Image Include="..\Resources\material\sweet_material.png" />

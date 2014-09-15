@@ -27,6 +27,20 @@ THE SOFTWARE.
 package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
+import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
 public class AppActivity extends Cocos2dxActivity {
+
+	@Override
+	public Cocos2dxGLSurfaceView onCreateView() {
+		// TODO 自动生成的方法存根
+		
+		Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
+		
+		// Create stencil buffer
+		glSurfaceView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
+		
+		return glSurfaceView;
+	}
+	
 }

@@ -39,6 +39,7 @@ private:
 	// 动作
 	Action *pClimbAction;
 	Action *pJumpAction;
+	Action * pDieAction;
 };
 
 

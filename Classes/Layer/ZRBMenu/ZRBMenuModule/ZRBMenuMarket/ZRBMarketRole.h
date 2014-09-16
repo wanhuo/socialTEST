@@ -22,7 +22,7 @@ public:
 private:
 
 	// 角色是否购买
-	std::vector<bool>pBuy;
+	bool pBuy[6];
 	// 角色价格
 	std::vector<int>pPrice;
 	// 角色介绍

@@ -5,9 +5,12 @@
 
 ZRBGameFinishLayer::ZRBGameFinishLayer( )
 {
+	addition.push_back( 0 );
 	addition.push_back( 0.1 );
 	addition.push_back( 0.1 );
-	addition.push_back( 0.1 );
+	addition.push_back( 0.3 );
+	addition.push_back( 0.5 );
+	addition.push_back( 0.75 );
 }
 
 ZRBGameFinishLayer::~ZRBGameFinishLayer( )

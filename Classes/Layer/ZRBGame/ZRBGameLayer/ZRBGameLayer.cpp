@@ -33,7 +33,7 @@ bool ZRBGameLayer::init( )
 	{
 		return false;
 	}
-
+	
 	ZRBBaseGameLayer::initObject( );
 
 	pGoldNumLabel->setVisible( false );
@@ -48,7 +48,7 @@ bool ZRBGameLayer::init( )
 													 "NOTIFICATION_Resume" , nullptr );
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBGameLayer::changeHero ) ,
 													 "NOTIFICATION_Hero" , nullptr );
-	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBGameLayer::pauseItemClick ) , "Background" , nullptr );
+	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBGameLayer::pauseItemClick ) , "EnterBackground" , nullptr );
 
 	this->scheduleUpdate( );
 	schedule( schedule_selector( ZRBGameLayer::addTimboCall ) , 0.5 );
@@ -152,6 +152,12 @@ void ZRBGameLayer::update( float delta )
 			pIsLost = true;
 			// 掉落
 			pHero->jumpTo( Point( pHero->getHeroPositionX( ) , pHero->getHeroPositionY( ) - ZRB_VISIBLE_SIZE.height - pHero->getHeroContentSize( ).height ) , 1 , 0 );
+			
+			if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+			{
+				CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Die" ) );
+			}
+
 			this->runAction( Sequence::create( DelayTime::create( 1 ) , CallFunc::create( CC_CALLBACK_0( ZRBGameLayer::showGameFinish , this ) ) , NULL ) );
 		}
 	}
@@ -453,10 +459,7 @@ void ZRBGameLayer::gameBegain( cocos2d::Ref *sender )
 
 void ZRBGameLayer::showGameFinish( )
 {
-	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Die" ) );
-	}
+
 	// 取消的更新日期选择器
 	pause( );
 	pIsLost = true;
@@ -486,9 +489,9 @@ void ZRBGameLayer::showGameFinish( )
 
 void ZRBGameLayer::pauseItemClick( cocos2d::Ref *ref )
 {
-	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
+	if ( !_begainGame || pIsLost || this->getChildByTag(1000) != nullptr )
 	{
-		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
+		return;
 	}
 	// 创建添加暂停层
 	ZRBGameMenuLayer *layer = ZRBGameMenuLayer::create( );

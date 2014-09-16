@@ -37,6 +37,7 @@ private:
 	// TODO: 添加两个容器存放现实货币兑换的虚拟金币
 	std::vector<float>cash;
 	const std::vector<int>vircash;
+	std::vector <std::string> cashPic;
 	std::vector<std::string> productId;
 	// pageView
 	ui::PageView * pageView;
@@ -45,6 +46,7 @@ private:
 	Size size;
 
 	int goldId;
+
 public:
 
 	virtual bool init( );

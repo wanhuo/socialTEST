@@ -1,13 +1,9 @@
 ﻿
-// Undone: buy
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//#include "IOSiAP_Bridge.h"
-#endif
 
 #include "ZRBMarketGold.h"
 
 ZRBMarketGold::ZRBMarketGold( )
-	: vircash( { 7888 , 18888 , 1888 , 3888 } )
+	: vircash( { 3888 , 1888 , 18888 , 7888 } )
 {
 }
 
@@ -23,18 +19,24 @@ bool ZRBMarketGold::init( )
 		return false;
 	}
 
+	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "Gold_pic.plist" , "Gold_pic.png" );
+	
 	firstMes = false;
 
-	cash.push_back( atof( ZRBLanguage::getValue( "Gold_price_3" ) ) );
-	cash.push_back( atof( ZRBLanguage::getValue( "Gold_price_4" ) ) );
-	cash.push_back( atof( ZRBLanguage::getValue( "Gold_price_1" ) ) );
 	cash.push_back( atof( ZRBLanguage::getValue( "Gold_price_2" ) ) );
+	cash.push_back( atof( ZRBLanguage::getValue( "Gold_price_1" ) ) );
+	cash.push_back( atof( ZRBLanguage::getValue( "Gold_price_4" ) ) );
+	cash.push_back( atof( ZRBLanguage::getValue( "Gold_price_3" ) ) );
 
+	cashPic.push_back( "gold_3888.png" );
+	cashPic.push_back( "gold_1888.png" );
+	cashPic.push_back( "gold_18888.png" );
+	cashPic.push_back( "gold_7888.png" );
 
-	productId.push_back( "" );
-	productId.push_back( "" );
-	productId.push_back( "com.zero.test" );
-	productId.push_back( "" );
+	productId.push_back( "" );					// 3888
+	productId.push_back( "" );					// 1888	
+	productId.push_back( "com.zero.test" );		// 18888
+	productId.push_back( "" );					// 7888
 
 	// 设置大小
 	if ( ZRB_VISIBLE_SIZE.height > 1100 )
@@ -92,7 +94,7 @@ Layer * ZRBMarketGold::goldLayer0( )
 	for ( int i = 0; i < 4; i++ )
 	{
 		// 创建金币精灵
-		auto sprite = Sprite::createWithSpriteFrameName( "gold_number.png" );
+		auto sprite = Sprite::createWithSpriteFrameName( cashPic.at(i) );
 		// 设置锚点(0, 0)
 		sprite->setAnchorPoint( Vec2( 0 , 0 ) );
 		// 缩放适配
@@ -100,14 +102,14 @@ Layer * ZRBMarketGold::goldLayer0( )
 		// 设置位置 跟据 i 值和基点, 设置不同位置
 		sprite->setPosition( i % 2 * pos.x + ( pos.x - sprite->getContentSize( ).width ) / 2 , int( i >= 2 ) * pos.y + 10 );
 
-		// 创建金币数值 label 数值从 vircash 中取得
-		auto goldNum = Label::createWithTTF( String::createWithFormat( "%d" , vircash [ i ] )->getCString( ) , "customfout.otf" , 30 );
-		// 设置位置, 颜色
-		goldNum->setPosition( sprite->getContentSize( ).width / 2 , sprite->getContentSize( ).height * 0.16 );
-		goldNum->setColor( Color3B( 0 , 0 , 0 ) );
+		//// 创建金币数值 label 数值从 vircash 中取得
+		//auto goldNum = Label::createWithTTF( String::createWithFormat( "%d" , vircash [ i ] )->getCString( ) , "customfout.otf" , 30 );
+		//// 设置位置, 颜色
+		//goldNum->setPosition( sprite->getContentSize( ).width / 2 , sprite->getContentSize( ).height * 0.16 );
+		//goldNum->setColor( Color3B( 0 , 0 , 0 ) );
 
-		// 数值 label 添加到 sprite
-		sprite->addChild( goldNum );
+		//// 数值 label 添加到 sprite
+		//sprite->addChild( goldNum );
 
 		// 添加到图片层
 		lay->addChild( sprite );
@@ -171,10 +173,7 @@ Layer * ZRBMarketGold::goldLayer0( )
 */
 void ZRBMarketGold::callBack( int x )
 {
-	if ( ZRBUserDate::getInstance( )->getDateBool( KEY_CHECK_SOUND ) )
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
-	}
+	
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	firstMes = false;
 	auto buy = new IOSiAP_Bridge( );
@@ -205,6 +204,11 @@ void ZRBMarketGold::changeLoad( bool isShow )
 
 void ZRBMarketGold::buyFinish( )
 {
+	if ( firstMes )
+	{
+		return;
+	}
+	firstMes = true;
 	changeLoad( false );
 	auto mes = ZRBMessageLayer::create( );
 	mes->setMessageLabel( ZRBLanguage::getValue( "Message_market_success" ) );

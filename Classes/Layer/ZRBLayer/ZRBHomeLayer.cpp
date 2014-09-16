@@ -26,16 +26,29 @@ bool ZRBHomeLayer::init( )
 	switch ( ZRBUserDate::getInstance( )->getDateInt( KEY_CHECK_ROLE ) )
 	{
 		case 0:
-			ZRBTheme::setCurrentHero( ZRBTheme::getHeroDragon( ) );
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroTropius( ) );
 			break;
 
 		case 1:
-			ZRBTheme::setCurrentHero( ZRBTheme::getHeroSnail( ) );
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroSpinarak( ) );
 			break;
 
 		case 2:
-			ZRBTheme::setCurrentHero( ZRBTheme::getHeroPink( ) );
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroHoot( ) );
 			break;
+
+		case 3:
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroSpoink( ) );
+			break;
+
+		case 4:
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroMagcargo( ) );
+			break;
+
+		case 5:
+			ZRBTheme::setCurrentHero( ZRBTheme::getHeroGrotle( ) );
+			break;
+
 
 		default:
 			break;

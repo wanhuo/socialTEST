@@ -1,7 +1,7 @@
 ﻿
 #include "ZRBPageView.h"
 
-ZRBPageView::ZRBPageView( ) : PagePrice({ 0 , 4000 , 4000 , 4000 , 16000 })
+ZRBPageView::ZRBPageView( ) : PagePrice({ 0 , 30000 , 30000 , 4000 , 16000 })
 {
 
 }

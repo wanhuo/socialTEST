@@ -1,4 +1,4 @@
-﻿
+
 #include "ZRBGameLayer.h"
 
 // Todo : ktplay
@@ -465,6 +465,7 @@ void ZRBGameLayer::showGameFinish( )
 	pIsLost = true;
 	ZRBGameFinishLayer *layer = ZRBGameFinishLayer::create( );
 	layer->setPosition( 0 , curHeight );
+	layer->setName("finish");
 	layer->setInfo( ( int ) ( pCurrentHeight / standard ) , pGoldNum );
 	this->addChild( layer , layerBatchNodeBaseGame::menuItem , 1000 );
 
@@ -497,6 +498,7 @@ void ZRBGameLayer::pauseItemClick( cocos2d::Ref *ref )
 	ZRBGameMenuLayer *layer = ZRBGameMenuLayer::create( );
 	layer->setPosition( Point( -ZRB_VISIBLE_SIZE.width / 2 , curHeight - ZRB_VISIBLE_SIZE.height / 2 ) );
 	this->addChild( layer , layerBatchNodeBaseGame::menuItem , 1000 );
+	layer->setName("pause");
 	// 游戏暂停
 	Director::getInstance( )->pause( );
 }

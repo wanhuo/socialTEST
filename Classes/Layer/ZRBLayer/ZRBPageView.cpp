@@ -1,4 +1,4 @@
-﻿
+
 #include "ZRBPageView.h"
 
 ZRBPageView::ZRBPageView( ) : PagePrice({ 0 , 30000 , 30000 , 4000 , 16000 })
@@ -42,9 +42,11 @@ bool ZRBPageView::init( )
 	// 添加菜单
 	pMenu = ZRBMenu::create( );
 	pMenu->setButtonColor0( );
+	pMenu->setName("menu");
 	this->addChild( pMenu , 10 );
 	// 添加游戏层
 	gameLayer = ZRBGameLayer::create( );
+	gameLayer->setName("game");
 	this->addChild( gameLayer , 3 );
 	// 添加透明遮挡层
 	opacityLayer = LayerColor::create( Color4B( 0 , 0 , 0 , 0 ) , ZRB_VISIBLE_SIZE.width , ZRB_VISIBLE_SIZE.height );
@@ -54,7 +56,7 @@ bool ZRBPageView::init( )
 
 	// Add pageview
 	// TODO: 层级 背景
-	addChild( pageView , 5 );
+	addChild( pageView , 5 , 11);
 	// Add schedule
 	schedule( schedule_selector( ZRBPageView::schedulecallback ) );
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBPageView::gameBegain ) , "Game" , nullptr );
@@ -515,6 +517,7 @@ void ZRBPageView::callBuy( LayerColor * layer , int idx )
 			market->call_buy( );
 		} );
 		mes->setGlobalZOrder( 200 );
+		mes->setName("page_message");
 		pageView->addChild( mes );
 
 		return;

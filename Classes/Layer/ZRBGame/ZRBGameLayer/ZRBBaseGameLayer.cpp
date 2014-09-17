@@ -154,7 +154,7 @@ void ZRBBaseGameLayer::update( float delta )
 	// 当前高度更新
 	pCurrentHeight = pCurrentHeight + upHeight;
 	// 成绩更新 位置更新
-	pScoreLabel->setString( String::createWithFormat( "%d米" , ( int ) ( pCurrentHeight / standard ) )->getCString( ) );
+	pScoreLabel->setString( String::createWithFormat( "%m" , ( int ) ( pCurrentHeight / standard ) )->getCString( ) );
 	pScoreLabel->setPositionY( pScoreLabel->getPositionY( ) + upHeight );
 	// 金币位置更新
 	pGoldNumLabel->setPositionY( pGoldNumLabel->getPositionY( ) + upHeight );

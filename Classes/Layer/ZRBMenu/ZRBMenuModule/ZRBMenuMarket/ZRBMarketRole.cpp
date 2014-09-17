@@ -293,6 +293,7 @@ void ZRBMarketRole::callUse( )
 		mes->setMessageLabel( ZRBLanguage::getValue( "Message_market_success" ) );
 		mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
 		mes->setGlobalZOrder( 200 );
+		mes->setName( "mk_r_mes" );
 		this->addChild( mes );
 
 		// 发送信息
@@ -304,6 +305,7 @@ void ZRBMarketRole::callUse( )
 		mes->setMessageLabel( ZRBLanguage::getString( "Message_market_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_market_fail_2" ) );
 		mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
 		mes->setGlobalZOrder( 200 );
+		mes->setName( "mk_r_mes" );
 		this->addChild( mes );
 		return;
 	}

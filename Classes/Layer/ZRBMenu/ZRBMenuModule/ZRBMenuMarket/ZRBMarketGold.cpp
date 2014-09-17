@@ -181,7 +181,7 @@ void ZRBMarketGold::callBack( int x )
 	changeLoad( true );
 	buy->requestProducts( productId.at( x ) );
 #endif
-
+	buyFild( );
 	goldId = x;
 }
 
@@ -214,6 +214,7 @@ void ZRBMarketGold::buyFinish( )
 	mes->setMessageLabel( ZRBLanguage::getValue( "Message_market_success" ) );
 	mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
 	mes->setGlobalZOrder( 200 );
+	mes->setName( "mk_r_mes" );
 	this->addChild( mes );
 	// 获取原有金币
 	auto gold = ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM );
@@ -237,6 +238,7 @@ void ZRBMarketGold::buyFild( )
 	auto mes = ZRBMessageLayer::create( );
 	mes->setMessageLabel( ZRBLanguage::getString( "Message_itunes_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_itunes_fail_2" ) );
 	mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
+	mes->setName( "mk_r_mes" );
 	mes->setGlobalZOrder( 200 );
 	this->addChild( mes );
 

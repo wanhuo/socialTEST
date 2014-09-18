@@ -1,9 +1,12 @@
-﻿
+
 #include "ZRBHomeLayer.h"
 
 #include "../ZRBGame/ZRBGameLayer/ZRBGameLayer.h"
 
-//#include "Scene/ZRBScene.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "platform/android/jni/JniHelper.h"
+#include <jni.h>
+#endif
 
 ZRBHomeLayer::ZRBHomeLayer( )
 {
@@ -87,7 +90,6 @@ bool ZRBHomeLayer::init( )
 						auto t = dynamic_cast<ZRBMenuMarket *>(market);
 						if (t != nullptr)
 						{
-							// Todo:
 							try
 							{
 								auto p = t->getBackboard( )->getChildByName( "mk_p" )->getChildByName( "mk_p_c" )->getChildByName( "mk_r_mes" );
@@ -188,9 +190,25 @@ bool ZRBHomeLayer::init( )
 					}
 					else
 					{
-
+						
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID )
-						log("++++android++++");
+
+//    typedef struct JniMethodInfo_
+//    {
+//        JNIEnv *    env;
+//        jclass      classID;
+//        jmethodID   methodID;
+//    } JniMethodInfo;
+
+						JniMethodInfo info;
+
+						bool isHave = JniHelper::getStaticMethodInfo( info , "org/cocos2dx/cpp/AppActivity" , "exitGame" , "()V" );
+
+						if ( isHave )
+						{
+							info.env->CallStaticVoidMethod(info.classID, info.methodID);
+						}
+
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 )
 						Director::getInstance( )->end( );
 #endif
@@ -198,6 +216,7 @@ bool ZRBHomeLayer::init( )
 				}
 			}
 		}
+
 	};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority( keyboard , this );
 

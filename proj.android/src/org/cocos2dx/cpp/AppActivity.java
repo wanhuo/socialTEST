@@ -29,8 +29,61 @@ package org.cocos2dx.cpp;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+
 public class AppActivity extends Cocos2dxActivity {
 
+	public static Handler handler;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		
+		handler = new Handler(){
+
+			@Override
+			public void handleMessage(Message msg) {
+				switch (msg.what) {
+				case 1:
+					
+					Builder builder = new Builder(AppActivity.this);
+					builder.setTitle("Are you want to exit")
+					.setPositiveButton("Exit", 
+							 new DialogInterface.OnClickListener() {
+								
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									// TODO 自动生成的方法存根
+									System.exit(0);
+								}
+							})
+					.setNegativeButton("No", null)
+					.show();
+			
+					break;
+
+				default:
+					break;
+				}
+			}
+			
+		};
+	}
+
+	
+	
+	public static void exitGame() {
+		Message message = Message.obtain();
+		message.what = 1;
+		handler.sendMessage(message);
+	}
+	
+	
 	@Override
 	public Cocos2dxGLSurfaceView onCreateView() {
 		// TODO 自动生成的方法存根

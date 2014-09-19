@@ -1,17 +1,20 @@
-﻿
+
 
 #ifndef __ZRBGameLayer_H__
 #define __ZRBGameLayer_H__
 
 #include "ZRBBaseGameLayer.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "Utilities/Android.h"
+#endif
 
 class ZRBGameLayer : public ZRBBaseGameLayer
 {
 private:
 
-	/* Todo ktplay
-	static void reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error );*/
+	// Todo ktplay
+	static void reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error );
 
 public:
 	static const int top = 0x1111;

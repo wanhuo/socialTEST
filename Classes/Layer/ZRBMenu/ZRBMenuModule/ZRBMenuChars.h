@@ -1,9 +1,14 @@
-﻿
+
 #ifndef __ZRBMenuChars_H__
 #define __ZRBMenuChars_H__
 
 #include "../../ZRBViewLayer/ZRBTableViewCell.h"
 #include "../ZRBMenuBase.h"
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "Utilities/Android.h"
+#endif
+
 
 class ZRBMenuChars : public ZRBMenuBase , public TableViewDelegate , public TableViewDataSource
 {
@@ -12,8 +17,8 @@ private:
 	CC_SYNTHESIZE( int , _nameLen , NameLen );
 	CC_SYNTHESIZE_RETAIN( Label * , _leaderboard , Leaderboard );
 	// Todo: add ktplay
-	//static void leaderboardCallback( bool isSuccess , const char *leaderboardId ,
-	//								 KTLeaderboardPaginatorC *leaderboard , KTErrorC *error );
+	static void leaderboardCallback( bool isSuccess , const char *leaderboardId ,
+									 KTLeaderboardPaginatorC *leaderboard , KTErrorC *error );
 private:
 	//保存 charts 弹窗大小
 	Size size_charts;

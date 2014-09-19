@@ -1,4 +1,4 @@
-﻿
+
 #include "ZRBMenuChars.h"
 
 
@@ -7,22 +7,26 @@ static std::vector<std::string> KTNickname;
 static std::vector<std::string> KTScore;
 
 // Todo: ktplay
-//void ZRBMenuChars::leaderboardCallback( bool isSuccess , const char *leaderboardId , KTLeaderboardPaginatorC *leaderboard , KTErrorC *error )
-//{
-//	if ( isSuccess )
-//	{
-//		KTNickname.clear( );
-//		KTScore.clear( );
-//		myranking = leaderboard->myRank;
-//		for ( int i = 0; i < leaderboard->itemCount; i++ )
-//		{
-//			KTNickname.push_back( leaderboard->itemsArray [ i ].nickname );
-//			KTScore.push_back( leaderboard->itemsArray [ i ].score );
-//		}
-//	}
-//
-//	NotificationCenter::getInstance( )->postNotification( "Notification_Ranking" , __Bool::create( isSuccess ) );
-//}
+void ZRBMenuChars::leaderboardCallback( bool isSuccess , const char *leaderboardId , KTLeaderboardPaginatorC *leaderboard , KTErrorC *error )
+{
+	if ( isSuccess )
+	{
+		KTNickname.clear( );
+		KTScore.clear( );
+		myranking = leaderboard->myRank;
+		for ( int i = 0; i < leaderboard->itemCount; i++ )
+		{
+			KTNickname.push_back( leaderboard->itemsArray [ i ].nickname );
+			KTScore.push_back( leaderboard->itemsArray [ i ].score );
+		}
+	}
+	else
+	{
+		log("=====leadboard lose===========");
+	}
+
+	NotificationCenter::getInstance( )->postNotification( "Notification_Ranking" , __Bool::create( isSuccess ) );
+}
 
 
 bool ZRBMenuChars::init( )
@@ -65,7 +69,7 @@ bool ZRBMenuChars::init( )
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBMenuChars::setRanking ) , "Notification_Ranking" , nullptr );
 
 	// Todo: ktplay
-	//KTLeaderboardC::gameLeaderboard( "1234" , 0 , 10 , KTLeaderboardCallBack( leaderboardCallback ) );
+	KTLeaderboardC::gameLeaderboard( "1234" , 0 , 10 , KTLeaderboardCallBack( leaderboardCallback ) );
 	setCharts( );
 
 	return true;
@@ -125,7 +129,7 @@ void ZRBMenuChars::setCharts( )
 	_backboard->addChild( _leaderboard );
 
 	// Todo: ktplay
-	//if ( !KTPlayC::isEnabled( ) )
+	if ( !KTPlayC::isEnabled( ) )
 	{
 		_leaderboard->setString( ZRBLanguage::getValue( "Ranking_unable" ) );
 	}
@@ -151,13 +155,13 @@ void ZRBMenuChars::setRanking( Ref * ref )
 	else
 	{
 		_leaderboard->setString( "" );
-		/*Todo : 排行榜
+		// Todo : 排行榜
 		if ( KTAccountManagerC::isLoggedIn( ) )
 		{
 			_curRank->setString( String::createWithFormat( "NO.%d" , myranking )->getCString( ) );
 			_curScore->setString( KTScore.at( myranking - 1 ) );
 		}
-		else*/
+		else
 		{
 			_curRank->setString( ZRBLanguage::getValue( "Ranking_curRank" ) );
 		}

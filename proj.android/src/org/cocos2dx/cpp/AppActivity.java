@@ -29,6 +29,8 @@ package org.cocos2dx.cpp;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
+import com.ktplay.open.KTPlay;
+
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -38,11 +40,19 @@ import android.os.Message;
 public class AppActivity extends Cocos2dxActivity {
 
 	public static Handler handler;
+
+	public static void exitGame() {
+		Message message = Message.obtain();
+		message.what = 1;
+		handler.sendMessage(message);
+	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+		
+		KTPlay.startWithAppKey(this, "js31bM", "43fc2d50fe5bc63779dd33697b7b1d4f30f31d76");
 		
 		handler = new Handler(){
 
@@ -74,16 +84,24 @@ public class AppActivity extends Cocos2dxActivity {
 			
 		};
 	}
+	
+	
+	@Override
+	protected void onResume() {
+		// TODO 自动生成的方法存根
+		super.onResume();
 
-	
-	
-	public static void exitGame() {
-		Message message = Message.obtain();
-		message.what = 1;
-		handler.sendMessage(message);
+		KTPlay.onPause(this);
 	}
-	
-	
+
+	@Override
+	protected void onPause() {
+		// TODO 自动生成的方法存根
+		super.onPause();
+		
+		KTPlay.onResume(this);
+	}
+
 	@Override
 	public Cocos2dxGLSurfaceView onCreateView() {
 		// TODO 自动生成的方法存根
@@ -96,4 +114,12 @@ public class AppActivity extends Cocos2dxActivity {
 		return glSurfaceView;
 	}
 	
+	
+	static {
+		System.loadLibrary("KTPlay");
+		System.loadLibrary("KTAccountmanager");
+		System.loadLibrary("KTFriendship");
+		System.loadLibrary("KTLeaderboard");
+		System.loadLibrary("cocos2dcpp");
+	}
 }

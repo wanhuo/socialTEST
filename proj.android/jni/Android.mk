@@ -1,5 +1,30 @@
 LOCAL_PATH := $(call my-dir)
 
+#prebuild KTPlay library  
+include $(CLEAR_VARS) 
+LOCAL_MODULE := libKTPlay 
+LOCAL_SRC_FILES := libKTPlay.so 
+LOCAL_MODULE_FILENAME := libKTPlay 
+include $(PREBUILT_SHARED_LIBRARY) 
+
+include $(CLEAR_VARS) 
+LOCAL_MODULE := libKTAccountmanager 
+LOCAL_SRC_FILES := libKTAccountmanager.so 
+LOCAL_MODULE_FILENAME := libKTAccountmanager 
+include $(PREBUILT_SHARED_LIBRARY) 
+
+include $(CLEAR_VARS) 
+LOCAL_MODULE := libKTFriendship 
+LOCAL_SRC_FILES := libKTFriendship.so 
+LOCAL_MODULE_FILENAME := libKTFriendship 
+include $(PREBUILT_SHARED_LIBRARY) 
+
+include $(CLEAR_VARS) 
+LOCAL_MODULE := libKTLeaderboard 
+LOCAL_SRC_FILES := libKTLeaderboard.so 
+LOCAL_MODULE_FILENAME := libKTLeaderboard 
+include $(PREBUILT_SHARED_LIBRARY)
+
 include $(CLEAR_VARS)
 
 $(call import-add-path,$(LOCAL_PATH)/../../cocos2d)
@@ -37,6 +62,11 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+
+LOCAL_SHARED_LIBRARIES := libKTPlay 
+LOCAL_SHARED_LIBRARIES += libKTAccountmanager 
+LOCAL_SHARED_LIBRARIES += libKTFriendship 
+LOCAL_SHARED_LIBRARIES += libKTLeaderboard
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static

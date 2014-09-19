@@ -1,5 +1,7 @@
 #include "AppDelegate.h"
 
+#include "Scene/ZRBThreadLoading.h"
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -46,9 +48,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 
     // create a scene. it's an autorelease object
-    auto scene = ZRBScene::sceneCreate();
+    //auto scene = ZRBScene::sceneCreate();
 
-	
+	auto scene = ZRBThreadLoading::createScene();
 
 
 

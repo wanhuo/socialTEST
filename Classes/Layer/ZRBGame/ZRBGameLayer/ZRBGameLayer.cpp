@@ -2,17 +2,17 @@
 #include "ZRBGameLayer.h"
 
 // Todo : ktplay
-//void ZRBGameLayer::reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error )
-//{
-//	if ( isSuccess )
-//	{
-//		CCLOG( "++-%s---%lld-++" , leaderboardId , score );
-//	}
-//	else
-//	{
-//		CCLOG( "+--%d---%s-++" , error->code , error->description );
-//	}
-//}
+void ZRBGameLayer::reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error )
+{
+	if ( isSuccess )
+	{
+		CCLOG( "++-%s---%lld-++" , leaderboardId , score );
+	}
+	else
+	{
+		CCLOG( "+--%d---%s-++" , error->code , error->description );
+	}
+}
 
 ZRBGameLayer::ZRBGameLayer( )
 {
@@ -481,10 +481,10 @@ void ZRBGameLayer::showGameFinish( )
 	pMenu->setEnabled( false );
 
 	// Todo : ktplay
-	//if ( KTAccountManagerC::isLoggedIn( ) )
-	//{
-	//	KTLeaderboardC::reportScore( int( pCurrentHeight / standard ) , "1234" , KTReportScoreCallBack( ZRBGameLayer::reportScoreCallBack ) );
-	//}
+	if ( KTAccountManagerC::isLoggedIn( ) )
+	{
+		KTLeaderboardC::reportScore( int( pCurrentHeight / standard ) , "1234" , KTReportScoreCallBack( ZRBGameLayer::reportScoreCallBack ) );
+	}
 }
 
 

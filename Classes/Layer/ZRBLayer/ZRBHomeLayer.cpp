@@ -6,6 +6,9 @@
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include "platform/android/jni/JniHelper.h"
 #include <jni.h>
+
+#include "KTPlayC.h"
+
 #endif
 
 ZRBHomeLayer::ZRBHomeLayer( )
@@ -67,6 +70,13 @@ bool ZRBHomeLayer::init( )
 	{
 		if ( EventKeyboard::KeyCode::KEY_BACK == key )
 		{
+			if (KTPlayC::isEnabled())
+			{
+				if(KTPlayC::isShowing())
+				{
+					KTPlayC::dismiss();
+				}
+			}
 			auto page = this->getChildByTag(1);
 			if ( page != nullptr)
 			{

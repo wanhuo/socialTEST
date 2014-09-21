@@ -1,14 +1,10 @@
-
+﻿
 #include "ZRBHomeLayer.h"
 
 #include "../ZRBGame/ZRBGameLayer/ZRBGameLayer.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-#include "platform/android/jni/JniHelper.h"
-#include <jni.h>
-
-#include "KTPlayC.h"
-
+#include "Utilities/Android.h"
 #endif
 
 ZRBHomeLayer::ZRBHomeLayer( )
@@ -28,10 +24,16 @@ bool ZRBHomeLayer::init( )
 		return false;
 	}
 
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "gameFinish_Layer.plist" , "gameFinish_Layer.png" );
-
-	// 取出保存的数据
+	//SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
+	//SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "gameFinish_Layer.plist" , "gameFinish_Layer.png" );
+	
+	/*auto pMaterial0 = ZRBTheme::getMaterialBlueSky( );
+	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial0->plist , pMaterial0->png );
+	auto pMaterial1 = ZRBTheme::getMaterialSummer( );
+	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial1->plist , pMaterial1->png );
+	auto pMaterial2 = ZRBTheme::getMaterialSweet( );
+	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial2->plist , pMaterial2->png );
+*/
 	switch ( ZRBUserDate::getInstance( )->getDateInt( KEY_CHECK_ROLE ) )
 	{
 		case 0:
@@ -70,13 +72,16 @@ bool ZRBHomeLayer::init( )
 	{
 		if ( EventKeyboard::KeyCode::KEY_BACK == key )
 		{
-			if (KTPlayC::isEnabled())
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+			if ( KTPlayC::isEnabled( ) )
 			{
-				if(KTPlayC::isShowing())
+				if ( KTPlayC::isShowing( ) )
 				{
-					KTPlayC::dismiss();
+					KTPlayC::dismiss( );
 				}
 			}
+#endif // (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
 			auto page = this->getChildByTag(1);
 			if ( page != nullptr)
 			{

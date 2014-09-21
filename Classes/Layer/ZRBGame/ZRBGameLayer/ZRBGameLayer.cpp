@@ -1,6 +1,10 @@
-
+﻿
 #include "ZRBGameLayer.h"
 
+
+
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 // Todo : ktplay
 void ZRBGameLayer::reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error )
 {
@@ -13,13 +17,17 @@ void ZRBGameLayer::reportScoreCallBack( bool isSuccess , const char *leaderboard
 		CCLOG( "+--%d---%s-++" , error->code , error->description );
 	}
 }
+#endif // (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
 
 ZRBGameLayer::ZRBGameLayer( )
+	: ZRBBaseGameLayer()
+	, _begainGame( false )
+	, pBegainHeight(0)
+	, curHeight(0)
+	, count(0)
+	, _idx()
 {
-	pCurrentTimbo = nullptr;
-	_begainGame = false;
-	count = 0;
-	curHeight = 0;
 }
 
 ZRBGameLayer::~ZRBGameLayer( )
@@ -480,11 +488,14 @@ void ZRBGameLayer::showGameFinish( )
 	pMenu->setVisible( false );
 	pMenu->setEnabled( false );
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	// Todo : ktplay
 	if ( KTAccountManagerC::isLoggedIn( ) )
 	{
 		KTLeaderboardC::reportScore( int( pCurrentHeight / standard ) , "1234" , KTReportScoreCallBack( ZRBGameLayer::reportScoreCallBack ) );
 	}
+#endif 
+
 }
 
 

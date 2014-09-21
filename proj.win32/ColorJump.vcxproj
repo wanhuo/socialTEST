@@ -159,6 +159,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.cpp" />
     <ClCompile Include="..\Classes\Layer\ZRBViewLayer\ZRB_PageView.cpp" />
     <ClCompile Include="..\Classes\Scene\ZRBScene.cpp" />
+    <ClCompile Include="..\Classes\Scene\ZRBThreadLoading.cpp" />
     <ClCompile Include="..\Classes\Utilities\ZRBLanguage\ZRBLanguage.cpp" />
     <ClCompile Include="..\Classes\Utilities\ZRBTheme\ZRBTheme.cpp" />
     <ClCompile Include="..\Classes\Utilities\ZRBUserDate\ZRBUserDate.cpp" />
@@ -185,6 +186,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Layer\ZRBViewLayer\ZRBTableViewCell.h" />
     <ClInclude Include="..\Classes\Layer\ZRBViewLayer\ZRB_PageView.h" />
     <ClInclude Include="..\Classes\Scene\ZRBScene.h" />
+    <ClInclude Include="..\Classes\Scene\ZRBThreadLoading.h" />
     <ClInclude Include="..\Classes\Utilities\ZRBConfig.h" />
     <ClInclude Include="..\Classes\Utilities\ZRBLanguage\ZRBLanguage.h" />
     <ClInclude Include="..\Classes\Utilities\ZRBTheme\ZRBTheme.h" />

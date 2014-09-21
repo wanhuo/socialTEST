@@ -1,6 +1,6 @@
-
+﻿
 #include "ZRBMenu.h"
-#include "KTPlayC.h"
+
 
 bool ZRBMenu::init( )
 {
@@ -340,12 +340,15 @@ void ZRBMenu::Ktplay( )
 	{
 		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
 	}
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	// Undone : ktplay 社区
 	if ( KTPlayC::isEnabled( ) )
 	{
 		KTPlayC::show( );
 	}
 	else
+#endif // (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
 	{
 		auto mes = ZRBMessageLayer::create( );
 		// UnresolvedMergeConflict 中文显示

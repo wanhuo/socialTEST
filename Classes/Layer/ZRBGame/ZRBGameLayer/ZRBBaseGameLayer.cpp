@@ -48,8 +48,9 @@ void ZRBBaseGameLayer::initObject( )
 	// 创建精灵
 	pHero = ZRBHeroSprite::create( heroMaterial );
 	// 加载背景素材
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( material->plist );
-	pBatchNode = SpriteBatchNode::create( material->png );
+	//SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( material->plist );
+	//pBatchNode = SpriteBatchNode::create( material->png );
+	pBatchNode = SpriteBatchNode::createWithTexture( TextureCache::getInstance( )->getTextureForKey( material->png ) );
 	pBatchNode->retain( );
 	// 素材名
 	pNameAfterStr = material->NameAfter;

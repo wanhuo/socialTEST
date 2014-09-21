@@ -56,9 +56,11 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/Layer/ZRBViewLayer/ZRBTableViewCell.cpp \
 				   ../../Classes/Layer/ZRBViewLayer/ZRB_PageView.cpp \
 				   ../../Classes/Scene/ZRBScene.cpp \
+				   ../../Classes/Scene/ZRBThreadLoading.cpp \
 				   ../../Classes/Utilities/ZRBLanguage/ZRBLanguage.cpp \
 				   ../../Classes/Utilities/ZRBTheme/ZRBTheme.cpp \
 				   ../../Classes/Utilities/ZRBUserDate/ZRBUserDate.cpp 
+				   
 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

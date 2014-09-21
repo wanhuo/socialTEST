@@ -147,6 +147,9 @@
     <ClCompile Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.cpp">
       <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Scene\ZRBThreadLoading.cpp">
+      <Filter>Classes\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Layer\ZRBGame\ZRBGameLayer\ZRBGameLayer.h">
       <Filter>Classes\Layer\ZRBGame\ZRBGameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\ZRBThreadLoading.h">
+      <Filter>Classes\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

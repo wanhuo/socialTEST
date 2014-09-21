@@ -85,23 +85,15 @@ void ZRBPageView::setPageView( )
 
 	// 创建分页 1
 	auto gBG0 = Layer::create( );
-	// 获取背景信息
-	auto pMaterial0 = ZRBTheme::getMaterialBlueSky( );
-	// 添加到内存池
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial0->plist , pMaterial0->png );
-	// 创建背景
 
 
 	// 创建分页二
 	auto gBG1 = Layer::create( );
-	auto pMaterial1 = ZRBTheme::getMaterialSummer( );
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial1->plist , pMaterial1->png );
+	
 
 	// 创建分页三
 	auto gBG2 = Layer::create( );
-	auto pMaterial2 = ZRBTheme::getMaterialSweet( );
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial2->plist , pMaterial2->png );
-
+	
 
 	// Set view with meun background
 	auto layout0 = ui::Layout::create( );

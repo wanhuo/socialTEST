@@ -1,4 +1,4 @@
-
+﻿
 #ifndef __ZRBMenuChars_H__
 #define __ZRBMenuChars_H__
 
@@ -16,9 +16,12 @@ private:
 
 	CC_SYNTHESIZE( int , _nameLen , NameLen );
 	CC_SYNTHESIZE_RETAIN( Label * , _leaderboard , Leaderboard );
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	// Todo: add ktplay
 	static void leaderboardCallback( bool isSuccess , const char *leaderboardId ,
 									 KTLeaderboardPaginatorC *leaderboard , KTErrorC *error );
+#endif // (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
 private:
 	//保存 charts 弹窗大小
 	Size size_charts;

@@ -1,4 +1,4 @@
-
+﻿
 
 #ifndef __ZRBGameLayer_H__
 #define __ZRBGameLayer_H__
@@ -13,8 +13,11 @@ class ZRBGameLayer : public ZRBBaseGameLayer
 {
 private:
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	// Todo ktplay
 	static void reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error );
+#endif // (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
 
 public:
 	static const int top = 0x1111;

@@ -30,7 +30,6 @@ public:
 
 	void update( float );
 	void thread1( );
-	void thread2(int a);
 
 private:
 

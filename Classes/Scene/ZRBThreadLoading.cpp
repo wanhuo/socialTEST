@@ -1,4 +1,4 @@
-﻿/*
+/*
  * ZRBThreadLoading.cpp
  *
  *  Created on: 2014年9月19日
@@ -17,6 +17,13 @@ ZRBThreadLoading::ZRBThreadLoading()
 	name.push_back( "blueSky_material" );
 	name.push_back( "summer_material" );
 	name.push_back( "sweet_material" );
+	name.push_back( "grotle_hero" );
+	name.push_back( "hoot_hero" );
+	name.push_back( "magcargo_hero" );
+	name.push_back( "spoink_hero" );
+	name.push_back( "tropius_hero" );
+	name.push_back( "spinarak_hero" );
+
 }
 
 ZRBThreadLoading::~ZRBThreadLoading()
@@ -48,11 +55,8 @@ bool ZRBThreadLoading::init()
 	scheduleUpdate( );
 
 	std::thread t1(&ZRBThreadLoading::thread1, this);
-	std::thread t2(&ZRBThreadLoading::thread2, this, 2);
 	t1.detach( );
-	t2.join( );
 
-	log( "--------kk----------" );
 
 	return true;
 }
@@ -63,7 +67,6 @@ void ZRBThreadLoading::update( float dt )
 
 	if ( isLoad )
 	{
-		log( "--------hh----------" );
 
 		for ( int i = 0; i < name.size( ); i++ )
 		{
@@ -72,7 +75,6 @@ void ZRBThreadLoading::update( float dt )
 			SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( name.at( i ) + ".plist" , text );
 		}
 
-		//SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "" );
 		image.clear( );
 		name.clear( );
 		
@@ -87,8 +89,6 @@ void ZRBThreadLoading::thread1( )
 {
 	_mutex.lock( );
 
-	log( "--------aa----------" );
-
 
 	for (int i = 0; i < name.size( ); i++)
 	{
@@ -97,24 +97,13 @@ void ZRBThreadLoading::thread1( )
 	}
 	
 	// TODO: 加载音乐
-	CocosDenshion::SimpleAudioEngine::getInstance( )->preloadBackgroundMusic( ZRBLanguage::getValue( "Music_Bg" ) );
+	//CocosDenshion::SimpleAudioEngine::getInstance( )->preloadBackgroundMusic( ZRBLanguage::getValue( "Music_Bg" ) );
 
-	
-	log( "--------ss----------" );
-
-	isLoad = true;
-
-	log( "---------dd---------" );
+	isLoad = true;	
 
 	_mutex.unlock( );
 }
 
-
-void ZRBThreadLoading::thread2( int a )
-{
-	std::lock_guard<std::mutex> lk( _mutex );
-
-}
 
 
 

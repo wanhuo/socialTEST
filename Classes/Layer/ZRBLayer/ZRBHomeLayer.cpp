@@ -1,4 +1,4 @@
-﻿
+
 #include "ZRBHomeLayer.h"
 
 #include "../ZRBGame/ZRBGameLayer/ZRBGameLayer.h"
@@ -6,6 +6,7 @@
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include "Utilities/Android.h"
 #endif
+
 
 ZRBHomeLayer::ZRBHomeLayer( )
 {
@@ -24,16 +25,7 @@ bool ZRBHomeLayer::init( )
 		return false;
 	}
 
-	//SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "homeMenu.plist" , "homeMenu.png" );
-	//SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( "gameFinish_Layer.plist" , "gameFinish_Layer.png" );
-	
-	/*auto pMaterial0 = ZRBTheme::getMaterialBlueSky( );
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial0->plist , pMaterial0->png );
-	auto pMaterial1 = ZRBTheme::getMaterialSummer( );
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial1->plist , pMaterial1->png );
-	auto pMaterial2 = ZRBTheme::getMaterialSweet( );
-	SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( pMaterial2->plist , pMaterial2->png );
-*/
+
 	switch ( ZRBUserDate::getInstance( )->getDateInt( KEY_CHECK_ROLE ) )
 	{
 		case 0:
@@ -85,9 +77,11 @@ bool ZRBHomeLayer::init( )
 			auto page = this->getChildByTag(1);
 			if ( page != nullptr)
 			{
+				// menu layer
 				auto menu = page->getChildByName("menu");
 				if ( menu != nullptr)
 				{
+					// menu set layer
 					auto set = menu->getChildByName("menu_set");
 					if (set != nullptr)
 					{
@@ -99,6 +93,7 @@ bool ZRBHomeLayer::init( )
 						return;
 					}
 
+					// market layer
 					auto market = menu->getChildByName("menu_market");
 					if (market != nullptr)
 					{
@@ -124,6 +119,7 @@ bool ZRBHomeLayer::init( )
 						return;
 					}
 
+					// ranking layer
 					auto ranking = menu->getChildByName("menu_ranking");
 					if (ranking != nullptr)
 					{
@@ -135,6 +131,7 @@ bool ZRBHomeLayer::init( )
 						return;
 					}
 
+					// message layer
 					auto mes = menu->getChildByName("menu_mes");
 					if (mes != nullptr)
 					{
@@ -146,6 +143,8 @@ bool ZRBHomeLayer::init( )
 						return;
 					}
 				}
+
+				//  pageview layer
 				auto pageview = page->getChildByTag(11);
 				if (pageview != nullptr)
 				{
@@ -161,12 +160,14 @@ bool ZRBHomeLayer::init( )
 					}
 				}
 
+				// gamde Layer
 				auto game = page->getChildByName("game");
 				if ( game != nullptr)
 				{
 					auto gameing = dynamic_cast<ZRBGameLayer *>(game);
 					if ( gameing->getBegainGame() )
 					{
+						// game finish layer
 						auto finish = gameing->getChildByName("finish");
 						if (finish != nullptr)
 						{
@@ -185,13 +186,17 @@ bool ZRBHomeLayer::init( )
 								}
 							}
 						}
-
+						// pause layer
 						auto pause = gameing->getChildByName("pause");
 						if (pause != nullptr)
 						{
 							auto t = dynamic_cast<ZRBGameMenuLayer *>(pause);
 							if (t != nullptr)
 							{
+								if ( t->getChildByName( "loading" ) != nullptr )
+								{
+									return;
+								}
 								t->backGameItemClick(this);
 							}
 							return;

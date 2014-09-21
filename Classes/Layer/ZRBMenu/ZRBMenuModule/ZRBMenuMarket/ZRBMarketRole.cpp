@@ -1,9 +1,10 @@
-﻿
+
 
 #include "ZRBMarketRole.h"
 
 ZRBMarketRole::ZRBMarketRole( ) 
 	: pPrice( { 0 , 2999 , 2999 , 6999, 79999 , 19999 } )
+	, pageView(nullptr)
 {
 }
 
@@ -28,7 +29,7 @@ bool ZRBMarketRole::init( )
 	for ( int i = 0; i < 6; i++ )
 	{
 		strName.push_back( ZRBLanguage::getValue( String::createWithFormat( "Market_role_name_%d" , i + 1 )->getCString( ) ) );
-		strChar.push_back( ZRBLanguage::getValue( String::createWithFormat( "Market_role_name_%d" , i + 1 )->getCString( ) ) );
+		strChar.push_back( ZRBLanguage::getValue( String::createWithFormat( "Market_role_chr_%d" , i + 1 )->getCString( ) ) );
 	}
 
 
@@ -43,10 +44,11 @@ bool ZRBMarketRole::init( )
 	_color.push_back( Color3B( 189 , 67 , 147 ) );
 	_color.push_back( Color3B( 189 , 67 , 147 ) );
 
-	for ( auto p : hero )
-	{
-		SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( p->plist , p->png );
-	}
+//	// todo : delate
+//	for ( auto p : hero )
+//	{
+//		SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( p->plist , p->png );
+//	}
 
 	// 设置大小
 	if ( ZRB_VISIBLE_SIZE.height > 1100 )
@@ -110,11 +112,6 @@ bool ZRBMarketRole::init( )
 
 	this->addChild( pageView );
 
-	//auto sp = Sprite::createWithSpriteFrameName( "hero_climb_0_hoot.png" );
-	//sp->setPosition( Vec2::ZERO );
-	//sp->runAction( RepeatForever::create( Animate::create( heroAnimation.at( 0 ) ) ) );
-
-	//this->addChild( sp );
 
 	return true;
 

@@ -4,9 +4,9 @@
 #define __ZRBMarketRole_H__
 
 #include "ui/UIPageView.h"
-#include "Layer/ZRBAuxiliary/ZRBMessageLayer.h"
-#include "Utilities/ZRBUserDate/ZRBUserDate.h"
-#include "Utilities/ZRBTheme/ZRBTheme.h"
+#include "ZRBMessageLayer.h"
+#include "ZRBUserDate.h"
+#include "ZRBTheme.h"
 
 
 USING_NS_CC;
@@ -54,7 +54,7 @@ private:
 	Vector<LayerColor *>curPage;
 
 	// pageView 大小
-	Size size;
+    cocos2d::Size size;
 
 public:
 

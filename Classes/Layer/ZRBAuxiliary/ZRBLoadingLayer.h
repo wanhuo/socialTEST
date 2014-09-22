@@ -3,7 +3,7 @@
 #define __ZRBLoadingLayer_H__
 
 #include "cocos2d.h"
-#include "Utilities/ZRBConfig.h"
+#include "ZRBConfig.h"
 
 USING_NS_CC;
 

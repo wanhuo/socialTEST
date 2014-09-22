@@ -6,9 +6,9 @@
 #include "cocos2d.h"
 #include "extensions/cocos-ext.h"
 
-#include "Utilities/ZRBConfig.h"
-#include "Utilities/ZRBUserDate/ZRBUserDate.h"
-#include "Utilities/ZRBLanguage/ZRBLanguage.h"
+#include "ZRBConfig.h"
+#include "ZRBUserDate.h"
+#include "ZRBLanguage.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;

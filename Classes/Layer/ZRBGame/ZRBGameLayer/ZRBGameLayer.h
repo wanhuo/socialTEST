@@ -9,11 +9,16 @@
 #include "Utilities/Android.h"
 #endif
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "Utilities/ios.h"
+#endif
+
+
 class ZRBGameLayer : public ZRBBaseGameLayer
 {
 private:
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	// Todo ktplay
 	static void reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error );
 #endif // (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
@@ -44,7 +49,7 @@ public:
 	///带有随机金币的藤条
 	Sprite * createTimboRandomPosHaveGold( );
 	// 添加藤的顶部 (以后添加小怪
-	Sprite * createTimbo( float length , Point pos );
+	Sprite * createTimbo( float length , Vec2 pos );
 	// 添加首页显示的藤
 	void addTimboCall( float dt );
 

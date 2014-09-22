@@ -2,6 +2,10 @@
 
 #include "ZRBMarketGold.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "Utilities/ios.h"
+#endif
+
 ZRBMarketGold::ZRBMarketGold( )
 	: vircash( { 3888 , 1888 , 18888 , 7888 } )
 {
@@ -181,7 +185,6 @@ void ZRBMarketGold::callBack( int x )
 	changeLoad( true );
 	buy->requestProducts( productId.at( x ) );
 #endif
-	buyFild( );
 	goldId = x;
 }
 

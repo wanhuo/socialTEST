@@ -28,6 +28,10 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 
+#import "KTPlay.h"
+
+#import "IOSiAP.h"
+
 @implementation AppController
 
 #pragma mark -
@@ -72,6 +76,12 @@ static AppDelegate s_sharedApplication;
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
+    
+    //game center 认证
+    IOSRanking::getInstance()->authenticateLocalUser();
+    
+    /// 接入 KTPlay SDK
+    [KTPlay startWithAppKey:@"js31bM" appSecret:@"43fc2d50fe5bc63779dd33697b7b1d4f30f31d76"];
 
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView(eaglView);
@@ -79,6 +89,17 @@ static AppDelegate s_sharedApplication;
 
     cocos2d::Application::getInstance()->run();
 
+    return YES;
+}
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation NS_AVAILABLE_IOS(4_2)
+{
+    /// 打开 SNS 链接
+    [KTPlay handleOpenURL:url];
     return YES;
 }
 

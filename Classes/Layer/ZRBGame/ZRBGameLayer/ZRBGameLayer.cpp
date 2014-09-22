@@ -4,7 +4,7 @@
 
 
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 // Todo : ktplay
 void ZRBGameLayer::reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error )
 {
@@ -488,7 +488,7 @@ void ZRBGameLayer::showGameFinish( )
 	pMenu->setVisible( false );
 	pMenu->setEnabled( false );
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	// Todo : ktplay
 	if ( KTAccountManagerC::isLoggedIn( ) )
 	{

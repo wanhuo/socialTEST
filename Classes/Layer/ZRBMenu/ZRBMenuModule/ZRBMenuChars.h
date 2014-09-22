@@ -24,7 +24,7 @@ private:
 
 private:
 	//保存 charts 弹窗大小
-	Size size_charts;
+	cocos2d::Size size_charts;
 	///  初始可见tableViewCell 数量
 	int pCellNum;
 
@@ -46,7 +46,7 @@ public:
 	virtual void scrollViewDidScroll( ScrollView * View ) { };
 	virtual void scrollViewDidZoom( ScrollView* view ) { };
 	virtual void tableCellTouched( TableView* table , TableViewCell* cell ) { };
-	virtual Size tableCellSizeForIndex( TableView *table , ssize_t idx );
+	virtual cocos2d::Size tableCellSizeForIndex( TableView *table , ssize_t idx );
 	virtual TableViewCell* tableCellAtIndex( TableView *table , ssize_t idx );
 	virtual ssize_t numberOfCellsInTableView( TableView *table );
 

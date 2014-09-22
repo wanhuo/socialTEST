@@ -4,9 +4,9 @@
 
 #include "ui/UIPageView.h"
 
-#include "Utilities/ZRBUserDate/ZRBUserDate.h"
-#include "Layer/ZRBAuxiliary/ZRBLoadingLayer.h"
-#include "Layer/ZRBAuxiliary/ZRBMessageLayer.h"
+#include "ZRBUserDate.h"
+#include "ZRBLoadingLayer.h"
+#include "ZRBMessageLayer.h"
 
 
 USING_NS_CC;
@@ -43,7 +43,7 @@ private:
 	ui::PageView * pageView;
 
 	// pageView 大小
-	Size size;
+	cocos2d::Size size;
 
 	int goldId;
 

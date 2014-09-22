@@ -1,6 +1,6 @@
 ﻿
 #include "ZRBGameMenuLayer.h"
-#include "Scene/ZRBScene.h"
+#include "ZRBScene.h"
 
 bool ZRBGameMenuLayer::init( )
 {

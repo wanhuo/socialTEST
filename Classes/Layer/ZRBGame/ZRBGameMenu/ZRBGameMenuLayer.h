@@ -8,8 +8,8 @@
 
 #include "../../ZRBAuxiliary/ZRBLoadingLayer.h"
 
-#include "Utilities/ZRBLanguage/ZRBLanguage.h"
-#include "Utilities/ZRBUserDate/ZRBUserDate.h"
+#include "ZRBLanguage.h"
+#include "ZRBUserDate.h"
 
 class ZRBGameMenuLayer :public Layer
 {

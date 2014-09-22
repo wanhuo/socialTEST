@@ -50,7 +50,7 @@ void ZRBBaseGameLayer::initObject( )
 	// 加载背景素材
 	//SpriteFrameCache::getInstance( )->addSpriteFramesWithFile( material->plist );
 	//pBatchNode = SpriteBatchNode::create( material->png );
-	pBatchNode = SpriteBatchNode::createWithTexture( TextureCache::getInstance( )->getTextureForKey( material->png ) );
+	pBatchNode = SpriteBatchNode::createWithTexture( Director::getInstance( )->getTextureCache()->getTextureForKey( material->png ) );
 	pBatchNode->retain( );
 	// 素材名
 	pNameAfterStr = material->NameAfter;

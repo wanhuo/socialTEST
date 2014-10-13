@@ -1,4 +1,4 @@
-﻿
+
 #ifndef __ZRBMarketGold_H__
 #define __ZRBMarketGold_H__
 
@@ -43,7 +43,7 @@ private:
 	ui::PageView * pageView;
 
 	// pageView 大小
-	Size size;
+	cocos2d::Size size;
 
 	int goldId;
 

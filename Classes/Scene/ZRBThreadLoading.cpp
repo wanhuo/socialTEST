@@ -96,8 +96,6 @@ void ZRBThreadLoading::thread1( )
 		image.at( i )->initWithImageFile( name.at(i)  + ".png" );
 	}
 	
-	// TODO: 加载音乐
-	//CocosDenshion::SimpleAudioEngine::getInstance( )->preloadBackgroundMusic( ZRBLanguage::getValue( "Music_Bg" ) );
 
 	isLoad = true;	
 

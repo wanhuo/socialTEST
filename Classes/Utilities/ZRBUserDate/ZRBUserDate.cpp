@@ -360,7 +360,7 @@ int ZRBUserDate::getDateInt( ZRB_DATE_KEY key )
 		case KEY_DATA_GOLDNUM:
 		{
 			// 初始金币 1000 “MTAwMA==” 解密后为 1000
-			str = parseData( UserDefault::getInstance( )->getStringForKey( _GoldNum , "MTAwMa==") );
+			str = parseData( UserDefault::getInstance( )->getStringForKey( _GoldNum , "MTAwMA==") );
 			stream << str;
 			stream >> date;
 		}

@@ -340,7 +340,7 @@ void ZRBMenu::Ktplay( )
 	{
 		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
 	}
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	// Undone : ktplay 社区
 	if ( KTPlayC::isEnabled( ) )
 	{
@@ -383,9 +383,19 @@ void ZRBMenu::charts( )
 		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
 	}
 
-	auto ranking = ZRBMenuChars::create( );
-	ranking->setName("menu_ranking");
-	this->addChild( ranking , 101 );
+    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+   
+    IOSRanking::getInstance()->showLeaderboard();
+
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID )
+ 
+    auto ranking = ZRBMenuChars::create( );
+    ranking->setName("menu_ranking");
+    this->addChild( ranking , 101 );
+    
+#endif
+
 }
 
 /**

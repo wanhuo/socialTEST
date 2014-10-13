@@ -8,7 +8,8 @@
 ZRBHeroSprite* ZRBHeroSprite::create( sHero* hero )
 {
 	ZRBHeroSprite *batchNode = new ZRBHeroSprite;
-	batchNode->initWithFile( hero->png , DEFAULT_CAPACITY );
+    batchNode->initWithTexture(Director::getInstance()->getTextureCache()->getTextureForKey( hero->png ), DEFAULT_CAPACITY);
+//	batchNode->initWithFile( hero->png , DEFAULT_CAPACITY );
 	batchNode->autorelease( );
 	batchNode->initThis( hero );
 	return batchNode;

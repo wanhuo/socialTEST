@@ -28,6 +28,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 
+<<<<<<< HEAD
 @implementation AppController
 
 #pragma mark -
@@ -79,6 +80,80 @@ static AppDelegate s_sharedApplication;
 
     cocos2d::Application::getInstance()->run();
 
+=======
+#import "KTPlay.h"
+
+#import "IOSiAP.h"
+
+@implementation AppController
+
+#pragma mark -
+#pragma mark Application lifecycle
+
+// cocos2d application instance
+static AppDelegate s_sharedApplication;
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+
+    // Override point for customization after application launch.
+
+    // Add the view controller's view to the window and display.
+    window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+
+    // Init the CCEAGLView
+    CCEAGLView *eaglView = [CCEAGLView viewWithFrame: [window bounds]
+                                     pixelFormat: kEAGLColorFormatRGBA8
+                                     depthFormat: GL_DEPTH24_STENCIL8_OES
+                              preserveBackbuffer: NO
+                                      sharegroup: nil
+                                   multiSampling: NO
+                                 numberOfSamples: 0];
+
+    // Use RootViewController manage CCEAGLView 
+    _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+    _viewController.wantsFullScreenLayout = YES;
+    _viewController.view = eaglView;
+
+    // Set RootViewController to window
+    if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
+    {
+        // warning: addSubView doesn't work on iOS6
+        [window addSubview: _viewController.view];
+    }
+    else
+    {
+        // use this method on ios6
+        [window setRootViewController:_viewController];
+    }
+
+    [window makeKeyAndVisible];
+
+    [[UIApplication sharedApplication] setStatusBarHidden:true];
+    
+    //game center 认证
+    IOSRanking::getInstance()->authenticateLocalUser();
+    
+    /// 接入 KTPlay SDK
+    [KTPlay startWithAppKey:@"js31bM" appSecret:@"43fc2d50fe5bc63779dd33697b7b1d4f30f31d76"];
+
+    // IMPORTANT: Setting the GLView should be done after creating the RootViewController
+    cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView(eaglView);
+    cocos2d::Director::getInstance()->setOpenGLView(glview);
+
+    cocos2d::Application::getInstance()->run();
+
+    return YES;
+}
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation NS_AVAILABLE_IOS(4_2)
+{
+    /// 打开 SNS 链接
+    [KTPlay handleOpenURL:url];
+>>>>>>> branch 'master' of https://github.com/Pythians/ColorJump.git
     return YES;
 }
 

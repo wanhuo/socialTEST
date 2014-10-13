@@ -1,4 +1,4 @@
-﻿
+
 
 #ifndef __ZRBMarketRole_H__
 #define __ZRBMarketRole_H__
@@ -54,7 +54,7 @@ private:
 	Vector<LayerColor *>curPage;
 
 	// pageView 大小
-	Size size;
+    cocos2d::Size size;
 
 public:
 

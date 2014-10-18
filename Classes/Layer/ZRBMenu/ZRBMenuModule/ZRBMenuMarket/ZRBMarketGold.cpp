@@ -37,11 +37,17 @@ bool ZRBMarketGold::init( )
 	cashPic.push_back( "gold_18888.png" );
 	cashPic.push_back( "gold_7888.png" );
 
-	productId.push_back( "" );					// 3888
-	productId.push_back( "" );					// 1888	
-	productId.push_back( "com.zero.test" );		// 18888
-	productId.push_back( "" );					// 7888
-
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_IOS )
+	productId.push_back( "com.zero.colorjump.gold.bag" );					// 3888
+	productId.push_back( "com.zero.colorjump.gold.pile" );					// 1888
+	productId.push_back( "com.zero.colorjump.gold.chest" );                 // 18888
+	productId.push_back( "com.zero.colorjump.gold.sack" );					// 7888
+#elif
+    
+    productId.push_back("");
+    
+#endif
+    
 	// 设置大小
 	if ( ZRB_VISIBLE_SIZE.height > 1100 )
 	{
@@ -238,11 +244,16 @@ void ZRBMarketGold::buyFild( )
 	}
 	firstMes = true;
 	changeLoad( false );
-	auto mes = ZRBMessageLayer::create( );
-	mes->setMessageLabel( ZRBLanguage::getString( "Message_itunes_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_itunes_fail_2" ) );
-	mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
-	mes->setName( "mk_r_mes" );
-	mes->setGlobalZOrder( 200 );
+    
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
+
+    auto mes = ZRBMessageLayer::create( );
+    mes->setMessageLabel( ZRBLanguage::getString( "Message_itunes_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_itunes_fail_2" ) );
+    mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
+    mes->setName( "mk_r_mes" );
+    mes->setGlobalZOrder( 200 );
 	this->addChild( mes );
+
+#endif
 
 }

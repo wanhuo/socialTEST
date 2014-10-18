@@ -6,7 +6,6 @@
 //
 //
 
-//#import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
 #import "IOSiAP.h"

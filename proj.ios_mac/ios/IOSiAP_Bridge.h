@@ -12,6 +12,7 @@
 #include "IOSiAP.h"
 #include "ZRBMarketGold.h"
 
+class BuyDelegate;
 
 class IOSiAP_Bridge : public IOSiAPDelegate
 {

@@ -8,10 +8,15 @@
 #include "ZRBLoadingLayer.h"
 #include "ZRBMessageLayer.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "Utilities/ios.h"
+#endif
+
 
 USING_NS_CC;
 
 class ZRBLoadingLayer;
+class IOSiAP_Bridge;
 
 class BuyDelegate
 {
@@ -63,6 +68,8 @@ public:
 
 	//    void changeLoading(bool visiable);
 	bool firstMes;
+    IOSiAP_Bridge * buy;
+    
 	virtual void changeLoad( bool isShow );
 	virtual void buyFild( );
 	virtual void buyFinish( );

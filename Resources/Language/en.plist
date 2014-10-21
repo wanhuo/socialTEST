@@ -57,7 +57,7 @@
 	<key>Unlock_success</key>
 	<string>Unlock success</string>
 	<key>Gameover_score_heigh</key>
-	<string>MAX</string>
+	<string>BEST</string>
 	<key>Gameover_score_cur</key>
 	<string>Achievement</string>
 	<key>Gameover_score_base</key>

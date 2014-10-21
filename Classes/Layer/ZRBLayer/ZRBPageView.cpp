@@ -180,13 +180,19 @@ void ZRBPageView::schedulecallback( float dt )
 			pMenu->setButtonColor1( );
 			pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width + point );
 			setOpacityLayer( ZRB_VISIBLE_SIZE.width + point );
-			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-			gameLayer->changePic( 0 );
+            if ( ZRBTheme::getCurrentMaterial()->bg2ImageNum != ZRBTheme::getMaterialSummer( )->bg2ImageNum )
+            {
+                ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+                gameLayer->changePic( 0 );
+            }
 		}
 		else
 		{
-			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
-			gameLayer->changePic( 0 );
+            if ( ZRBTheme::getCurrentMaterial()->bg2ImageNum != ZRBTheme::getMaterialBlueSky()->bg2ImageNum )
+            {
+                ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
+                gameLayer->changePic( 0 );
+            }
 		}
 	}
 	else if ( ssize == 1 )
@@ -203,8 +209,11 @@ void ZRBPageView::schedulecallback( float dt )
 		{
 			pMenu->setButtonColor1( );
 			pMenu->SetButtenPointDown( 0 );
-			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-			gameLayer->changePic( 1 );
+            if ( ZRBTheme::getCurrentMaterial()->bg2ImageNum != ZRBTheme::getMaterialSummer( )->bg2ImageNum )
+            {
+                ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+                gameLayer->changePic( 0 );
+            }
 		}
 		else if ( point > 0 )
 		{
@@ -223,16 +232,22 @@ void ZRBPageView::schedulecallback( float dt )
 				pMenu->setButtonColor0( );
 				pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width - point );
 				setOpacityLayer( ZRB_VISIBLE_SIZE.width - point );
-				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
-				gameLayer->changePic( 0 );
+                if ( ZRBTheme::getCurrentMaterial()->bg2ImageNum != ZRBTheme::getMaterialBlueSky()->bg2ImageNum )
+                {
+                    ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialBlueSky( ) );
+                    gameLayer->changePic( 0 );
+                }
 			}
 			else
 			{
 				pMenu->setButtonColor1( );
 				pMenu->SetButtenPointUp( point );
 				setOpacityLayer( point );
-				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-				gameLayer->changePic( 1 );
+                if ( ZRBTheme::getCurrentMaterial()->bg2ImageNum != ZRBTheme::getMaterialSummer( )->bg2ImageNum )
+                {
+                    ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+                    gameLayer->changePic( 0 );
+                }
 			}
 		}
 		else
@@ -252,16 +267,22 @@ void ZRBPageView::schedulecallback( float dt )
 				pMenu->setButtonColor1( );
 				pMenu->SetButtenPointDown( point );
 				setOpacityLayer( point );
-				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-				gameLayer->changePic( 1 );
+                if ( ZRBTheme::getCurrentMaterial()->bg2ImageNum != ZRBTheme::getMaterialSummer( )->bg2ImageNum )
+                {
+                    ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+                    gameLayer->changePic( 0 );
+                }
 			}
 			else
 			{
 				pMenu->setButtonColor2( );
 				pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width + point );
 				setOpacityLayer( ZRB_VISIBLE_SIZE.width + point );
-				ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
-				gameLayer->changePic( 2 );
+                if ( ZRBTheme::getMaterialSweet()->bg2ImageNum != ZRBTheme::getCurrentMaterial( )->bg2ImageNum )
+                {
+                    ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
+                    gameLayer->changePic( 2 );
+                }
 			}
 		}
 	}
@@ -279,8 +300,11 @@ void ZRBPageView::schedulecallback( float dt )
 		{
 			pMenu->setButtonColor2( );
 			pMenu->SetButtenPointDown( 0 );
-			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
-			gameLayer->changePic( 2 );
+            if ( ZRBTheme::getMaterialSweet()->bg2ImageNum != ZRBTheme::getCurrentMaterial( )->bg2ImageNum )
+            {
+                ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
+                gameLayer->changePic( 2 );
+            }
 		}
 		else if ( point < ZRB_VISIBLE_SIZE.width / 2 )
 		{
@@ -289,8 +313,11 @@ void ZRBPageView::schedulecallback( float dt )
 			pMenu->setButtonColor2( );
 			pMenu->SetButtenPointDown( -point );
 			setOpacityLayer( -point );
-			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
-			gameLayer->changePic( 2 );
+            if ( ZRBTheme::getMaterialSweet()->bg2ImageNum != ZRBTheme::getCurrentMaterial( )->bg2ImageNum )
+            {
+                ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSweet( ) );
+                gameLayer->changePic( 2 );
+            }
 		}
 		else if ( point > ZRB_VISIBLE_SIZE.width / 2 )
 		{
@@ -299,8 +326,11 @@ void ZRBPageView::schedulecallback( float dt )
 			pMenu->setButtonColor1( );
 			pMenu->SetButtenPointUp( ZRB_VISIBLE_SIZE.width - point );
 			setOpacityLayer( ZRB_VISIBLE_SIZE.width - point );
-			ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
-			gameLayer->changePic( 1 );
+            if ( ZRBTheme::getCurrentMaterial()->bg2ImageNum != ZRBTheme::getMaterialSummer( )->bg2ImageNum )
+            {
+                ZRBTheme::setCurrentMaterial( ZRBTheme::getMaterialSummer( ) );
+                gameLayer->changePic( 0 );
+            }
 		}
 	}
 }

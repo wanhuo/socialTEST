@@ -23,6 +23,7 @@ ZRBThreadLoading::ZRBThreadLoading()
 	name.push_back( "spoink_hero" );
 	name.push_back( "tropius_hero" );
 	name.push_back( "spinarak_hero" );
+    name.push_back( "help_animation" );
 
 }
 

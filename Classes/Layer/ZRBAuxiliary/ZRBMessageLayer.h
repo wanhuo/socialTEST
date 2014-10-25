@@ -1,8 +1,8 @@
-﻿
+
 #ifndef __ZRBMessageLayer_H__
 #define __ZRBMessageLayer_H__
 
-#include "ZRBMenuBase.h"
+#include "../ZRBMenu/ZRBMenuBase.h"
 
 class ZRBMessageLayer : public ZRBMenuBase
 {

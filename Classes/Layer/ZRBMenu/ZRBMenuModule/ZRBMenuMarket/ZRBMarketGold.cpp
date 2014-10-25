@@ -1,4 +1,4 @@
-﻿
+
 
 #include "ZRBMarketGold.h"
 
@@ -42,7 +42,6 @@ bool ZRBMarketGold::init( )
 #elif
     
     productId.push_back("");
-    
 #endif
     
 	// 设置大小

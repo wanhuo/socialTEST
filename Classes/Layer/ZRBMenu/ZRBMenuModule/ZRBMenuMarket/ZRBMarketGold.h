@@ -1,12 +1,13 @@
-﻿
+
 #ifndef __ZRBMarketGold_H__
 #define __ZRBMarketGold_H__
 
 #include "ui/UIPageView.h"
 
-#include "ZRBUserDate.h"
-#include "ZRBLoadingLayer.h"
-#include "ZRBMessageLayer.h"
+#include "Layer/ZRBAuxiliary/ZRBMessageLayer.h"
+#include "Layer/ZRBAuxiliary/ZRBLoadingLayer.h"
+#include "Utilities/ZRBUserDate/ZRBUserDate.h"
+
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "Utilities/ios.h"

@@ -1,9 +1,9 @@
-﻿
+
 #ifndef __ZRBLoadingLayer_H__
 #define __ZRBLoadingLayer_H__
 
 #include "cocos2d.h"
-#include "ZRBConfig.h"
+#include "Utilities/ZRBConfig.h"
 
 USING_NS_CC;
 

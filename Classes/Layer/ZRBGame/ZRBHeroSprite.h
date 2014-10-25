@@ -1,4 +1,4 @@
-﻿
+
 
 #ifndef __ZRBHeroSprite_H__
 #define __ZRBHeroSprite_H__
@@ -6,7 +6,7 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-#include "ZRBTheme.h"
+#include "Utilities/ZRBTheme/ZRBTheme.h"
 
 class ZRBHeroSprite : public SpriteBatchNode
 {

@@ -1,12 +1,12 @@
-﻿
+
 
 #ifndef __ZRBMarketRole_H__
 #define __ZRBMarketRole_H__
 
 #include "ui/UIPageView.h"
-#include "ZRBMessageLayer.h"
-#include "ZRBUserDate.h"
-#include "ZRBTheme.h"
+#include "Layer/ZRBAuxiliary/ZRBMessageLayer.h"
+#include "Utilities/ZRBUserDate/ZRBUserDate.h"
+#include "Utilities/ZRBTheme/ZRBTheme.h"
 
 
 USING_NS_CC;

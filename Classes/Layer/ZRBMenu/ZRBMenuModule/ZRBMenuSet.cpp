@@ -1,4 +1,4 @@
-﻿
+
 #include "ZRBMenuSet.h"
 
 #if ( CC_PLATFORM_IOS == CC_TARGET_PLATFORM )
@@ -81,7 +81,9 @@ Menu * ZRBMenuSet::setSetting( )
 	about->setPosition( size.width / 2 , size.height * 0.5 );
 	about->setAnchorPoint( Vec2( 0.5 , 0 ) );
     about->setCallback([](Ref*){
+#if (CC_PLATFORM_IOS == CC_TARGET_PLATFORM)
         IOSRanking::getInstance()->showAbout();
+#endif
     });
 
 	// about 按钮添加 "关于我们" 字样

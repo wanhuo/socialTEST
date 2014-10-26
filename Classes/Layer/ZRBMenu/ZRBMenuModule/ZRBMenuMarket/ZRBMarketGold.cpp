@@ -39,7 +39,7 @@ bool ZRBMarketGold::init( )
 	productId.push_back( "com.zero.colorjump.gold.pile" );					// 1888
 	productId.push_back( "com.zero.colorjump.gold.chest" );                 // 18888
 	productId.push_back( "com.zero.colorjump.gold.sack" );					// 7888
-#elif
+//#elif
     
     productId.push_back("");
 #endif

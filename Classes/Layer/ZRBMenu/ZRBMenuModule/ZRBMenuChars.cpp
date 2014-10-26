@@ -1,4 +1,4 @@
-﻿
+
 #include "ZRBMenuChars.h"
 
 
@@ -24,7 +24,7 @@ void ZRBMenuChars::leaderboardCallback( bool isSuccess , const char *leaderboard
 	}
 	else
 	{
-		log( "=====leadboard lose===========" );
+		log( "=====leadboard lose=======%d===%s=", error->code, error->description );
 	}
 
 	NotificationCenter::getInstance( )->postNotification( "Notification_Ranking" , __Bool::create( isSuccess ) );

@@ -31,7 +31,7 @@ bool ZRBMenuMarket::init( )
 	// 设置背板大小
 	_backboard->setPreferredSize( ZRB_VISIBLE_SIZE * 0.8 );
 	// 设置背板位置
-	_backboard->setPosition( ZRB_VISIBLE_SIZE.width / 2 + 40 , ZRB_VISIBLE_SIZE.height * 3 / 2 );
+	_backboard->setPosition( ZRB_VISIBLE_SIZE.width / 2 + revise , ZRB_VISIBLE_SIZE.height * 3 / 2 );
 	
 	// 添加背板
 	this->addChild( _backboard , 10 );
@@ -90,15 +90,15 @@ Menu * ZRBMenuMarket::setMarket( )
 	//    pProp->setAnchorPoint(Vec2(1, 0));
 	//    pProp->setCallback(CC_CALLBACK_0(ZRBMenuMarket::call_prop, this));
 
-	// 设置购买人物按钮
-	pRole = MenuItemImage::create( );
-	pRole->setAnchorPoint( Vec2( 1 , 1 ) );
-	pRole->setCallback( CC_CALLBACK_0( ZRBMenuMarket::call_role , this ) );
-
-	// 设置购买金币按钮
-	pGold_buy = MenuItemImage::create( );
-	pGold_buy->setAnchorPoint( Vec2( 1 , 1 ) );
-	pGold_buy->setCallback( CC_CALLBACK_0( ZRBMenuMarket::call_gold_buy , this ) );
+//	// 设置购买人物按钮
+//	pRole = MenuItemImage::create( );
+//	pRole->setAnchorPoint( Vec2( 1 , 1 ) );
+//	pRole->setCallback( CC_CALLBACK_0( ZRBMenuMarket::call_role , this ) );
+//
+//	// 设置购买金币按钮
+//	pGold_buy = MenuItemImage::create( );
+//	pGold_buy->setAnchorPoint( Vec2( 1 , 1 ) );
+//	pGold_buy->setCallback( CC_CALLBACK_0( ZRBMenuMarket::call_gold_buy , this ) );
 
 
 
@@ -113,7 +113,7 @@ Menu * ZRBMenuMarket::setMarket( )
 
 
 	// 添加菜单
-	pMenuMarker = Menu::create( back , btGold , pRole , pGold_buy , NULL );
+	pMenuMarker = Menu::create( back , btGold , /*pRole , pGold_buy ,*/ NULL );
 	pMenuMarker->setPosition( 0 , 0 );
 
 	//初始化按钮纹理位置, 道具分页内容
@@ -165,11 +165,11 @@ void ZRBMenuMarket::call_role( )
 	//    pProp->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop.png"));
 	//    pProp->setPosition(buttonRevise, size.height * 0.8);
 
-	pRole->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "role_chack.png" ) );
-	pRole->setPosition( buttonRevise , size.height * 0.9 );
-
-	pGold_buy->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "gold_buy.png" ) );
-	pGold_buy->setPosition( buttonRevise , size.height * 0.9 - pRole->getContentSize( ).height + 2 );
+//	pRole->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "role_chack.png" ) );
+//	pRole->setPosition( buttonRevise , size.height * 0.9 );
+//
+//	pGold_buy->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "gold_buy.png" ) );
+//	pGold_buy->setPosition( buttonRevise , size.height * 0.9 - pRole->getContentSize( ).height + 2 );
 
 	// 设置标题为"人物"
 	pTitle->setString( ZRBLanguage::getValue( "Market_role" ) );
@@ -195,26 +195,26 @@ void ZRBMenuMarket::call_gold_buy( )
 	// 更改侧边按钮大小 切换到金币购买页面
 	//    pProp->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("prop.png"));
 	//    pProp->setPosition(buttonRevise, size.height * 0.8);
-
-	pRole->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "role.png" ) );
-	pRole->setPosition( buttonRevise , size.height * 0.9 );
-
-	pGold_buy->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "gold_buy_chack.png" ) );
-	pGold_buy->setPosition( buttonRevise , size.height * 0.9 - pRole->getContentSize( ).height + 2 );
-
-	// 设置标题为"金币"
-	pTitle->setString( ZRBLanguage::getValue( "Market_gold" ) );
-
-	// 移除分布层上原有内容
-	paging->removeAllChildren( );
-
-	// 创建金币购买分页
-	auto layer = ZRBMarketGold::create( );
-	layer->setName( "mk_p_c" );
-	// 设置大小
-	layer->setPosition( size.width * 0.1 , size.height * 0.18 );
-	// 添加分页
-	paging->addChild( layer );
+//
+//	pRole->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "role.png" ) );
+//	pRole->setPosition( buttonRevise , size.height * 0.9 );
+//
+//	pGold_buy->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "gold_buy_chack.png" ) );
+//	pGold_buy->setPosition( buttonRevise , size.height * 0.9 - pRole->getContentSize( ).height + 2 );
+//
+//	// 设置标题为"金币"
+//	pTitle->setString( ZRBLanguage::getValue( "Market_gold" ) );
+//
+//	// 移除分布层上原有内容
+//	paging->removeAllChildren( );
+//
+//	// 创建金币购买分页
+//	auto layer = ZRBMarketGold::create( );
+//	layer->setName( "mk_p_c" );
+//	// 设置大小
+//	layer->setPosition( size.width * 0.1 , size.height * 0.18 );
+//	// 添加分页
+//	paging->addChild( layer );
 
 }
 

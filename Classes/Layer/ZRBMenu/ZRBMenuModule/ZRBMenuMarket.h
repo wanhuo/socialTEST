@@ -1,10 +1,10 @@
-﻿
+
 #ifndef __ZRBMenuMarket_H__
 #define __ZRBMenuMarket_H__
 
 #include "../ZRBMenuBase.h"
 #include "ZRBMenuMarket/ZRBMarketRole.h"
-#include "ZRBMenuMarket/ZRBMarketGold.h"
+//#include "ZRBMenuMarket/ZRBMarketGold.h"
 
 
 class ZRBMenuMarket : public ZRBMenuBase
@@ -12,15 +12,15 @@ class ZRBMenuMarket : public ZRBMenuBase
 private:
 
 	//  market 弹窗位置修正 ( 偏右 35)
-	const int revise = 35;
+	const int revise = 0;
 
 	// 侧面按钮位置修正参数
 	const int buttonRevise = 1;
 
 	// 添加商城选择按钮 ( 道具, 人物, 金币)
 	//    MenuItemImage * pProp;
-	MenuItemImage * pRole;
-	MenuItemImage * pGold_buy;
+//	MenuItemImage * pRole;
+//	MenuItemImage * pGold_buy;
 
 	// 商城菜单
 	Menu * pMenuMarker;

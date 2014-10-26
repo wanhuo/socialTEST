@@ -531,13 +531,13 @@ void ZRBPageView::callBuy( LayerColor * layer , int idx )
 	if ( gold < PagePrice [ idx ] )
 	{
 		auto mes = ZRBMessageLayer::create( );
-		mes->setMessageLabel( ZRBLanguage::getString( "Message_market_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_market_fail_2" ) ,
-							  ZRBLanguage::getValue( "BuyGold" ) , [ &] ( )
-		{
-			auto market = ZRBMenuMarket::create( );
-			this->addChild( market , 10 );
-			market->call_buy( );
-		} );
+		mes->setMessageLabel( ZRBLanguage::getString( "Message_market_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_market_fail_2" ) );
+//							  ZRBLanguage::getValue( "BuyGold" ) , [ &] ( )
+//		{
+//			auto market = ZRBMenuMarket::create( );
+//			this->addChild( market , 10 );
+//			market->call_buy( );
+//		} );
 		mes->setGlobalZOrder( 200 );
 		mes->setName("page_message");
 		pageView->addChild( mes );

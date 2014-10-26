@@ -50,7 +50,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/Layer/ZRBMenu/ZRBMenuBase.cpp \
 				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuChars.cpp \
 				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuMarket.cpp \
-				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuMarket/ZRBMarketGold.cpp \
 				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuMarket/ZRBMarketRole.cpp \
 				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuSet.cpp \
 				   ../../Classes/Layer/ZRBViewLayer/ZRBTableViewCell.cpp \
@@ -61,6 +60,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/Utilities/ZRBTheme/ZRBTheme.cpp \
 				   ../../Classes/Utilities/ZRBUserDate/ZRBUserDate.cpp 
 				   
+#				   ../../Classes/Layer/ZRBMenu/ZRBMenuModule/ZRBMenuMarket/ZRBMarketGold.cpp \
 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

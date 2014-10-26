@@ -30,6 +30,7 @@ private:
 	MenuItemImage * pMarket;
 	MenuItemImage * pCharts;
 	MenuItemImage * pAddGold;
+    MenuItemImage * pHelp;
 	//  TODO: 模式取消
 	//    MenuItemImage * pModelEndless;
 	//    MenuItemImage * pModelTime;
@@ -85,6 +86,21 @@ public:
 	CC_SYNTHESIZE( SpriteBatchNode * , pBatchNode , BatchNode );
 	CREATE_FUNC( ZRBMenu );
 
+};
+
+class ZRBHelp : public LayerColor
+{
+    
+public:
+    
+    ZRBHelp( ){ };
+    ~ZRBHelp( );
+    
+public:
+    
+    bool init();
+    
+    CREATE_FUNC( ZRBHelp );
 };
 
 

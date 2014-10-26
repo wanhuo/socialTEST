@@ -1,7 +1,9 @@
-﻿
+
 #include "ZRBMenuSet.h"
 
-
+#if ( CC_PLATFORM_IOS == CC_TARGET_PLATFORM )
+#include "ios.h"
+#endif
 
 bool ZRBMenuSet::init( )
 {
@@ -78,6 +80,11 @@ Menu * ZRBMenuSet::setSetting( )
 	about->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "about.png" ) );
 	about->setPosition( size.width / 2 , size.height * 0.5 );
 	about->setAnchorPoint( Vec2( 0.5 , 0 ) );
+    about->setCallback([](Ref*){
+#if (CC_PLATFORM_IOS == CC_TARGET_PLATFORM)
+        IOSRanking::getInstance()->showAbout();
+#endif
+    });
 
 	// about 按钮添加 "关于我们" 字样
 	auto fontAbout = Label::createWithTTF( ZRBLanguage::getValue( "Set_about" ) , "customfout.otf" , 30 );
@@ -140,7 +147,7 @@ Menu * ZRBMenuSet::setSetting( )
 	evaluate->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "star.png" ) );
 	evaluate->setPosition( size.width * 0.5 , size.height * 0.35 );
 	evaluate->setAnchorPoint( Vec2( 0.5 , 1 ) );
-	evaluate->addChild( evaluateLable );
+    evaluate->addChild( evaluateLable );
 
 	evaluateLable->setPosition( evaluate->getContentSize( ).width / 2 , 0 );
 

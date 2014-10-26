@@ -116,11 +116,22 @@ bool ZRBMenu::init( )
 	pMenuDown->setPosition( 0 , -200 );
 	this->addChild( pMenuDown , 100 );
 
-	// pModelEndless pModelTime pAddGold  add the up menu
-	pMenuUp = Menu::create( pAddGold , NULL );
+    
+    pHelp = MenuItemImage::create();
+    pHelp->setNormalSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("help.png"));
+    pHelp->setPosition(pHelp->getContentSize().width, ZRB_VISIBLE_SIZE.height - pHelp->getContentSize().height);
+    pHelp->setCallback([&](Ref *){
+        
+        this->addChild(ZRBHelp::create(), 101, 10);
+        
+    });
+    
+    // pModelEndless pModelTime pAddGold  add the up menu
+	pMenuUp = Menu::create( pAddGold , pHelp, NULL );
 	pMenuUp->setPosition( 0 , 200 );
 	this->addChild( pMenuUp , 100 );
 
+    
 	// 注册通知
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBMenu::setGold ) , "NOTIFICATION_Gold" , NULL );
 
@@ -238,6 +249,7 @@ void ZRBMenu::begainGame( Ref * ref )
 	auto move = MoveBy::create( 0.3f , Vec2( 0 , 200 ) );
 
 	pAddGold->runAction( move );
+    pHelp->runAction( move->clone( ) );
 	pBegin->runAction( Speed::create( Sequence::create( DelayTime::create( 0.4 ) , move->reverse( ) , NULL ) , 2 ) );
 	pKtplay->runAction( move->reverse( ) );
 	pMarket->runAction( move->reverse( ) );
@@ -433,4 +445,47 @@ ZRBMenu::~ZRBMenu( )
 {
 	// 移除通知
 	NotificationCenter::getInstance( )->removeAllObservers( this );
+}
+
+
+// Help
+ZRBHelp::~ZRBHelp()
+{
+    _eventDispatcher->removeEventListenersForTarget(this);
+}
+
+bool ZRBHelp::init()
+{
+    if (!LayerColor::initWithColor(Color4B(0, 0, 0, 150)))
+    {
+        return false;
+    }
+    
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = [ this ](Touch *, Event *) {
+        this->removeFromParentAndCleanup(true);
+        return  true;
+    };
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    
+    Vector<SpriteFrame *>animateFrame;
+    for (int i = 0; i < 12; i++)
+    {
+        animateFrame.pushBack(SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat("anime%02d.png", i)->getCString()));
+    }
+    
+    auto animation = Animation::createWithSpriteFrames(animateFrame);
+    animation->setDelayPerUnit(0.3f);
+    animation->setRestoreOriginalFrame(true);
+    
+    
+    auto sp = Sprite::createWithSpriteFrameName("anime00.png");
+    sp->setPosition(ZRB_VISIBLE_SIZE.width / 2, ZRB_VISIBLE_SIZE.height / 2 );
+    this->addChild(sp);
+    
+    sp->runAction(RepeatForever::create(Animate::create(animation)));
+    
+    
+    return true;
 }

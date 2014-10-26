@@ -1,10 +1,7 @@
-﻿
+
 
 #include "ZRBMarketGold.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#include "Utilities/ios.h"
-#endif
 
 ZRBMarketGold::ZRBMarketGold( )
 	: vircash( { 3888 , 1888 , 18888 , 7888 } )
@@ -37,11 +34,16 @@ bool ZRBMarketGold::init( )
 	cashPic.push_back( "gold_18888.png" );
 	cashPic.push_back( "gold_7888.png" );
 
-	productId.push_back( "" );					// 3888
-	productId.push_back( "" );					// 1888	
-	productId.push_back( "com.zero.test" );		// 18888
-	productId.push_back( "" );					// 7888
-
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_IOS )
+	productId.push_back( "com.zero.colorjump.gold.bag" );					// 3888
+	productId.push_back( "com.zero.colorjump.gold.pile" );					// 1888
+	productId.push_back( "com.zero.colorjump.gold.chest" );                 // 18888
+	productId.push_back( "com.zero.colorjump.gold.sack" );					// 7888
+#elif
+    
+    productId.push_back("");
+#endif
+    
 	// 设置大小
 	if ( ZRB_VISIBLE_SIZE.height > 1100 )
 	{
@@ -129,9 +131,12 @@ Layer * ZRBMarketGold::goldLayer0( )
 		auto menuItem = MenuItemImage::create( );
 		menuItem->setNormalSpriteFrame( SpriteFrameCache::getInstance( )->getSpriteFrameByName( "currency.png" ) );
 		menuItem->setAnchorPoint( Vec2( 0 , 0 ) );
+        menuItem->setContentSize(Size(153, 57 * 4));
+        log("%f ------ %f: " , menuItem->getContentSize().width, menuItem->getContentSize().height);
 		// 缩放适配
 		menuItem->setScale( size.height / 535 );
 		// 设置位置 跟据 i 值和基点, 设置不同位置
+        log("%f ++++++ %f: " , menuItem->getContentSize().width, menuItem->getContentSize().height);
 		menuItem->setPosition( i % 2 * pos.x + ( pos.x - menuItem->getContentSize( ).width ) / 2 , int( i >= 2 ) * pos.y + 10 );
 		// 设置回调函数
 		menuItem->setCallback( CC_CALLBACK_0( ZRBMarketGold::callBack , this , i ) );
@@ -139,7 +144,7 @@ Layer * ZRBMarketGold::goldLayer0( )
 		// 添加现实货币 label 数值从 cash 中取得
 		auto money = Label::createWithTTF( String::createWithFormat( "%.2f%s" , cash [ i ] , ZRBLanguage::getValue( "USD" ) )->getCString( ) , "customfout.otf" , 30 );
 		//设置位置 颜色
-		money->setPosition( menuItem->getContentSize( ).width / 2 , menuItem->getContentSize( ).height / 2 );
+		money->setPosition( menuItem->getContentSize( ).width / 2 , menuItem->getContentSize( ).height / 2  / 4);
 		money->setColor( Color3B( 0 , 0 , 0 ) );
 
 		// 现实货币label 添加按钮 menuItem 上
@@ -180,7 +185,7 @@ void ZRBMarketGold::callBack( int x )
 	
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	firstMes = false;
-	auto buy = new IOSiAP_Bridge( );
+	buy = new IOSiAP_Bridge( );
 	buy->delegate = this;
 	changeLoad( true );
 	buy->requestProducts( productId.at( x ) );
@@ -202,6 +207,7 @@ void ZRBMarketGold::changeLoad( bool isShow )
 	{
 		_eventDispatcher->removeEventListenersForTarget( this->getChildByTag( 11 ) );
 		this->removeChildByTag( 11 );
+        delete buy;
 	}
 }
 
@@ -212,13 +218,13 @@ void ZRBMarketGold::buyFinish( )
 		return;
 	}
 	firstMes = true;
-	changeLoad( false );
-	auto mes = ZRBMessageLayer::create( );
-	mes->setMessageLabel( ZRBLanguage::getValue( "Message_market_success" ) );
-	mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
-	mes->setGlobalZOrder( 200 );
-	mes->setName( "mk_r_mes" );
-	this->addChild( mes );
+//	changeLoad( false );
+//	auto mes = ZRBMessageLayer::create( );
+//	mes->setMessageLabel( ZRBLanguage::getValue( "Message_market_success" ) );
+//	mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
+//	mes->setGlobalZOrder( 200 );
+//	mes->setName( "mk_r_mes" );
+//	this->addChild( mes );
 	// 获取原有金币
 	auto gold = ZRBUserDate::getInstance( )->getDateInt( KEY_DATA_GOLDNUM );
 	// 增加金币
@@ -238,11 +244,16 @@ void ZRBMarketGold::buyFild( )
 	}
 	firstMes = true;
 	changeLoad( false );
-	auto mes = ZRBMessageLayer::create( );
-	mes->setMessageLabel( ZRBLanguage::getString( "Message_itunes_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_itunes_fail_2" ) );
-	mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
-	mes->setName( "mk_r_mes" );
-	mes->setGlobalZOrder( 200 );
+    
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
+
+    auto mes = ZRBMessageLayer::create( );
+    mes->setMessageLabel( ZRBLanguage::getString( "Message_itunes_fail_1" ) + "\n" + ZRBLanguage::getString( "Message_itunes_fail_2" ) );
+    mes->setPosition( -this->convertToWorldSpace( Vec2::ZERO ) );
+    mes->setName( "mk_r_mes" );
+    mes->setGlobalZOrder( 200 );
 	this->addChild( mes );
+
+#endif
 
 }

@@ -6,7 +6,6 @@
 //
 //
 
-//#import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
 #import "IOSiAP.h"
@@ -162,10 +161,10 @@ static IOSRanking * iosranking;
                 break;
         }
         
-        _iosiap->delegate->onPaymentEvent(identifier, event, transaction.payment.quantity);
         if (event != IOSIAP_PAYMENT_PURCHASING) {
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
         }
+        _iosiap->delegate->onPaymentEvent(identifier, event, transaction.payment.quantity);
     }
 }
 
@@ -225,6 +224,8 @@ void IOSiAP::requestProducts(std::vector<std::string> &productIdentifiers)
                                                  otherButtonTitles:nil];
         [alerView show];
         [alerView release];
+        std::string mes = "Can't buy";
+        delegate->onPaymentEvent(mes, IOSIAP_PAYMENT_FAILED, 0);
         return;
     }
 
@@ -253,6 +254,8 @@ void IOSiAP::paymentWithProduct(IOSProduct *iosProduct, int quantity)
                                                   otherButtonTitles:nil];
         [alerView show];
         [alerView release];
+        std::string mes = "iosProduct is nullptr";
+        delegate->onPaymentEvent(mes, IOSIAP_PAYMENT_FAILED, 0);
         return;
     }
     SKProduct *skProduct = [(NSArray *)(skProducts) objectAtIndex:iosProduct->index];
@@ -262,6 +265,8 @@ void IOSiAP::paymentWithProduct(IOSProduct *iosProduct, int quantity)
     [[SKPaymentQueue defaultQueue] addPayment:payment];
 }
 
+
+// Leaderboard
 IOSRanking * IOSRanking::getInstance()
 {
     if (iosranking == nullptr)

@@ -488,13 +488,20 @@ void ZRBGameLayer::showGameFinish( )
 	pMenu->setVisible( false );
 	pMenu->setEnabled( false );
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS )
 	// Todo : ktplay
 	if ( KTAccountManagerC::isLoggedIn( ) )
 	{
 		KTLeaderboardC::reportScore( int( pCurrentHeight / standard ) , "1234" , KTReportScoreCallBack( ZRBGameLayer::reportScoreCallBack ) );
 	}
-#endif 
+    
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_IOS )
+    
+    IOSRanking::getInstance()->submitScore(int(pCurrentHeight / standard));
+    
+#endif
+    
+#endif
 
 }
 

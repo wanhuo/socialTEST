@@ -383,11 +383,15 @@ static CSGameKitHelper *sharedInstance = nil;
 {
     
     if ([self.viewController respondsToSelector:@selector(dismissModalViewControllerAnimated:)]) {
-        [self.viewController dismissModalViewControllerAnimated:YES];
+        [self.viewController dismissModalViewControllerAnimated:NO];
     }else
-        [self.viewController dismissViewControllerAnimated:YES completion:nil];
+        [self.viewController dismissViewControllerAnimated:NO completion:nil];
     
     [self.viewController.view removeFromSuperview];
+    self.viewController = nil;
+    
+    
+    
 }
 
 

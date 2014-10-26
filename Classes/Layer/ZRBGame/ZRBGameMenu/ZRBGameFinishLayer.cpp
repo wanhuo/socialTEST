@@ -192,9 +192,19 @@ void ZRBGameFinishLayer::rankingClick( Ref *ref )
 	{
 		CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Btclick" ) );
 	}
-	auto ranking = ZRBMenuChars::create( );
+    
+#if ( CC_TARGET_PLATFORM == CC_PLATFORM_IOS )
+    
+    IOSRanking::getInstance()->showLeaderboard();
+    
+#elif ( CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID )
+
+    auto ranking = ZRBMenuChars::create( );
 	ranking->setName( "ranking" );
 	this->addChild( ranking , 10 );
+
+#endif
+
 }
 
 void ZRBGameFinishLayer::restartClick( Ref *ref )

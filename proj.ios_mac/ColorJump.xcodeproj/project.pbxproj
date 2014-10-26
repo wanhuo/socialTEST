@@ -1066,6 +1066,8 @@
 		02A7C23E19CFF23F00A048C2 /* ZRBLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C22119CFF23F00A048C2 /* ZRBLanguage.cpp */; };
 		02A7C23F19CFF23F00A048C2 /* ZRBTheme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C22419CFF23F00A048C2 /* ZRBTheme.cpp */; };
 		02A7C24019CFF23F00A048C2 /* ZRBUserDate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C22719CFF23F00A048C2 /* ZRBUserDate.cpp */; };
+		02C5AF3819F3BD6B00C3E481 /* help_animation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02C5AF3619F3BD6B00C3E481 /* help_animation.plist */; };
+		02C5AF3919F3BD6B00C3E481 /* help_animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C5AF3719F3BD6B00C3E481 /* help_animation.png */; };
 		02DD4DD419C677DF00436CF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02DD4DD219C677DF00436CF1 /* InfoPlist.strings */; };
 		02DD4DDB19C678C900436CF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02DD4DD919C678C900436CF1 /* InfoPlist.strings */; };
 		02F4CACA19C17DAE000BFA04 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F4CAC919C17DAE000BFA04 /* GameKit.framework */; };
@@ -1437,6 +1439,8 @@
 		02A7C22719CFF23F00A048C2 /* ZRBUserDate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZRBUserDate.cpp; sourceTree = "<group>"; };
 		02A7C22819CFF23F00A048C2 /* ZRBUserDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRBUserDate.h; sourceTree = "<group>"; };
 		02A7C24119CFFF9F00A048C2 /* ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios.h; sourceTree = "<group>"; };
+		02C5AF3619F3BD6B00C3E481 /* help_animation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = help_animation.plist; sourceTree = "<group>"; };
+		02C5AF3719F3BD6B00C3E481 /* help_animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_animation.png; sourceTree = "<group>"; };
 		02DD4DD319C677DF00436CF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		02DD4DDA19C678C900436CF1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = InfoPlist.strings; sourceTree = "<group>"; };
 		02F4CAC919C17DAE000BFA04 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -1836,6 +1840,8 @@
 		02A7C1AD19CFF23600A048C2 /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				02C5AF3619F3BD6B00C3E481 /* help_animation.plist */,
+				02C5AF3719F3BD6B00C3E481 /* help_animation.png */,
 				02A7C1AE19CFF23600A048C2 /* game_menuItem.plist */,
 				02A7C1AF19CFF23600A048C2 /* game_menuItem.png */,
 				02A7C1B019CFF23600A048C2 /* gameFinish_Layer.plist */,
@@ -2371,6 +2377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				02C5AF3919F3BD6B00C3E481 /* help_animation.png in Resources */,
 				02A7C1D219CFF23600A048C2 /* blueSky_material.plist in Resources */,
 				02A7C1E419CFF23600A048C2 /* Jump.mp3 in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
@@ -2412,6 +2419,7 @@
 				02A7C1D619CFF23600A048C2 /* sweet_material.plist in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				02A7C1C519CFF23600A048C2 /* hoot_hero.plist in Resources */,
+				02C5AF3819F3BD6B00C3E481 /* help_animation.plist in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				02A7C1C019CFF23600A048C2 /* customfout.otf in Resources */,
 				02A7C1E019CFF23600A048C2 /* Bgmusic.mp3 in Resources */,
@@ -2582,6 +2590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
@@ -2627,7 +2636,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../Classes";
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
@@ -2636,6 +2645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
@@ -2679,7 +2689,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../Classes";
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;

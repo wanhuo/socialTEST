@@ -31,7 +31,7 @@ bool ZRBMenuMarket::init( )
 	// 设置背板大小
 	_backboard->setPreferredSize( ZRB_VISIBLE_SIZE * 0.8 );
 	// 设置背板位置
-	_backboard->setPosition( ZRB_VISIBLE_SIZE.width / 2 + 40 , ZRB_VISIBLE_SIZE.height * 3 / 2 );
+	_backboard->setPosition( ZRB_VISIBLE_SIZE.width / 2 + revise , ZRB_VISIBLE_SIZE.height * 3 / 2 );
 	
 	// 添加背板
 	this->addChild( _backboard , 10 );

@@ -1,4 +1,4 @@
-﻿
+
 
 #include "ZRBBaseGameLayer.h"
 
@@ -155,7 +155,7 @@ void ZRBBaseGameLayer::update( float delta )
 	// 当前高度更新
 	pCurrentHeight = pCurrentHeight + upHeight;
 	// 成绩更新 位置更新
-	pScoreLabel->setString( String::createWithFormat( "%m" , ( int ) ( pCurrentHeight / standard ) )->getCString( ) );
+	pScoreLabel->setString( String::createWithFormat( "%d" , ( int ) ( pCurrentHeight / standard ) )->getCString( ) );
 	pScoreLabel->setPositionY( pScoreLabel->getPositionY( ) + upHeight );
 	// 金币位置更新
 	pGoldNumLabel->setPositionY( pGoldNumLabel->getPositionY( ) + upHeight );
@@ -201,7 +201,7 @@ void ZRBBaseGameLayer::update( float delta )
 			pIsLost = true;
 			// 掉落
 			pHero->jumpTo( Point( pHero->getHeroPositionX( ) , pHero->getHeroPositionY( ) - ZRB_VISIBLE_SIZE.height - pHero->getHeroContentSize( ).height ) , 1 , 0 );
-			this->runAction( Sequence::create( DelayTime::create( 1 ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::showGameFinish , this ) ) , NULL ) );
+			this->runAction( Sequence::create( DelayTime::create( 1 ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::showGameFinish , this ) ) , nullptr ) );
 		}
 	}
 
@@ -214,7 +214,7 @@ void ZRBBaseGameLayer::update( float delta )
 			// 金币消失
 			FadeOut *fade = FadeOut::create( 0.5 );
 			ScaleTo *scale = ScaleTo::create( 1 , 3 );
-			pGolds.at( i )->runAction( Spawn::create( fade , scale , NULL ) );
+			pGolds.at( i )->runAction( Spawn::create( fade , scale , nullptr ) );
 			// 删除金币
 			pGolds.erase( i );
 			// 金币更新
@@ -565,12 +565,12 @@ void ZRBBaseGameLayer::heroJumpNext( )
 			time = -time;
 		}
 		pHero->jumpTo( nextPos , time , pCurrentTimbo->getContentSize( ).width );
-		this->runAction( Sequence::create( DelayTime::create( time ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::showGameFinish , this ) ) , NULL ) );
+		this->runAction( Sequence::create( DelayTime::create( time ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::showGameFinish , this ) ) , nullptr ) );
 		return ;
 	}
 
 	pHero->jumpTo( nextPos , time , pCurrentTimbo->getContentSize( ).width );
-	this->runAction( Sequence::create( DelayTime::create( time ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::setCanJump , this ) ) , NULL ) );
+	this->runAction( Sequence::create( DelayTime::create( time ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::setCanJump , this ) ) , nullptr ) );
 	pCurrentTimbo = nextTimbo;
 
 }
@@ -625,10 +625,10 @@ void ZRBBaseGameLayer::createMenuItem( )
 			MoveBy *move = MoveBy::create( 0.2 , Point( 0 , -pItemDefaultSize.height ) );
 			for ( int i = 0; i<pItems.size( ) - 1; i++ )
 			{
-				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , NULL ) );
+				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , nullptr ) );
 			}
 
-			item->runAction( Sequence::create( DelayTime::create( 0.2 ) , move->clone( ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::resetItemPos , this ) ) , NULL ) );
+			item->runAction( Sequence::create( DelayTime::create( 0.2 ) , move->clone( ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::resetItemPos , this ) ) , nullptr ) );
 			break;
 		}
 		case 4:
@@ -637,9 +637,9 @@ void ZRBBaseGameLayer::createMenuItem( )
 			MoveBy *move = MoveBy::create( 0.2 , Point( 0 , -pItemDefaultSize.height ) );
 			for ( int i = 0; i<pItems.size( ) - 1; i++ )
 			{
-				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , NULL ) );
+				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , nullptr ) );
 			}
-			item->runAction( Sequence::create( DelayTime::create( 0.3 ) , move->clone( ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::resetItemPos , this ) ) , NULL ) );
+			item->runAction( Sequence::create( DelayTime::create( 0.3 ) , move->clone( ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::resetItemPos , this ) ) , nullptr ) );
 			break;
 		}
 		case 5:
@@ -648,9 +648,9 @@ void ZRBBaseGameLayer::createMenuItem( )
 			MoveBy *move = MoveBy::create( 0.2 , Point( 0 , -item->getContentSize( ).height ) );
 			for ( int i = 0; i<pItems.size( ) - 1; i++ )
 			{
-				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , NULL ) );
+				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , nullptr ) );
 			}
-			item->runAction( Sequence::create( DelayTime::create( 0.4 ) , move->clone( ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::resetItemPos , this ) ) , NULL ) );
+			item->runAction( Sequence::create( DelayTime::create( 0.4 ) , move->clone( ) , CallFunc::create( CC_CALLBACK_0( ZRBBaseGameLayer::resetItemPos , this ) ) , nullptr ) );
 			break;
 		}
 		default:
@@ -739,7 +739,7 @@ void ZRBBaseGameLayer::resetItemPos( )
 				pItems.at( i )->getSelectedImage( )->setContentSize( Size( ZRB_VISIBLE_SIZE.width*( 1 / 3.0 ) , pItemDefaultSize.height ) );
 				pItems.at( i )->setPositionX( ZRB_VISIBLE_SIZE.width*( i / 3.0 ) );
 				pItems.at( i )->stopAllActions( );
-				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , NULL ) );
+				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , nullptr ) );
 			}
 			pItems.at( 2 )->setPositionY( -pItemDefaultSize.height );
 			break;
@@ -753,7 +753,7 @@ void ZRBBaseGameLayer::resetItemPos( )
 				pItems.at( i )->getSelectedImage( )->setContentSize( Size( ZRB_VISIBLE_SIZE.width*( 1 / 4.0 ) , pItemDefaultSize.height ) );
 				pItems.at( i )->setPositionX( ZRB_VISIBLE_SIZE.width*( i / 4.0 ) );
 				pItems.at( i )->stopAllActions( );
-				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , NULL ) );
+				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , nullptr ) );
 			}
 			pItems.at( 3 )->setPositionY( -pItemDefaultSize.height );
 
@@ -769,7 +769,7 @@ void ZRBBaseGameLayer::resetItemPos( )
 				pItems.at( i )->getSelectedImage( )->setContentSize( pItemDefaultSize );
 				pItems.at( i )->setPositionX( ZRB_VISIBLE_SIZE.width*( i / 5.0 ) );
 				pItems.at( i )->stopAllActions( );
-				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , NULL ) );
+				pItems.at( i )->runAction( Sequence::create( DelayTime::create( 0.1*i ) , move->clone( ) , nullptr ) );
 			}
 			pItems.at( 4 )->setPositionY( -pItemDefaultSize.height );
 			break;

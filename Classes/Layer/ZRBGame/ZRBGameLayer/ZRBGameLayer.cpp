@@ -1,11 +1,10 @@
-﻿
+
 #include "ZRBGameLayer.h"
 
 
 
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-// Todo : ktplay
 void ZRBGameLayer::reportScoreCallBack( bool isSuccess , const char *leaderboardId , long long score , KTErrorC *error )
 {
 	if ( isSuccess )
@@ -127,22 +126,22 @@ void ZRBGameLayer::update( float delta )
 	pCurrentHeight = pCurrentHeight + upHeight;
 	if ( pCurrentHeight / standard > 450 && pUpSpeed <= 400 )
 	{
-		pUpSpeed += 100;
+		pUpSpeed += 50;
 		if ( pCurrentHeight / standard > 520 && pUpSpeed <= 500 )
 		{
-			pUpSpeed += 100;
+			pUpSpeed += 80;
 			if ( pCurrentHeight / standard > 600 && pUpSpeed <= 600 )
 			{
-				pUpSpeed += 100;
+				pUpSpeed += 110;
 				if ( pCurrentHeight / standard > 700 && pUpSpeed <= 700 )
 				{
-					pUpSpeed += 100;
+					pUpSpeed += 120;
 					if ( pCurrentHeight / standard > 800 && pUpSpeed <= 800 )
 					{
-						pUpSpeed += 100;
+						pUpSpeed += 140;
 						if ( pCurrentHeight / standard > 900 && pUpSpeed <= 900 )
 						{
-							pUpSpeed += 100;
+							pUpSpeed += 160;
 						}
 					}
 				}
@@ -166,7 +165,7 @@ void ZRBGameLayer::update( float delta )
 				CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( ZRBLanguage::getValue( "Music_Die" ) );
 			}
 
-			this->runAction( Sequence::create( DelayTime::create( 1 ) , CallFunc::create( CC_CALLBACK_0( ZRBGameLayer::showGameFinish , this ) ) , NULL ) );
+			this->runAction( Sequence::create( DelayTime::create( 1 ) , CallFunc::create( CC_CALLBACK_0( ZRBGameLayer::showGameFinish , this ) ) , nullptr ) );
 		}
 	}
 
@@ -183,7 +182,7 @@ void ZRBGameLayer::update( float delta )
 			// 金币消失
 			FadeOut *fade = FadeOut::create( 0.5 );
 			ScaleTo *scale = ScaleTo::create( 1 , 3 );
-			pGolds.at( i )->runAction( Spawn::create( fade , scale , NULL ) );
+			pGolds.at( i )->runAction( Spawn::create( fade , scale , nullptr ) );
 			// 删除金币
 			pGolds.erase( i );
 			// 金币更新
@@ -434,8 +433,8 @@ void ZRBGameLayer::gameBegain( cocos2d::Ref *sender )
 		createMenuItem( );
 
 		auto move = MoveBy::create( 0.2f , Vec2( 0 , 200 ) );
-		pItems.at( 0 )->runAction( Sequence::create( move->reverse( ) , DelayTime::create( 0.2 ) , move , NULL ) );
-		pItems.at( 1 )->runAction( Sequence::create( move->reverse( ) , DelayTime::create( 0.3 ) , move->clone( ) , NULL ) );
+		pItems.at( 0 )->runAction( Sequence::create( move->reverse( ) , DelayTime::create( 0.2 ) , move , nullptr ) );
+		pItems.at( 1 )->runAction( Sequence::create( move->reverse( ) , DelayTime::create( 0.3 ) , move->clone( ) , nullptr ) );
 
 		pGoldNumLabel->setVisible( true );
 		pScoreLabel->setVisible( true );

@@ -8,7 +8,6 @@ static std::vector<std::string> KTNickname;
 static std::vector<std::string> KTScore;
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-// Todo: ktplay
 void ZRBMenuChars::leaderboardCallback( bool isSuccess , const char *leaderboardId , KTLeaderboardPaginatorC *leaderboard , KTErrorC *error )
 {
 	if ( isSuccess )
@@ -16,6 +15,8 @@ void ZRBMenuChars::leaderboardCallback( bool isSuccess , const char *leaderboard
 		KTNickname.clear( );
 		KTScore.clear( );
 		myranking = leaderboard->myRank;
+
+		log("------%d----", leaderboard->itemCount);
 		for ( int i = 0; i < leaderboard->itemCount; i++ )
 		{
 			KTNickname.push_back( leaderboard->itemsArray [ i ].nickname );
@@ -66,14 +67,13 @@ bool ZRBMenuChars::init( )
 	layerBG->setContentSize( size_charts );
 	auto itemBG = MenuItemSprite::create( layerBG , layerBG );
 	itemBG->setPosition( ZRB_VISIBLE_SIZE.width / 2 , ZRB_VISIBLE_SIZE.height / 2 );
-	auto menu = Menu::create( item , itemBG , NULL );
+	auto menu = Menu::create( item , itemBG , nullptr );
 	menu->setPosition( Vec2::ZERO );
 	this->addChild( menu );
 
 	NotificationCenter::getInstance( )->addObserver( this , callfuncO_selector( ZRBMenuChars::setRanking ) , "Notification_Ranking" , nullptr );
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-	// Todo: ktplay
 	KTLeaderboardC::gameLeaderboard( "1234" , 0 , 10 , KTLeaderboardCallBack( leaderboardCallback ) );
 #endif // (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 
@@ -136,7 +136,6 @@ void ZRBMenuChars::setCharts( )
 	_backboard->addChild( _leaderboard );
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-	// Todo: ktplay
 	if ( !KTPlayC::isEnabled( ) )
 	{
 		_leaderboard->setString( ZRBLanguage::getValue( "Ranking_unable" ) );
@@ -158,14 +157,18 @@ void ZRBMenuChars::setCharts( )
 
 void ZRBMenuChars::setRanking( Ref * ref )
 {
+	log("----score size : %u, %u", KTScore.size(), KTNickname.size() );
 	if ( !dynamic_cast<__Bool *>( ref )->getValue( ) )
 	{
 		_leaderboard->setString( ZRBLanguage::getString( "Ranking_error_1" ) + "\n" + ZRBLanguage::getString( "Ranking_error_2" ) );
 	}
+	else if( !KTScore.size( ) || !KTNickname.size( ) )
+	{
+		_leaderboard->setString( ZRBLanguage::getString( "Ranking_error_1" ) );
+	}
 	else
 	{
 		_leaderboard->setString( "" );
-		// Todo : 排行榜
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 		if ( KTAccountManagerC::isLoggedIn( ) )
 		{
@@ -278,7 +281,7 @@ void ZRBMenuChars::call_back( )
 	createAtionOut( );
 	//执行动作并调用清理函数
 	_backboard->runAction( Sequence::create( dynamic_cast<FiniteTimeAction *>( getActionIn( ) ) ,
-		CallFunc::create( CC_CALLBACK_0( ZRBMenuChars::call_clear , this ) ) , NULL ) );
+		CallFunc::create( CC_CALLBACK_0( ZRBMenuChars::call_clear , this ) ) , nullptr ) );
 }
 
 void ZRBMenuChars::call_clear( )
